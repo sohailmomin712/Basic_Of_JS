@@ -34,17 +34,30 @@
     // theAshes(46, 67)
 
     //3.even or odd
-    function masaiEvenOrOdd(N) {
-        if (N == 0) {
-            console.log("enter the bigger number than 0")
-        }
-        if (N % 2 === 0) {
-            console.log("Even")
+    // function masaiEvenOrOdd(N) {
+    //     if (N == 0) {
+    //         console.log("enter the bigger number than 0")
+    //     }
+    //     if (N % 2 === 0) {
+    //         console.log("Even")
+    //     } else {
+    //         console.log("Odd")
+    //     }
+    // }
+    // masaiEvenOrOdd(17)
+
+    //4.check the speed limit speed=distance/time
+
+    function applyBrakes(distance, time) {
+        let speed = distance / time;
+        if (speed > 40) {
+            console.log("Apply Brake")
         } else {
-            console.log("Odd")
+            console.log("Keep Going")
         }
     }
-    masaiEvenOrOdd(17)
+    applyBrakes(80, 2)
+
 </script>
 
 </html>
