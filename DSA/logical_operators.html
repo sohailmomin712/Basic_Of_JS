@@ -11,15 +11,28 @@
 </body>
 <script>
     //1.comapre four numbers if one is greater than two and three is greater than four as well
-    
-    function compareFourNumbers(one, two, three, four) {
-        if (one > two && three > four) {
+
+    // function compareFourNumbers(one, two, three, four) {
+    //     if (one > two && three > four) {
+    //         console.log("Yes")
+    //     } else {
+    //         console.log("No");
+    //     }
+    // }
+    // compareFourNumbers(1,2,3,4)
+
+    //2.if sum1 and sum2 is greater than five print yes else print no
+    function twoSumsOneNumber(one, two, three, four, five) {
+        let sum1 = one + two;
+        let sum2 = three + four;
+        if (sum1 > five && sum2 > five) {
             console.log("Yes")
-        } else {
-            console.log("No");
+        }
+        else {
+            console.log("No")
         }
     }
-    compareFourNumbers(1,2,3,4)
+    twoSumsOneNumber(1, 2, 3, 4, 5)
 </script>
 
 </html>
