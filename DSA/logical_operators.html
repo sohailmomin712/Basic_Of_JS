@@ -22,17 +22,27 @@
     // compareFourNumbers(1,2,3,4)
 
     //2.if sum1 and sum2 is greater than five print yes else print no
-    function twoSumsOneNumber(one, two, three, four, five) {
-        let sum1 = one + two;
-        let sum2 = three + four;
-        if (sum1 > five && sum2 > five) {
-            console.log("Yes")
-        }
-        else {
+    // function twoSumsOneNumber(one, two, three, four, five) {
+    //     let sum1 = one + two;
+    //     let sum2 = three + four;
+    //     if (sum1 > five && sum2 > five) {
+    //         console.log("Yes")
+    //     }
+    //     else {
+    //         console.log("No")
+    //     }
+    // }
+    // twoSumsOneNumber(1, 2, 3, 4, 5)
+
+    //3.if both the numbers are even print both else print no
+    function logicalEvens(one, two) {
+        if (one % 2 === 0 && two % 2 === 0) {
+            console.log("Both")
+        } else {
             console.log("No")
         }
     }
-    twoSumsOneNumber(1, 2, 3, 4, 5)
+    logicalEvens(9, 4)
 </script>
 
 </html>
