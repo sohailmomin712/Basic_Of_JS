@@ -35,14 +35,27 @@
     // twoSumsOneNumber(1, 2, 3, 4, 5)
 
     //3.if both the numbers are even print both else print no
-    function logicalEvens(one, two) {
+    // function logicalEvens(one, two) {
+    //     if (one % 2 === 0 && two % 2 === 0) {
+    //         console.log("Both")
+    //     } else {
+    //         console.log("No")
+    //     }
+    // }
+    // logicalEvens(9, 4)
+
+    //4.if both values are even print even else odd if they are odd and else if print even-odd
+
+    function oddEvenBoth(one, two) {
         if (one % 2 === 0 && two % 2 === 0) {
-            console.log("Both")
+            console.log("Even")
+        } else if (one % 2 !== 0 && two % 2 !== 0) {
+            console.log("Odd")
         } else {
-            console.log("No")
+            console.log("Even-Odd")
         }
     }
-    logicalEvens(9, 4)
+    oddEvenBoth(4, 6)
 </script>
 
 </html>
