@@ -58,27 +58,56 @@
     // oddEvenBoth(4, 6)
 
     // 5.print the day according to the enterred value
-    function weekday(num) {
-        switch (num) {
-            case 1: console.log("Monday");
+    // function weekday(num) {
+    //     switch (num) {
+    //         case 1: console.log("Monday");
+    //             break;
+    //         case 2: console.log("Tuesday");
+    //             break;
+    //         case 3: console.log("Wednesday");
+    //             break;
+    //         case 4: console.log("Thursday");
+    //             break;
+    //         case 5: console.log("Friday");
+    //             break;
+    //         case 6: console.log("Saturday");
+    //             break;
+    //         case 7: console.log("Sunday");
+    //             break;
+    //         default: console.log("default");
+
+    //     }
+    // }
+    // weekday(3)
+
+    //5.x=num%10
+    function modeof10(num) {
+        let x = num % 10;
+        switch (x) {
+            case 0: console.log("zero");
                 break;
-            case 2: console.log("Tuesday");
+            case 1: console.log("one");
                 break;
-            case 3: console.log("Wednesday");
+            case 2: console.log("two");
                 break;
-            case 4: console.log("Thursday");
+            case 3: console.log("three");
                 break;
-            case 5: console.log("Friday");
+            case 4: console.log("four");
                 break;
-            case 6: console.log("Saturday");
+            case 5: console.log("five");
                 break;
-            case 7: console.log("Sunday");
+            case 6: console.log("six");
+                break;
+            case 7: console.log("seven");
+                break;
+            case 8: console.log("eight");
+                break;
+            case 9: console.log("nine");
                 break;
             default: console.log("default");
-
         }
     }
-    weekday(3)
+    modeof10(90);
 </script>
 
 </html>
