@@ -70,17 +70,31 @@
 
 
     //8.print the sum of all even numbers till the num
-    function evenSumBelowN(num) {
+    // function evenSumBelowN(num) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= num; i++) {
+    //         if (i % 2 === 0) {
+    //             sum = sum + i;
+    //         }
+    //     }
+    //     console.log(sum)
+    // }
+    // evenSumBelowN(6)
+
+
+    // 9.print the sum of all odd numbers till the variable num
+
+    function oddSumBelowN(num) {
         let sum = 0;
         for (let i = 1; i <= num; i++) {
-            if (i % 2 === 0) {
+            if (i % 2 !== 0) {
                 sum = sum + i;
             }
         }
         console.log(sum)
-    }
-    evenSumBelowN(6)
 
+    }
+    oddSumBelowN(17)
 </script>
 
 </html>
