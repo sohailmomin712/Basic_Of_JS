@@ -83,18 +83,27 @@
 
 
     // 9.print the sum of all odd numbers till the variable num
+    // function oddSumBelowN(num) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= num; i++) {
+    //         if (i % 2 !== 0) {
+    //             sum = sum + i;
+    //         }
+    //     }
+    //     console.log(sum)
 
-    function oddSumBelowN(num) {
-        let sum = 0;
+    // }
+    // oddSumBelowN(17)
+
+    //10.print all the numbers for the following expression i%10;
+    function modeof10(num) {
+
         for (let i = 1; i <= num; i++) {
-            if (i % 2 !== 0) {
-                sum = sum + i;
-            }
+            let New_i = i % 10;
+            console.log(New_i)
         }
-        console.log(sum)
-
     }
-    oddSumBelowN(17)
+    modeof10(7)
 </script>
 
 </html>
