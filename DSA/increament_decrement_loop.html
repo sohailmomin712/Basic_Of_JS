@@ -59,15 +59,27 @@
 
     //.7 you are given number stored in variable num and u have to print all the even numbers till the num using javascript
 
-    function moveTwoAheadII(num) {
+    // function moveTwoAheadII(num) {
+    //     for (let i = 1; i <= num; i++) {
+    //         if (i % 2 === 0) {
+    //             console.log(i)
+    //         }
+    //     }
+    // }
+    // moveTwoAheadII(20)
+
+
+    //8.print the sum of all even numbers till the num
+    function evenSumBelowN(num) {
+        let sum = 0;
         for (let i = 1; i <= num; i++) {
             if (i % 2 === 0) {
-                console.log(i)
+                sum = sum + i;
             }
         }
+        console.log(sum)
     }
-    moveTwoAheadII(20)
-
+    evenSumBelowN(6)
 
 </script>
 
