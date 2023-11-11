@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <div id="links">
+    <div><a href="index.html">Home</a></div>
+    <div><a href="applied.html">Applied Jobs</a></div>
+    <div><a href="bookmark.html">Bookmarks</a></div>
+  </div>
+  <form action="" id="form">
+    <h2>Enter Your Application Details</h2>
+    <input placeholder="Enter Name" id="name" name="name" type="text" />
+    <input placeholder="Enter email" type="email" name="email" id="email" />
+    <select name="role" id="role">
+      <option value="FSD">FSD</option>
+      <option value="Backend">Backend</option>
+      <option value="Frontend">Frontend</option>
+    </select>
+    <input id="salary" type="number" placeholder="Enter expected salary in lakhs per annum " />
+    <input id="submit" type="submit" name="submit" value="Submit" />
+  </form>
+</body>
+<script>
+  //you need to code here
+  document.querySelector("form").addEventListener("submit", MasaiApp);
+
+  //earlier it was userArr=[] but what if the keyvalue is empty it would have return null or undefined so to avoid it
+  //we did false || []=[] so it will empty array not null or undefine
+
+  let UserArr = JSON.parse(localStorage.getItem("jobList")) || [];
+  // bydefault there is nothing in localstoragewith this key "jobList" 
+  // so if werun the file we will get undefined so we cant run the loop on i it will break the frontend 
+  // to handle this erro we put || so undefined is a false value so it will take array and wnothng will break 
+  
+
+  // call a function and right a logic 
+  function MasaiApp() {
+    alert("successfully submitted")
+    event.preventDefault();
+
+    //get the values which are in the form of array of objects
+    let UserObj = {
+      UserName: document.querySelector("#name").value,
+      UsernEmail: document.querySelector("#email").value,
+      UserRole: document.querySelector("#role").value,
+      UserSalary: document.querySelector("#salary").value
+    }
+    //to check we are gettimg values or not
+    // console.log(UserObj)
+
+    //in order to store the new person data i.e objects
+    UserArr.push(UserObj);
+    // console.log(UserArr)
+
+    //now srore the data into local storage and stringify it as it is array form
+    localStorage.setItem("jobList", JSON.stringify(UserArr));
+  }
+
+
+</script>
+
+</html>

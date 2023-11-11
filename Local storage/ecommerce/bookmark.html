@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admitted</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+  <style>
+  </style>
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job Applied</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="Mbody"></tbody>
+      </table>
+    </main>
+    
+  </body>
+  <script>
+ //get the data from localstorage of applied html
+ let DataFromAppplied=JSON.parse(localStorage.getItem("bookmarks"))
+
+ //call a function
+ DisplayTable(DataFromAppplied)
+ //declare a function
+ //apply forEach on the array ie DataFromAppplied
+ //create rows i.e tr and columns ie.tds inside the function
+ //get the values(elem.userName) cause elem is the object there
+ function DisplayTable(DataFromAppplied){
+
+DataFromAppplied.forEach(function(elem,index){
+// console.log(DataFromAppplied)
+let tr=document.createElement("tr");
+
+let td1=document.createElement("td");
+td1.innerText=elem.UserName;
+
+let td2=document.createElement("td");
+td2.innerText=elem.UsernEmail
+
+let td3=document.createElement("td");
+td3.innerText=elem.UserRole;
+
+let td4=document.createElement("td");
+td4.innerText="Delete Bookmark"
+td4.style.backgroundColor="red"
+td4.style.cursor="pointer"
+//add eventlistner
+//create anonymous function and wrap a function inside it
+//pass index parameter inside the wrapped function as well as in the DisplayTable function as we have to delete the index of object
+td4.addEventListener("click",function(){
+alert("Are You sure You wanna delete it")
+  DeleteData(index)
+})
+tr.append(td1,td2,td3,td4);
+document.querySelector("#Mbody").append(tr)
+})
+//call the DeleteData function
+function DeleteData(index){
+// console.log(index) this will show u the index of object in console on clicking the object
+//now to delete we use splice
+//index count wil be index as to create it as dyanamic and delete count 1 as we have to always delete one at a ime
+
+// console.log(DataFromAppplied,"before") length is 2
+DataFromAppplied.splice(index,1);
+// console.log(DataFromAppplied,"after")length is 1
+
+localStorage.setItem("bookmarks",JSON.stringify(DataFromAppplied))
+window.location.reload();
+
+ }
+ }
+  </script>
+</html>
