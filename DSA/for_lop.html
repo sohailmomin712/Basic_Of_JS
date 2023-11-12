@@ -40,16 +40,33 @@
 
     //3.You are provided 3 integers: left, right and k. 
     //Your task is to write a program that finds out the count of all such numbers between lefts and right (both inclusive) which are divided by k.
-    function masaiDivisors(left, right, k) {
-        let count = 0;
-        for (let i = left; i <= right; i++) {
-            if (i % k === 0) {
-                count++;
+
+    // function masaiDivisors(left, right, k) {
+    //     let count = 0;
+    //     for (let i = left; i <= right; i++) {
+    //         if (i % k === 0) {
+    //             count++;
+    //         }
+    //     }
+    //     console.log(count);
+    // }
+    // masaiDivisors(1, 10, 3)
+
+    //4.You are given three integers: X, K, Y.
+    //You have to print the sum of first K multiples of N, on a condition that it should be divisible by Y. 
+
+    function sumOfMultiples(n, k, y) {
+        let sum = 0;
+        for (let i = 1; i <= k;) {
+            let result = i * n;
+            i++;
+            if (result % y === 0) {
+                sum = sum + result;
             }
         }
-        console.log(count);
+        console.log(sum)
     }
-    masaiDivisors(1, 10, 3)
+    sumOfMultiples(3, 10, 5)
 
 </script>
 
