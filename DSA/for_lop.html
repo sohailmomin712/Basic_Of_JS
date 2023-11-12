@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Loops</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
 
-//1. print all the i for the following operations starting from 1 to num
+    // 1. print all the i for the following operations starting from 1 to num
 
-function divisibleByK(num,k) {
-for(let i=1;i<=num; i++){
-    if(i%k===0){
-        console.log(i);
+    // function divisibleByK(num, k) {
+    //     for (let i = 1; i <= num; i++) {
+    //         if (i % k === 0) {
+    //             console.log(i);
+    //         }
+    //     }
+    // }
+    // divisibleByK(2, 7)
+
+
+    //2. print sum of all the i for the following operations starting from 1 to num
+    function divisibleByKII(num, k) {
+        let sum = 0;
+        for (let i = 1; i <= num; i++) {
+            if (i % k === 0) {
+                {
+                    sum = sum + i;
+                }
+            }
+        }
+        console.log(sum)
     }
-}
-}
-divisibleByK(2,7)
+    divisibleByKII(2, 7)
 
 </script>
+
 </html>
