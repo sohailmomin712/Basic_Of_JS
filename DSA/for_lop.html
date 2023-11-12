@@ -25,18 +25,31 @@
 
 
     //2. print sum of all the i for the following operations starting from 1 to num
-    function divisibleByKII(num, k) {
-        let sum = 0;
-        for (let i = 1; i <= num; i++) {
+    // function divisibleByKII(num, k) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= num; i++) {
+    //         if (i % k === 0) {
+    //             {
+    //                 sum = sum + i;
+    //             }
+    //         }
+    //     }
+    //     console.log(sum)
+    // }
+    // divisibleByKII(2, 7)
+
+    //3.You are provided 3 integers: left, right and k. 
+    //Your task is to write a program that finds out the count of all such numbers between lefts and right (both inclusive) which are divided by k.
+    function masaiDivisors(left, right, k) {
+        let count = 0;
+        for (let i = left; i <= right; i++) {
             if (i % k === 0) {
-                {
-                    sum = sum + i;
-                }
+                count++;
             }
         }
-        console.log(sum)
+        console.log(count);
     }
-    divisibleByKII(2, 7)
+    masaiDivisors(1, 10, 3)
 
 </script>
 
