@@ -24,7 +24,7 @@
     // divisibleByK(2, 7)
 
 
-    //2. print sum of all the i for the following operations starting from 1 to num
+    // 2. print sum of all the i for the following operations starting from 1 to num
     // function divisibleByKII(num, k) {
     //     let sum = 0;
     //     for (let i = 1; i <= num; i++) {
@@ -38,8 +38,8 @@
     // }
     // divisibleByKII(2, 7)
 
-    //3.You are provided 3 integers: left, right and k. 
-    //Your task is to write a program that finds out the count of all such numbers between lefts and right (both inclusive) which are divided by k.
+    // 3.You are provided 3 integers: left, right and k. 
+    // Your task is to write a program that finds out the count of all such numbers between lefts and right(both inclusive) which are divided by k.
 
     // function masaiDivisors(left, right, k) {
     //     let count = 0;
@@ -52,22 +52,45 @@
     // }
     // masaiDivisors(1, 10, 3)
 
-    //4.You are given three integers: X, K, Y.
-    //You have to print the sum of first K multiples of N, on a condition that it should be divisible by Y. 
+    // 4.You are given three integers: X, K, Y.
+    // You have to print the sum of first K multiples of N, on a condition that it should be divisible by Y.
 
-    function sumOfMultiples(n, k, y) {
-        let sum = 0;
-        for (let i = 1; i <= k;) {
-            let result = i * n;
-            i++;
-            if (result % y === 0) {
-                sum = sum + result;
+    // function sumOfMultiples(n, k, y) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= k;) {
+    //         let result = i * n;
+    //         i++;
+    //         if (result % y === 0) {
+    //             sum = sum + result;
+    //         }
+    //     }
+    //     console.log(sum)
+    // }
+    // sumOfMultiples(3, 10, 5)
+
+    // 5 You are given number stored in value num;
+    // 1. If the number is divisible by 3 and 5 both, print "FizzBuzz" without quotes
+    // 2. Else If the number is divisible by 3, print "Fizz", without quotes
+    // 3. Else If the number is divisible by 5, print "Buzz", without quotes
+    // 4. Else, print the number as it is
+
+    function fizzBuzz(num) {
+        for (let i = 1; i <= num; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                console.log("FizzBuzz");
+            }
+            else if (i % 3 === 0) {
+                console.log("Fizz");
+            }
+            else if (i % 5 === 0) {
+                console.log("Buzz");
+            }
+            else {
+                console.log(i);
             }
         }
-        console.log(sum)
     }
-    sumOfMultiples(3, 10, 5)
-
+    fizzBuzz(3)
 </script>
 
 </html>
