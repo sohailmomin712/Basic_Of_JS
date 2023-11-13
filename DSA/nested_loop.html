@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nested loops</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1. print the following patter till the num;
+    // 1 2 3 4
+    // 1 2 3 4
+    // 1 2 3 4
+    // 1 2 3 4
+
+    function firstNestedLoop(num) {
+        for (let i = 1; i <= num; i++) {
+            let result = "";
+            for (let j = 1; j <= num; j++) {
+                result = result + j + " ";
+            }
+            console.log(result)
+        }
+    }
+    firstNestedLoop(4)
+</script>
+
+</html>
