@@ -35,16 +35,31 @@
     // * * * * * 
     // * * * * * 
 
-    function yourFirstPattern(n) {
-        for (let i = 1; i <= n; i++) {
-            let str = "";
-            for (let j = 1; j <= n; j++) {
-                str = str + "* "
+    // function yourFirstPattern(n) {
+    //     for (let i = 1; i <= n; i++) {
+    //         let str = "";
+    //         for (let j = 1; j <= n; j++) {
+    //             str = str + "* "
+    //         }
+    //         console.log(str)
+    //     }
+    // }
+    // yourFirstPattern(5)
+
+    3 print the numbers in the following pattern vertically 1 1 2 1 2 3 1 2 3 4 1 2 3 4 5
+    function anotherNested(num) {
+        for (let i = 1; i <= num; i++) {
+
+            for (let j = 1; j <= i; j++) {
+                let str = "";
+                str = str + j;
+                console.log(str)
             }
-            console.log(str)
+
         }
+
     }
-    yourFirstPattern(5)
+    anotherNested(5)
 </script>
 
 </html>
