@@ -46,20 +46,34 @@
     // }
     // yourFirstPattern(5)
 
-    3 print the numbers in the following pattern vertically 1 1 2 1 2 3 1 2 3 4 1 2 3 4 5
-    function anotherNested(num) {
+    // 3 print the numbers in the following pattern vertically 1 1 2 1 2 3 1 2 3 4 1 2 3 4 5
+    // function anotherNested(num) {
+    //     for (let i = 1; i <= num; i++) {
+
+    //         for (let j = 1; j <= i; j++) {
+    //             let str = "";
+    //             str = str + j;
+    //             console.log(str)
+    //         }
+
+    //     }
+
+    // }
+    // anotherNested(5)
+
+    // 4 u have to print the sum of all even numbers in the downward direction
+
+    function evenSumAgain(num) {
+        let sum = 0;
         for (let i = 1; i <= num; i++) {
-
-            for (let j = 1; j <= i; j++) {
-                let str = "";
-                str = str + j;
-                console.log(str)
+            if (i % 2 === 0) {
+                sum = sum + i;
             }
-
+            console.log(sum)
         }
 
     }
-    anotherNested(5)
+    evenSumAgain(4)
 </script>
 
 </html>
