@@ -63,17 +63,30 @@
 
     // 4 u have to print the sum of all even numbers in the downward direction
 
-    function evenSumAgain(num) {
+    // function evenSumAgain(num) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= num; i++) {
+    //         if (i % 2 === 0) {
+    //             sum = sum + i;
+    //         }
+    //         console.log(sum)
+    //     }
+
+    // }
+    // evenSumAgain(4)
+
+    // 5. print the sum of even numbers in the pattern of downward direction
+
+    function oddSumAgain(num) {
         let sum = 0;
         for (let i = 1; i <= num; i++) {
-            if (i % 2 === 0) {
+            if (i % 2 !== 0) {
                 sum = sum + i;
             }
             console.log(sum)
         }
-
     }
-    evenSumAgain(4)
+    oddSumAgain(4)
 </script>
 
 </html>
