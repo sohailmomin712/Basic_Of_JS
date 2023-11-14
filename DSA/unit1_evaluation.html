@@ -22,18 +22,27 @@
 
     //2. find the second biggest number
 
-    function secondMaximum(a, b, c) {
+    // function secondMaximum(a, b, c) {
 
-        if (a > b && a < c || a < b && a > c) {
-            console.log(a);
-        } else if (b > a && b < c || b < a && b > c) {
-            console.log(b);
-        } else if (c > a && c < b || c < a && c > b) {
-            console.log(c);
+    //     if (a > b && a < c || a < b && a > c) {
+    //         console.log(a);
+    //     } else if (b > a && b < c || b < a && b > c) {
+    //         console.log(b);
+    //     } else if (c > a && c < b || c < a && c > b) {
+    //         console.log(c);
+    //     }
+    // }
+    // secondMaximum(3, 10, 5)
+
+
+    //3.sum of natural numbers till n but addinf each number 5 times
+    function sumTillN(N) {
+        let sum = 0;
+        for (let i = 1; i <= N; i++) {
+            sum = sum + i + i + i + i + i;
         }
+        console.log(sum)
     }
-    secondMaximum(3, 10, 5)
-
 
 </script>
 
