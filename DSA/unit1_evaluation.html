@@ -36,14 +36,24 @@
 
 
     //3.sum of natural numbers till n but addinf each number 5 times
-    function sumTillN(N) {
-        let sum = 0;
-        for (let i = 1; i <= N; i++) {
-            sum = sum + i + i + i + i + i;
+    // function sumTillN(N) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= N; i++) {
+    //         sum = sum + i + i + i + i + i;
+    //     }
+    //     console.log(sum)
+    // }
+    // sumTillN(2)
+
+    //4.print the factorial of variable stored in num;
+    function factorialOfNumber(num) {
+        let fact = 1;
+        for (let i = 1; i <= num; i++) {
+            fact = fact * i;
         }
-        console.log(sum)
+        console.log(fact)
     }
-    sumTillN(2)
+    factorialOfNumber(5)
 </script>
 
 </html>
