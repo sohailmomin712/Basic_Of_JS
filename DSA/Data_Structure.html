@@ -24,17 +24,35 @@
 
     //2.you have given an algorithm u have to print the sum of all even numbers till the n
 
-    function sumRelatedProblem(N) {
-        let sum = 0;
-        for (let i = 1; i <= N; i++) {
-            if (i % 2 === 0) {
-                sum = sum + i;
-            }
-        } console.log(sum);
+    // function sumRelatedProblem(N) {
+    //     let sum = 0;
+    //     for (let i = 1; i <= N; i++) {
+    //         if (i % 2 === 0) {
+    //             sum = sum + i;
+    //         }
+    //     } console.log(sum);
 
+
+    // }
+    // sumRelatedProblem(5)
+
+    //3.Let’s say you derive a variable which is equal to the floor of a number you get when 32 is divided by N
+    // if x is 0 print too low
+    // In case it is not possible to generate a valid number, print - 1
+    // in all other scenario print X
+
+    function divisionTask(N) {
+        let x = Math.floor(32 / N);
+        if (x === 0) {
+            console.log("Too Low")
+        } else if (N === 0) {
+            console.log("-1")
+        } else {
+            console.log(x)
+        }
 
     }
-    sumRelatedProblem(5)
+    divisionTask(4)
 </script>
 
 </html>
