@@ -46,14 +46,28 @@
     // sumTillN(2)
 
     //4.print the factorial of variable stored in num;
-    function factorialOfNumber(num) {
-        let fact = 1;
-        for (let i = 1; i <= num; i++) {
-            fact = fact * i;
+    // function factorialOfNumber(num) {
+    //     let fact = 1;
+    //     for (let i = 1; i <= num; i++) {
+    //         fact = fact * i;
+    //     }
+    //     console.log(fact)
+    // }
+    // factorialOfNumber(5)
+
+    // 5. you have given a number u have to reverse it
+    function reverseTheValue(num) {
+        let rev = "";
+        let rem = 0;
+        while (num > 0) {
+            rem = num % 10;
+            rev = rev * 10 + rem;
+            num = parseInt(num / 10)
         }
-        console.log(fact)
+        console.log(rev)
+
     }
-    factorialOfNumber(5)
+    reverseTheValue(729)
 </script>
 
 </html>
