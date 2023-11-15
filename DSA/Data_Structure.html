@@ -41,18 +41,34 @@
     // In case it is not possible to generate a valid number, print - 1
     // in all other scenario print X
 
-    function divisionTask(N) {
-        let x = Math.floor(32 / N);
-        if (x === 0) {
-            console.log("Too Low")
-        } else if (N === 0) {
-            console.log("-1")
-        } else {
-            console.log(x)
-        }
+    // function divisionTask(N) {
+    //     let x = Math.floor(32 / N);
+    //     if (x === 0) {
+    //         console.log("Too Low")
+    //     } else if (N === 0) {
+    //         console.log("-1")
+    //     } else {
+    //         console.log(x)
+    //     }
 
+    // }
+    // divisionTask(4)
+
+    //4.if number is multiple of both 5 and 7 print masai school if only 5 print masai for 7 school and else hurray! 
+    function masaiSchoolHurray(N) {
+        for (let i = 1; i <= N; i++) {
+            if (i % 5 === 0 && i % 7 === 0) {
+                console.log("Masai School")
+            } else if (i % 7 === 0) {
+                console.log("Masai")
+            } else if (i % 5 === 0) {
+                console.log("School")
+            } else {
+                console.log("Hurray!")
+            }
+        }
     }
-    divisionTask(4)
+    masaiSchoolHurray(7)
 </script>
 
 </html>
