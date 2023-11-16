@@ -11,12 +11,22 @@
 </body>
 <script>
     //1.print the array's element each element on the new line
-    function arrElements(N, arr) {
+    // function arrElements(N, arr) {
+    //     for (let i = 0; i <= arr.length - 1; i++) {
+    //         console.log(arr[i])
+    //     }
+    // }
+    // arrElements(5, [1, 2, 3, 4, 5])
+
+    //2. print the horizontal array
+    function printHorizontalArray(N, arr) {
+        let bag = "";
         for (let i = 0; i <= arr.length - 1; i++) {
-            console.log(arr[i])
+            bag = bag + arr[i] + " ";
         }
+        console.log(bag)
     }
-    arrElements(5, [1, 2, 3, 4, 5])
+    printHorizontalArray(5, [1, 2, 3, 4, 5])
 </script>
 
 </html>
