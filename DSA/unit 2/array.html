@@ -38,14 +38,25 @@
     // reverseArrayTraversal(5, [5, 4, 3, 2, 1])
 
     //4.print the array of even numbers
-    function evenArray(n, arr) {
+    // function evenArray(n, arr) {
+    //     for (let i = 0; i <= arr.length - 1; i++) {
+    //         if (arr[i] % 2 === 0) {
+    //             console.log(arr[i]);
+    //         }
+    //     }
+    // }
+    // evenArray(5, [1, 2, 3, 4, 5])
+
+    //5.odd numbers array
+    function oddArray(n, arr) {
         for (let i = 0; i <= arr.length - 1; i++) {
-            if (arr[i] % 2 === 0) {
+            if (arr[i] % 2 !== 0) {
                 console.log(arr[i]);
             }
         }
     }
-    evenArray(5, [1, 2, 3, 4, 5])
+    oddArray(5, [1, 2, 3, 4, 5])
+
 </script>
 
 </html>
