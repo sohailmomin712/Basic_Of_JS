@@ -67,15 +67,26 @@
     // ArraySum(5, [1, 2, 3, 4, 5])
 
     //7.print the sum of even elements of the array
-    function evenArraySum(n, arr) {
+    // function evenArraySum(n, arr) {
+    //     let sum = 0;
+    //     for (let i = 0; i <= arr.length - 1; i++) {
+    //         if (arr[i] % 2 === 0) {
+    //             sum = sum + arr[i];
+    //         }
+    //     } console.log(sum)
+    // }
+    // evenArraySum(5, [1, 2, 3, 4, 5])
+
+    // 8..print the sum of odd elements of the array
+    function oddArraySum(n, arr) {
         let sum = 0;
         for (let i = 0; i <= arr.length - 1; i++) {
-            if (arr[i] % 2 === 0) {
+            if (arr[i] % 2 !== 0) {
                 sum = sum + arr[i];
             }
         } console.log(sum)
     }
-    evenArraySum(5, [1, 2, 3, 4, 5])
+    oddArraySum(5, [1, 2, 3, 4, 5])
 </script>
 
 </html>
