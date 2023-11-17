@@ -1,0 +1,26 @@
+<!-- When user enter 2 and 4 and clicks on multiply button, an alert should come with 8 as ans
+When user enter 8 and 4 and clicks on Divide button,an alert should come with 2 as ans -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <input id="num1" type="number" placeholder="enter first number"/>
+    <input id="num2" type="number" placeholder="enter first number"/>
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Sub</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+</body>
+<script>
+    function add(){
+        let n1=document.getElementById("num1").value;
+        let n2=document.getElementById("num2").value
+        let result=n1+n2;
+        alert("result")
+    }
+</script>
+</html>
