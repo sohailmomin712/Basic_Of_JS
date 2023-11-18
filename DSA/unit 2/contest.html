@@ -11,18 +11,32 @@
 </body>
 <script>
     //1.comparison of sachins current and highest record
-    function breakingTheRecord(n, m) {
-        if (m > n) {
-            console.log("Broken")
-        }
-        else if (n > m) {
-            console.log("Not Yet")
-        } else if (m == n) {
-            console.log("Wao")
-        }
-    }
-    breakingTheRecord(240, 289)
+    // function breakingTheRecord(n, m) {
+    //     if (m > n) {
+    //         console.log("Broken")
+    //     }
+    //     else if (n > m) {
+    //         console.log("Not Yet")
+    //     } else if (m == n) {
+    //         console.log("Wao")
+    //     }
+    // }
+    // breakingTheRecord(240, 289)
 
+    //2.to check whther number 42 is present in the arr
+    function equalTo42(size, arr) {
+        for (let i = 0; i <= arr.length - 1; i++) {
+            if (arr[i] === 42) {
+                console.log("Yes")
+                break;
+            } else {
+                console.log("No")
+                break;
+            }
+        }
+
+    }
+    equalTo42(5, [1, 2, 3, 4, 5])
 </script>
 
 </html>
