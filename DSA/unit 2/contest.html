@@ -24,19 +24,38 @@
     // breakingTheRecord(240, 289)
 
     //2.to check whther number 42 is present in the arr
-    function equalTo42(size, arr) {
-        for (let i = 0; i <= arr.length - 1; i++) {
-            if (arr[i] === 42) {
-                console.log("Yes")
-                break;
-            } else {
-                console.log("No")
-                break;
-            }
+    // function equalTo42(size, arr) {
+    //     for (let i = 0; i <= arr.length - 1; i++) {
+    //         if (arr[i] === 42) {
+    //             console.log("Yes")
+    //             break;
+    //         } else {
+    //             console.log("No")
+    //             break;
+    //         }
+    //     }
+
+    // }
+    // equalTo42(5, [1, 2, 3, 4, 5])
+
+    //3.units consumed
+    function unitsConsumed(n) {
+        let unit = 0
+        let rem = 0;
+        n = n - 80;
+        if (n <= 150) { //50 unit
+            unit = 150 / 3;
+        } else if (n > 150 && n <= 650) {
+            rem = n - 150
+            unit = 50 + rem / 5;
+        } else if (n >= 650) {
+            rem = n - 650
+            unit = 150 + rem / 10
         }
+        console.log(unit)
 
     }
-    equalTo42(5, [1, 2, 3, 4, 5])
+    unitsConsumed(970)
 </script>
 
 </html>
