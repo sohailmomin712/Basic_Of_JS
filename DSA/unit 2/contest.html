@@ -39,23 +39,39 @@
     // equalTo42(5, [1, 2, 3, 4, 5])
 
     //3.units consumed
-    function unitsConsumed(n) {
-        let unit = 0
-        let rem = 0;
-        n = n - 80;
-        if (n <= 150) { //50 unit
-            unit = 150 / 3;
-        } else if (n > 150 && n <= 650) {
-            rem = n - 150
-            unit = 50 + rem / 5;
-        } else if (n >= 650) {
-            rem = n - 650
-            unit = 150 + rem / 10
-        }
-        console.log(unit)
+    // function unitsConsumed(n) {
+    //     let unit = 0
+    //     let rem = 0;
+    //     n = n - 80;
+    //     if (n <= 150) { //50 unit
+    //         unit = 150 / 3;
+    //     } else if (n > 150 && n <= 650) {
+    //         rem = n - 150
+    //         unit = 50 + rem / 5;
+    //     } else if (n >= 650) {
+    //         rem = n - 650
+    //         unit = 150 + rem / 10
+    //     }
+    //     console.log(unit)
 
+    // }
+    // unitsConsumed(970)
+
+    //4.masai school example
+    function masaiSchoolHurray(N) {
+        for (let i = 1; i <= N; i++) {
+            if (i % 5 === 0 && i % 7 === 0) {
+                console.log("Masai School")
+            } else if (i % 7 === 0) {
+                console.log("Masai")
+            } else if (i % 5 === 0) {
+                console.log("School")
+            } else {
+                console.log("Hurray!")
+            }
+        }
     }
-    unitsConsumed(970)
+    masaiSchoolHurray(7)
 </script>
 
 </html>
