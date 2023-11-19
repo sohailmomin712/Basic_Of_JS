@@ -1,0 +1,122 @@
+<!-- 
+Within the select you must have the following options, the options must also have the same value as given below:
+
+India
+United States of America
+China
+Nepal
+Australia
+France
+Germany
+South Africa
+Nigeria
+Mexico
+Argentina
+Brazil
+Canada
+Singapore
+Sweden -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>country/continent</title>
+</head>
+<body>
+    <select id = "continent_select">
+        <option value = "India"> India </option>
+        <option value = "United States of America"> United States of America </option>		
+        <option value = "China"> China </option>	
+        <option value = "Singapore"> Singapore </option>	
+        <option value = "Sweden"> Sweden </option>	
+        <option value = "Canada"> Canada</option>	
+        <option value = "Brazil"> Brazil </option>	
+        <option value = "Argentina">Argentina</option>	
+        <option value = "Mexico"> Mexico</option>	
+        <option value = "Nigeria"> Nigeria  </option>	
+        <option value = "South Africa"> South Africa </option>	
+        <option value = "Germany"> Germany </option>	
+        <option value = "France"> France </option>	
+        <option value = "Australia"> Australia </option>	
+        <option value = "Nepal"> Nepal </option>	
+    </select>
+    <button id="Submit">Find continent</button>
+</body>
+<script>
+let countries=document.querySelector("#continent_select");
+let button=document.querySelector("#Submit")
+
+function ShowContinent(){
+   let continent="Asia";
+    switch(countries.value){
+
+        case "India":
+        continent="Asia";
+        break;
+ 
+        case "United States of America":
+        continent="North America";
+        break;
+
+        case "Argentina":
+        continent="North America";
+        break;
+
+        case "China":
+        continent="Asia";
+        break;
+
+        case "Nepal":
+        continent="Asia";
+        break;
+
+        case "Singapore":
+        continent="Asia";
+        break;
+
+        case "Sweden":
+        continent="Europe";
+        break;
+
+        case "Germany":
+        continent="Europe";
+        break;
+
+        case "Canada":
+        continent="North America";
+        break;
+
+        case "Mexico":
+        continent="North America";
+        break;
+
+        case "Brazil":
+        continent="South America";
+        break;
+
+        case "Nigeria":
+        continent="Africa";
+        break;
+
+        case "France":
+        continent="Europe";
+        break;
+
+        case "Australia":
+        continent="Australia";
+        break;
+
+        case "South Africa":
+        continent="Africa";
+        break;
+         
+        default:
+        continent="Asia";
+        break;
+    }
+    alert("The continent is "  +  continent);
+}
+button.addEventListener("click",ShowContinent);
+</script>
+</html>
