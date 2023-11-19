@@ -1,0 +1,48 @@
+<!-- reate the file leaderboard.html so that it looks similar to the image below
+Functionality
+By clicking on any number it shows up in the score box joined to any previous numbers already present (Eg: To enter a score of 423 you have to press 4 2 3)
+Once the button ENTER is pressed the score gets compared with the MIN and MAX boxes, if the current score is less than the MIN score it gets updated with the current score, if the current score is greater than the MAX score it gets updated with the current score
+The SCORE box will be reset with empty value -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>min/max</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+.firstContainer{
+    border: 2px solid red;
+}
+.min{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 50px;
+    width: 80px;
+}
+    </style>
+</head>
+<body>
+   <div class="MainContainer">
+
+    <div class="firstContainer">
+
+    <div class="min">
+        <div></div>
+        <h1>Min</h1>
+    </div>
+
+    <div class="Max">
+        <div></div>
+        <h1>Max</h1>
+    </div>
+    
+    </div>
+   </div>
+</body>
+</html>
