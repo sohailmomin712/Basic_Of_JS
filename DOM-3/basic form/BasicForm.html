@@ -1,0 +1,55 @@
+<!-- Create a form with 5 input boxes having following fields
+
+Name
+
+Age
+
+Gender (select tag)
+
+Email
+
+Mobile Number
+
+On form submit display all data in form of array of objects in browser console -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form</title>
+</head>
+<body>
+ <form>
+    <input id="name" type="text" placeholder="Name"/>
+    <input id="age" type="number" placeholder="Age"/>
+    <select id="Gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+    <input id="email" type="text" placeholder="Email"/>
+    <input id="mbl" type="number" placeholder="Mobile Number"/>
+    <input type="submit"/>
+ </form>   
+</body>
+<script>
+    let arr=[];
+
+    document.querySelector("form").addEventListener("submit",myfunction)
+    function myfunction(event){
+        event.preventDefault();
+
+     let UserObject={
+        UserName:document.querySelector("#name").value,
+        userAge:document.querySelector("#age").value,
+        userGender:document.querySelector("#Gender").value,
+        userEmail:document.querySelector("#email").value,
+        userMobile:document.querySelector("#mbl").value
+     };
+     arr.push( UserObject);
+     console.log(arr);
+    }
+</script>
+</html>
+
+
