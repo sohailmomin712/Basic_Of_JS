@@ -19,12 +19,24 @@
     // printChar(6, ankush)
 
     //2.print the alphabets reverse order
-    function printCharReverse(N, str) {
-        for (let i = str.length - 1; i >= 0; i--) {
-            console.log(str[i])
+    // function printCharReverse(N, str) {
+    //     for (let i = str.length - 1; i >= 0; i--) {
+    //         console.log(str[i])
+    //     }
+    // }
+    // printCharReverse(6, ankush)
+
+    //3.print the alphabets of the string which are at odd place
+
+    function charAtOddPos(N, str) {
+        for (let i = 0; i <= str.length - 1; i++) {
+            if (i % 2 !== 0) {
+                console.log(str[i])
+            }
         }
+
     }
-    printCharReverse(6, ankush)
+    charAtOddPos(6,ankush)
 </script>
 
 </html>
