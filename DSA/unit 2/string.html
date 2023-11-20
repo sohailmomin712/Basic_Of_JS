@@ -28,15 +28,26 @@
 
     //3.print the alphabets of the string which are at odd place
 
-    function charAtOddPos(N, str) {
+    // function charAtOddPos(N, str) {
+    //     for (let i = 0; i <= str.length - 1; i++) {
+    //         if (i % 2 !== 0) {
+    //             console.log(str[i])
+    //         }
+    //     }
+
+    // }
+    // charAtOddPos(6,ankush)
+
+    //4.print the alphabets at even places
+    function charAtEvenPos(N, str) {
         for (let i = 0; i <= str.length - 1; i++) {
-            if (i % 2 !== 0) {
+            if (i % 2 === 0) {
                 console.log(str[i])
             }
         }
 
     }
-    charAtOddPos(6,ankush)
+    charAtEvenPos(6, ankush)
 </script>
 
 </html>
