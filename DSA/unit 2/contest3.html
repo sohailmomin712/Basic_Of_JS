@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contest 3</title>
+</head>
+
+<body></body>
+<script>
+    //1.check if 42 is present in the array
+    function equalTo42(size, arr) {
+        let num = 42;
+        for (let i = 0; i <= arr.length - 1; i++) {
+            if (arr[i] == num) {
+                console.log("Yes");
+                break;
+            } else {
+                console.log("No");
+                break;
+            }
+        }
+    }
+    equalTo42(6, [1, 2, 3, 4, 5, 6])
+</script>
+
+</html>
