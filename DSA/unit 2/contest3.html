@@ -10,19 +10,29 @@
 <body></body>
 <script>
     //1.check if 42 is present in the array
-    function equalTo42(size, arr) {
-        let num = 42;
+    // function equalTo42(size, arr) {
+    //     let num = 42;
+    //     for (let i = 0; i <= arr.length - 1; i++) {
+    //         if (arr[i] == num) {
+    //             console.log("Yes");
+    //             break;
+    //         } else {
+    //             console.log("No");
+    //             break;
+    //         }
+    //     }
+    // }
+    // equalTo42(6, [1, 2, 3, 4, 5, 6])
+
+    //2.print the average of the elements of the array
+    function averageOfAll(n, arr) {
+        let average = 0;
         for (let i = 0; i <= arr.length - 1; i++) {
-            if (arr[i] == num) {
-                console.log("Yes");
-                break;
-            } else {
-                console.log("No");
-                break;
-            }
-        }
+            average = average + arr[i] / n;
+
+        } console.log(average);
     }
-    equalTo42(6, [1, 2, 3, 4, 5, 6])
+    averageOfAll(4, 2, 5, 0, 9)
 </script>
 
 </html>
