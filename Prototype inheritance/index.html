@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+     let arr = [4, 5, 6];
+    let arr2 = [6, 7, 8];
+
+    Array.prototype.newPush = function (value) {
+      let index = this.length;
+      this[index] = value;
+    };
+
+    Array.prototype.myPop = function () {
+      this.length = this.length - 1;
+    };
+
+    arr2.myPop();
+    console.log(arr2);
+       arr1.newPush(10)
+       console.log(arr1)
+
+    let newArr1=[1,2,3,4,5]
+
+    Array.prototype.myPush=function(value){
+       let index = this.length
+        this[index] = value
+
+    }
+
+    newArr1.myPush(6)
+    console.log(newArr)
+
+    let obj1 = {
+        name: "sohail",
+        getName: function () {
+            return this.name
+        }
+    }
+    console.log(obj1)
+
+    let obj2={
+      roll:1,
+      __proto__:obj1,
+    }
+    console.log(obj2)
+
+    let obj3={
+      class:"MCA",
+      __proto__:obj2
+    }
+     console.log(obj3)
+
+    let cities=["delhi","goa"]
+    Array.prototype.show=function(){
+      let obj = {}
+      this.forEach(()=>{ 
+        
+      })
+       this.forEach(function(){ })
+
+      return this;
+    }
+
+console.log(cities.show());
+
+let newArr=[1,2,3,4,5]
+
+Array.prototype.myPush=function(value){
+   let index = this.length 
+    this[index] = value
+
+}
+
+newArr.myPush(6)
+console.log(newArr)
+
+// applying  custom forEach on array
+
+// / map  / fiter / forEach 
+// push > infinite number
+// pop > pop with arg. 
+
+let arr4=[1,2,3,4,5,6]
+
+Array.prototype.myMap = (condition)=> {
+  let newCopy = []
+ console.log(this)
+  for (let i=0; i<this.length; i++) {
+    console.log(this[i])
+     newCopy.push( this[i] + condition)
+  }
+
+
+  return newCopy
+}
+
+let newMyarr = arr.myMap( +2 )
+
+ console.log(newMyarr)
+
+  </script>
+</html>
