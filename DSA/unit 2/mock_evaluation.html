@@ -10,16 +10,38 @@
 <body>
 </body>
 <script>
-    function theLastDigit(number) {
-        let last_Number = Math.floor(number % 10)
-        // console.log(last_Number)
-        if (last_Number % 3 === 0) {
-            console.log("Divisible")
-        } else {
-            console.log("Not Divisible")
+    //1.last digit divisible by 3
+    // function theLastDigit(number) {
+    //     let last_Number = Math.floor(number % 10)
+    //     // console.log(last_Number)
+    //     if (last_Number % 3 === 0) {
+    //         console.log("Divisible")
+    //     } else {
+    //         console.log("Not Divisible")
+    //     }
+    // }
+    // theLastDigit(126)
+
+    //2 divisibility check
+    function modOf6(num) {
+        let x = num % 6;
+        switch (x) {
+            case 0: console.log("zero");
+                break;
+            case 1: console.log("one");
+                break;
+            case 2: console.log("two");
+                break;
+            case 3: console.log("three");
+                break;
+            case 4: console.log("four");
+                break;
+            case 5: console.log("five");
+                break;
         }
     }
-    theLastDigit(126)
+    modOf6(6)
+
 
 </script>
 
