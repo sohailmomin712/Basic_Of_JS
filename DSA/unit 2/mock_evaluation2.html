@@ -26,20 +26,27 @@
 
     //2.Given two integers N, X. Find the value of the series: 1 + x + x*x&nbsp; + x*x*x + x*x*x*x +-------N the term
 
-    function sumOfSeries(N, X) {
-        if (N <= 0 || X <= 0) {
-            console.log(-1);
-        }
-        else {
-            let sum = 0;
-            for (i = 0; i < N; i++) {
-                let series = X ** i;
-                sum = sum + series;
-            }
-            console.log(sum);
-        }
+    // function sumOfSeries(N, X) {
+    //     if (N <= 0 || X <= 0) {
+    //         console.log(-1);
+    //     }
+    //     else {
+    //         let sum = 0;
+    //         for (i = 0; i < N; i++) {
+    //             let series = X ** i;
+    //             sum = sum + series;
+    //         }
+    //         console.log(sum);
+    //     }
+    // }
+    // sumOfSeries(3, 2)
+
+    //3.Ana is X years old. Her Father is 20 years older than twice of Anna's age. Find her father's age.
+    function fathersAge(X) {
+        let fathers_age = X * 2 + 20;
+        console.log(fathers_age)
     }
-    sumOfSeries(3, 2)
+    fathersAge(6)
 </script>
 
 </html>
