@@ -6,21 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mock Evaluation 2</title>
 </head>
+
 <body>
 </body>
 <script>
     // 1 cheeck the divisibilty of N
-    function playOf4and6(N) {
-        if (N % 4 === 0 && N % 6 === 0) {
-            console.log("Awesome!")
-        } else if (N % 4 === 0) {
-            console.log("Four!")
-        } else if (N % 6 === 0) {
-            console.log("Six!")
-        } else {
-            console.log("Dark!")
+    // function playOf4and6(N) {
+    //     if (N % 4 === 0 && N % 6 === 0) {
+    //         console.log("Awesome!")
+    //     } else if (N % 4 === 0) {
+    //         console.log("Four!")
+    //     } else if (N % 6 === 0) {
+    //         console.log("Six!")
+    //     } else {
+    //         console.log("Dark!")
+    //     }
+    // }
+    // playOf4and6(12)
+
+    //2.Given two integers N, X. Find the value of the series: 1 + x + x*x&nbsp; + x*x*x + x*x*x*x +-------N the term
+
+    function sumOfSeries(N, X) {
+        if (N <= 0 || X <= 0) {
+            console.log(-1);
+        }
+        else {
+            let sum = 0;
+            for (i = 0; i < N; i++) {
+                let series = X ** i;
+                sum = sum + series;
+            }
+            console.log(sum);
         }
     }
-    playOf4and6(12)
+    sumOfSeries(3, 2)
 </script>
+
 </html>
