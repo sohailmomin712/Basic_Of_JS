@@ -23,21 +23,48 @@
     // evenCollection(19, 13)
 
     //2.find the value of 13*x x is uppercase alphabets
-    function capitalLettersInStringXIII(N, str) {
-        let upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-        let x = 0;
-        for (let i = 0; i <= str.length - 1; i++) {
-            for (let k = 0; k <= upper.length - 1; k++) {
-                if (str[i] == upper[k]) {
-                    x++;
-                }
+    // function capitalLettersInStringXIII(N, str) {
+    //     let upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    //     let x = 0;
+    //     for (let i = 0; i <= str.length - 1; i++) {
+    //         for (let k = 0; k <= upper.length - 1; k++) {
+    //             if (str[i] == upper[k]) {
+    //                 x++;
+    //             }
+    //         }
+
+    //     } console.log(13 * x);
+
+
+    // }
+    // capitalLettersInStringXIII(5, "raHuL")
+
+    //3 separte 2 strings of vowels and consonants
+
+    let vowel = ["a", "e", "i", "o", "u"];
+    let conso = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"];
+    let bag = "";
+    let bag2 = "";
+
+    for (i = 0; i <= str.length - 1; i++) {
+        for (j = 0; j <= vowel.length - 1; j++) {
+            if (str[i] == vowel[j]) {
+                bag = bag + vowel[j]
             }
-
-        } console.log(13 * x);
-
+        }
 
     }
-    capitalLettersInStringXIII(5, "raHuL")
+    for (x = 0; x <= str.length - 1; x++) {
+        for (y = 0; y <= conso.length - 1; y++) {
+            if (str[x] == conso[y]) {
+                bag2 = bag2 + str[x]
+            }
+        }
+
+    }
+
+    console.log(bag);
+    console.log(bag2);
 </script>
 
 </html>
