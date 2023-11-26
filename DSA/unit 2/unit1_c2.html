@@ -11,16 +11,33 @@
 </body>
 <script>
     //1.sum of even numbers from min to max
-    function evenCollection(max, min) {
-        let sum = 0;
-        for (let i = min; i <= max; i++) {
-            if (i % 2 === 0) {
-                sum = sum + i;
+    // function evenCollection(max, min) {
+    //     let sum = 0;
+    //     for (let i = min; i <= max; i++) {
+    //         if (i % 2 === 0) {
+    //             sum = sum + i;
+    //         }
+    //     }
+    //     console.log(sum)
+    // }
+    // evenCollection(19, 13)
+
+    //2.find the value of 13*x x is uppercase alphabets
+    function capitalLettersInStringXIII(N, str) {
+        let upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        let x = 0;
+        for (let i = 0; i <= str.length - 1; i++) {
+            for (let k = 0; k <= upper.length - 1; k++) {
+                if (str[i] == upper[k]) {
+                    x++;
+                }
             }
-        }
-        console.log(sum)
+
+        } console.log(13 * x);
+
+
     }
-    evenCollection(19, 13)
+    capitalLettersInStringXIII(5, "raHuL")
 </script>
 
 </html>
