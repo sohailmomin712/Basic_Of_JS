@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="navbar">
+
+        <div id="LHS">
+            <p>MovieDekho.com</p>
+        </div>
+        <div id="RHS">
+            <p class="aa"><a>Home</a> </p>
+            <p class="aa"> <a>More Movies</a> </p>
+            <p class="aa"><a>Buy Movies</a> </p>
+        </div>
+    </div>
+
+    <div id="sorting">
+        <span>Sort By</span>
+        <select id="sort" onclick="handleSort()">
+            <option value="Default">Default</option>
+            <option value="dec">Price:High to Low</option>
+            <option value="inc">Price:Low to High</option>
+        </select>
+    </div>
+
+    <div id="input">
+        <input type="search" id="search" placeholder="Search Movie" />
+        <button id="button" onclick="searchDATA()">Search</button>
+    </div>
+
+    <div id="container">
+
+
+    </div>
+</body>
+<script src="/test.js"></script>
+</html>
