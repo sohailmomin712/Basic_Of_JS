@@ -19,6 +19,10 @@ function searchData() {
 }
 
 function appendData(data) {
+  console.log("Received Data for appendData:", data); // Log the data received for appendData function
+
+  let url = `https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
   let container = document.getElementById("container");
   container.innerHTML = null;
 
@@ -35,4 +39,49 @@ function appendData(data) {
   max_temp.innerText = `Max-Temp:- ${data.main.temp_max}`;
 
   container.append(h2, temp, min_temp, max_temp);
+
+  let map_id = document.getElementById("map_id");
+  map_id.src = url;
 }
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(success);
+
+  function success(pos) {
+    const crd = pos.coords;
+
+    console.log("Your current position is:");
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+    getWeatherOnLocation(crd.latitude, crd.longitude);
+  }
+}
+getLocation()
+
+function getWeatherOnLocation(lat, lon) {
+  let url = `https:api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid={API key}`;
+
+  fetch(url)
+    .then(function (res) {
+      return res.json(); //data in the form of chunks
+    })
+    .then(function (res) {
+      console.log(res);
+      appendData(res);
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+//https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+
+// const options = {
+//   enableHighAccuracy: true,
+//   timeout: 5000,
+//   maximumAge: 0,
+// };
+
+// function error(err) {
+//   console.warn(`ERROR(${err.code}): ${err.message}`);
+// }
