@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,300&display=swap'); 
+
+@import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap'); 
+
+
+*{
+    font-family: Poppins;
+    box-sizing: border-box;
+}
+
+.main-hero{
+    background-size: cover;
+    height: 100vh;
+    min-height: 700px;
+    width: 100%;
+}
+
+
+.main-hero.overlay:before {
+    background: rgba(0, 0, 0, 0.65);
+    content: "";
+    position: absolute;
+    height: 100vh;
+    min-height: 700px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.main-header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 60px 0;
+    z-index: 2;
+   
+}
+
+.header-container{
+    max-width: 1600px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.header-container  img{
+    max-height: 50px;
+    margin-right: 50px;
+}
+
+.header-container  h1{
+    font-family: 'Goblin One', cursive;
+color: white;
+}
+
+.row{
+    font-family: 'Goblin One', cursive;
+  
+    width: 100%;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 15px;
+    margin-left: 15px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+ /*.header-content{
+ 
+   height: 100vh; 
+    min-height: 700px;  
+ 
+}*/
+
+.header-content-main{
+    color: white;
+    text-align: center!important;
+    position: absolute;
+    top: 20rem;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.header-content-main h1{
+    font-size: 50px;
+
+}
+
+
+.btn-container{
+   
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: .2em;
+    border: 1px solid white;
+}
+
+.primary{
+    color: #fff;
+    background-color: #e61c5d;
+    border-color: #e61c5d;
+}
+
+
+.work{
+    margin: auto;
+    
+   padding: 20px;
+    text-align: center;
+    max-width: 1000px;
+
+}
+
+
+
+#image-div-work{
+    
+  display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas: 
+    "A1 A1 B1 B1"
+    "C1 D1 B1 B1";
+    gap: 20px;
+    justify-content: center;
+}
+
+#image-div-work img{
+    border-radius: 20px ;
+}
+
+
+#image-div-work > div:nth-child(1){
+    grid-area: A1;
+    width: 100%;
+    
+}
+
+#image-div-work > div:nth-child(2){
+    grid-area: B1;
+    width: 100%;
+    
+}
+
+
+#image-div-work > div:nth-child(3){
+    grid-area: C1;
+    width: 100%;
+    
+}
+
+
+#image-div-work > div:nth-child(4){
+    grid-area: D1;
+     width: 100%;
+     
+}
+
+.apartments{
+    
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.apartments-header{
+    text-align: center;
+    background: rgb(245, 241, 241);
+    padding: 20px 0px;
+}
+
+.apartments-content > div{
+    display: flex; 
+}
+
+.apartments-content > div > div{
+
+    display: flex;
+   width: 100%;
+   max-height: fit-content;
+    
+  
+}
+
+.apartments-content > div > div > img{
+    flex: 1; 
+    width: 50%;
+}
+
+
+.apartments-content > div > div > div{
+    text-align: center;
+    flex: 1;
+  margin: 0;
+  font-size: small;
+  padding: 30px 20px;
+    max-height: fit-content;
+    box-sizing: border-box;
+    
+    padding: auto;
+
+} 
+
+.apartments-content-div > div{
+    flex-direction :row-reverse;
+}
+
+
+
+.posts{
+   margin: auto;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,1fr);
+    grid-template-areas: 
+    "one one twos";
+}
+
+
+.posts-one{
+    padding: 20px;
+    flex: 1;
+   
+    grid-area: one;
+}
+
+.posts-one > div{
+    display: flex;
+    gap: 20px;
+}
+.posts-one > div > div{
+    display: grid;
+    gap: 10px;
+}
+.posts-one > div > div > div{
+    display: flex;
+  
+    gap: 10px;
+}
+.posts-one > div > div > div  p{
+ color: rgb(109, 109, 109);
+}
+.posts-one > div > div > div  h4{
+    color: rgb(109, 109, 109);
+    font-size: 1rem;
+   }
+
+.posts-one img{
+    
+    width: 150px;
+  
+}
+
+
+.posts-two{
+    padding: 20px;
+  
+    grid-area: twos;
+}
+
+.posts-two p{
+ font-size: 18px;
+}
+
+
+.tags{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+ 
+  margin: auto;
+}
+
+.tags > div{
+    
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+   
+    text-transform: capitalize;
+   
+}
+
+.tags > div > span{
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+    background: rgb(233, 233, 233);
+    display: flex;
+    
+}
+
+
+
+
+		/* meidum screens */
+   @media all and (min-width: 768px) and (max-width: 1024px) {
+      
+      
+
+       #image-div-work{
+     
+           display: grid;
+             grid-template-columns: repeat(2,1fr);
+             grid-template-rows: repeat(4,1fr);
+             grid-template-areas: 
+             "A1 A1"
+             "B1 C1"
+             "D1 D1"
+             "D1 D1";
+             gap: 20px;
+           
+         }
+
+         .apartments-content > div{
+            display: flex;
+            flex-direction: column; 
+        }
+
+        .posts{
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(1,1fr);
+            grid-template-areas: 
+            "one twos";
+        }
+
+        .posts-one > div > div:nth-child(2){
+            display: none;
+            
+        }
+
+        .tags > div{
+    
+            max-width: 450px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+           
+            text-transform: capitalize;
+           
+        }
+
+    }
+           /* small screens */
+     @media all and (min-width: 320px) and (max-width: 767px) {
+        .btn-container{
+            flex-direction: column;
+            padding: 20px;
+            gap: 10px;
+         }
+
+         #image-div-work{
+     
+            display: grid;
+              grid-template-columns: repeat(1,1fr);
+              grid-template-rows: repeat(1,1fr);
+              grid-template-areas: 
+              "A1"
+              "B1"
+              "C1"
+              "D1";
+              gap: 20px;
+            
+          }
+
+          .apartments-content > div > div{
+            display: flex;
+           flex-direction: column;
+            
+          
+        }
+
+        .apartments-content > div{
+            display: flex; 
+            flex-direction: column;
+        }
+
+        .apartments-content > div > div > img{
+            flex: 1; 
+            width: 100%;
+        }
+        
+        
+        .apartments-content > div > div > div{
+            text-align: center;
+            flex: 1;
+          margin: 0;
+          font-size: small;
+          padding: none;
+            max-height: fit-content;
+            box-sizing: border-box;
+            
+            padding: auto;
+        
+        }
+
+        .posts{
+           padding: 0;
+            display: flex;
+            flex-direction: column;
+         
+        } 
+
+
+        .posts-one > div > div:nth-child(2){
+            display: none;
+            
+        }
+
+        
+.posts-two{
+   
+  
+    text-align: center;
+}
+
+.tags > div{
+    
+    max-width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+   
+    text-transform: capitalize;
+   
+}
+       
+     }
+
+
+

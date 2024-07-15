@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: auto;
+        width: 80%;
+        text-align: center;
+      }
+      #container > div {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 80%;
+      }
+      #container > div:hover {
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      #container > div > img {
+        width: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div><h2 id="count">Cart</h2></div>
+
+    <input type="search" id="search" placeholder="Search Movie" />
+    <button onclick="searchDATA()">Search</button>
+    <div id="container"></div>
+
+    <div id="sorting">
+      <span>Sort By</span>
+      <select id="sort" onclick="handleSort()">
+        <option value="">Default</option>
+        <option value="dec">Price: High to Low</option>
+        <option value="inc">Price: Low to High</option>
+      </select>
+    </div>
+  </body>
+</html>
+
+<script>
+  const url = "https://www.omdbapi.com/?s=Thor&apikey=1708fcb2";
+
+  let arr;
+  async function getData() {
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      arr = data.Search;
+      append(arr);
+      handleSort(arr);
+
+      // console.log(arr);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  getData();
+
+  function handleSort() {
+    let selected = document.querySelector("#sort").value;
+    if (selected == "dec") {
+      arr.sort(function (a, b) {
+        return +b.Year - +a.Year;
+      });
+      append(arr);
+      console.log(arr);
+    }
+    if (selected == "inc") {
+      arr.sort(function (a, b) {
+        return +a.Year - +b.Year;
+      });
+      append(arr);
+      console.log(arr);
+    }
+  }
+
+  function append(arr) {
+    document.querySelector("#container").innerHTML = "";
+    arr.forEach(function (el, index) {
+      let cont = document.querySelector("#container");
+      let img = document.createElement("img");
+      img.src = el.Poster;
+
+      let p = document.createElement("p");
+      p.innerText = el.Title;
+
+      let price = document.createElement("p");
+      price.innerText = el.Year;
+
+      let div = document.createElement("div");
+
+      let but = document.createElement("button");
+      but.innerText = "add To cart";
+      but.addEventListener("click", function () {
+        addtoCART(el, index);
+      });
+
+      div.append(img, p, price, but);
+      container.append(div);
+    });
+  }
+
+  let arrr = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let countDATA = JSON.parse(localStorage.getItem("counter")) || 0;
+
+  function addtoCART(el, index) {
+    console.log(el);
+    arrr.push(el);
+
+
+
+    document.querySelector("#count").innerText = `Cart items - ${arrr.length}`;
+    localStorage.setItem("cart", JSON.stringify(arrr));
+   
+  }
+  
+  document.querySelector("#count").innerText = `Cart items - ${arrr.length}`;
+  //   append(data);
+
+  function searchDATA() {
+    let Movie_name = document.querySelector("#search").value;
+
+    let X = arr.filter(function (el) {
+      if (el.Title == Movie_name) {
+        return el;
+      }
+    });
+    if (X) {
+      append(X);
+      // console.log(X);
+    }
+  }
+
+  // function notavailable() {
+  //   document.querySelector("#container").innerHTML = "";
+  //   let img = document.createElement("img");
+  //   img.src =
+  //     "https://freefrontend.com/assets/img/html-funny-404-pages/CodePen-404-Page.gif";
+  // }
+</script>

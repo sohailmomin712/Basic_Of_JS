@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+
+        <input id="InputText" type="text" autocomplete="off">
+        <button id="button" type="submit" >SEND</button>
+    </form>
+    <div id="msgsDiv">
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js" ></script>
+</body>
+</html>
+<script>
+  const socket = io() // io.emit("connection")
+   const form = document.getElementById("form")
+  const input = document.getElementById("InputText")
+
+  form.addEventListener("submit", (e)=>{
+    e.preventDefault()
+    const message =  input.value
+
+    socket.emit("OurTEXT", message) 
+    input.value = ""
+    // we are triggering OurTEXT event we writted in index.js
+
+  })
+
+  const msgs = document.getElementById("msgsDiv") 
+
+  socket.on("OurTEXT", (msg)=>{
+    console.log("new" , msg)
+    
+
+    const div = document.createElement("div")
+    div.innerText = msg
+    msgs.appendChild(div)
+
+  })
+
+  socket.on("newUser", (totalUser)=>{
+    const div = document.createElement("div")
+    div.innerText = "NEW USER JOINED CHAT" + "TOTAL USER" + totalUser
+    msgs.appendChild(div)
+  })
+
+  socket.on("history", (history)=>{
+     
+     for(const h of history){
+        const div = document.createElement("div")
+    div.innerText = h
+    msgs.appendChild(div)
+     }
+  })
+
+
+
+</script>

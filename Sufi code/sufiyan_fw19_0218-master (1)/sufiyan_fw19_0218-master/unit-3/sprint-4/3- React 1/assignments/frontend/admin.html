@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+
+
+<body>
+
+    <div>
+
+        <h1>Add Product</h1>
+
+        <input type="number" id="id" placeholder="Enter Id">
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="number" id="price" placeholder="Enter Price">
+
+        <button onclick="addPro()">Add</button>
+      
+    </div>
+
+
+    <div>
+
+        <h1>Delete Product</h1>
+
+        <input type="number" id="Delete_id" placeholder="Delete Id">
+        <button onclick="deletPro()">Delet</button>
+
+    </div>
+
+    <div>
+
+        <h1>Patch Product</h1>
+
+        <input type="number" id="Patch_id" placeholder="Patch Id">
+        <button onclick="PatchPro()">Patch</button>
+
+    </div>
+    
+</body>
+</html>
+
+
+<script>
+
+
+ function x(id){
+
+    return document.getElementById(id).value
+
+ }
+
+
+
+
+
+   async function addPro(){
+
+        let product = {
+
+            id : x(`id`),
+            name : x(`name`) ,
+            price : x(`price`),
+            
+        }
+
+        product = JSON.stringify(product)
+
+        let response = await fetch(`http://127.0.0.1:3002/api/products`, {
+
+            method : `POST`,
+
+            body : product,
+            
+            headers: 
+            {
+
+                "Content-Type" : "application/json"
+
+            }
+
+        })
+
+        console.log(response)
+
+    }
+
+
+    async function deletPro(){
+
+        let id = document.querySelector("#Delete_id").value
+
+        let response = await fetch(`http://127.0.0.1:3002/api/products/${id}`, {
+
+        method : `DELETE`,
+        
+        headers: 
+        {
+        
+            "Content-Type" : "application/json"
+        
+        }
+        
+        })
+
+        let data = await response.json()
+
+        console.log(data)
+    }
+
+
+    async function PatchPro(){
+
+        let id = document.querySelector("#Patch_id").value
+
+        let response = await fetch(`http://127.0.0.1:3002/api/products/${id}`, {
+
+          method : `PATCH` ,
+          
+          body : JSON.stringify({
+
+            name: `MESSI`
+
+
+          }),
+
+          headers: 
+          {
+        
+            "Content-Type" : "application/json"
+        
+          }
+        })
+
+        let data = await response.json()
+    }
+
+
+
+
+
+</script>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+                
+
+
+            body>h2{
+                 width: 10%;
+                text-align: center;
+                margin: auto;
+                padding: 15px; border-radius: 10px;
+                background-color: rgba(83, 3, 47, 0.959);
+                color: aliceblue;
+                margin-top: 15px;
+            }
+            
+            /* cart-container */
+
+            #cart-container{
+              
+           
+           display: grid;
+        
+       grid-template-columns: repeat(4,1fr);
+     
+           gap: 30px;
+           margin: auto;
+           
+           justify-content: space-between;
+           align-items: center;
+       }
+
+       #cart-container > div{
+           
+           border-radius: 10px;
+           box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+           background-color: white;
+
+           text-align: center;
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          
+           
+       }
+
+       #cart-container>div>img{
+       border-radius: 10px 10px 0px 0px;
+          width: 100%;
+         
+       }
+
+      .card>h3+p{
+      font-size: xx-large;
+      margin-top: -10px;
+     
+  }
+
+  .card>h3+p+p{
+      font-size: x-large;
+      margin-top: -20px;
+     
+  }
+
+
+       #cupon-active{
+
+           
+           padding: 5px 10px;
+           
+           border-color: none;
+           border-radius: 8px;
+           
+           border-radius: 6px;
+           border-color: red;
+
+       }
+
+
+  
+ #cupon-active:hover {
+   background-color: red;
+   border-color: red;
+   color: white;
+  }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+      <a href="./payment.html">Payment</a>
+    </div>
+    <div>
+      <h1>Your Total cart Price is:- <span id="cart-total">0</span></h1>
+      <input type="text" id="cupon-filled" placeholder="masai30" />
+      <button id="cupon-active">Submit</button>
+    </div>
+    <div id="cart-container">
+      <!-- Here Append All the cart Products  -->
+    </div>
+  </body>
+  <script>
+
+    
+   // TOTAL AMOUNT & DISCOUNT 
+   let total = 0 ; 
+   let disc = 0 ;  
+
+   let loadcart = JSON.parse(localStorage.getItem("cart")) 
+   let quantity = 0 ; 
+
+   let totalCart=document.getElementById("cart-total")
+
+   total=loadcart.reduce((ac,it)=>ac+parseInt(it.price),0);
+       totalCart.innerHTML=total;
+
+      
+   displayProducts(loadcart)
+
+   function displayProducts(arr){
+
+
+
+    document.querySelector("#cart-container").innerHTML="";
+
+    arr.map(function(el,index){
+     
+        
+        let div = document.createElement("div")
+        div.setAttribute("class","card")
+        
+         let nam = document.createElement("h3")
+         nam.innerText = el.name
+        
+        let price = document.createElement("p")
+        price.innerText = el.price
+
+        let Sprice = document.createElement("p")
+        Sprice.innerText = el.strikedoffprice
+        
+       
+        let increment  = document.createElement("button");
+        increment .innerText = "+"
+        increament.addEventListener("click",function (){
+        quantity.innerHTML=+(quantity.innerHTML)+1;
+        total+=+(el.price);
+        totalCart.innerHTML=total;
+       })
+
+       let Quantity = document.createElement("span")
+        Quantity.innerText = "Quantity :" + " " + el.counter;
+
+       
+
+        let decreament  = document.createElement("button");
+        decreament .innerText = "-"
+        decreament.addEventListener("click",function (){
+        quantity.innerHTML=+(quantity.innerHTML)-1;
+        total-=+(el.price);
+        totalCart.innerHTML=total;
+       })
+    
+        
+        div.append( nam,  price, Sprice, increment, Quantity,  decreament,    )
+       
+        document.querySelector("#cart-container").append(div)
+
+})
+
+
+
+   }
+
+
+     // Qty Increamnet
+
+function incrementQty(index){
+    
+  loadcart[index].counter = loadcart[index].counter+1
+   localStorage.setItem("cart",JSON.stringify(loadcart))
+   displayProducts(loadcart)
+}
+
+
+  // Qty Decreament
+
+function decreamentQty(index){
+    
+  loadcart[index].counter = loadcart[index].counter - 1
+   localStorage.setItem("cart",JSON.stringify(loadcart))
+   displayProducts(loadcart)
+}
+
+
+  // COUPAN APPLY
+
+   
+   document.querySelector("#cupon-active").addEventListener("click", applyCoupan)
+
+
+
+// COUPAN BUTTON FUNCTION APPLY PROMO
+   function applyCoupan(){
+
+    let coupans = document.querySelector("#cupon-filled").value ; 
+    console.log(coupans)
+    if(coupans === "masai30"){
+
+      total = Math.floor(total*0.7)
+        alert("Congrats... You got the Discount")
+        document.querySelector("#cart-total").innerText = total ; 
+ 
+    }
+    
+}
+
+
+
+   
+    
+  </script>
+</html>

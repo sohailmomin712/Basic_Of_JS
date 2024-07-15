@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slide show</title>
+  </head>
+
+  <body>
+    <h1>Slide show</h1>
+    <input type="text" id="Image_Url" placeholder="Enter Image Url" />
+    <button onclick="addImage()">Submit</button>
+    <button onclick="SlideShow()">Start Slide Show</button>
+    <div id="slide_show"></div>
+  </body>
+</html>
+<script>
+  let imagesArr = JSON.parse(localStorage.getItem("images")) || [];
+
+  function addImage() {
+    alert("this is working fine");
+
+    let Img_Url = document.querySelector("#Image_Url");
+
+    imagesArr.push(Img_Url.value);
+
+    localStorage.setItem("images", JSON.stringify(imagesArr));
+    Img_Url.value = null;
+  }
+
+  function SlideShow() {
+    alert("slide show just started");
+    let slideshow_images = JSON.parse(localStorage.getItem("images"));
+    let container = document.getElementById("slide_show");
+    let i = 0;
+
+    setInterval(function () {
+      if (i === imagesArr.length) {
+        i = 0;
+      }
+
+      let img = document.createElement("img");
+      img.src = imagesArr[i];
+      container.innerHTML = null;
+      container.append(img);
+      i++;
+    }, 2000);
+  }
+</script>

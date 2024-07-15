@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+   
+  </head>
+
+  <body >
+    <!-- Use this form for taking the inputs  -->
+    <h1 id="HH"> Masai Employee Records</h1>
+      <!-- Use this select tag for filtering  -->
+      <select id="filter"  style="width: 300px;">
+        <option value="">Select Department</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+        <option value="Engineering">Engineering</option>
+      </select>
+    
+    <div>
+      <form >
+        <input  placeholder="Name" type="text" id="name" />
+        <input  placeholder="Employee ID" type="text" id="employee_id" />
+        <select id="department">
+          <option value="">Select Department</option>
+          <option value="HR">HR</option>
+          <option value="Finance">Finance</option>
+          <option value="Engineering">Engineering</option>
+        </select>
+        <input placeholder="Experience" type="number" id="experience" />
+        <input placeholder="Email" type="email" id="email" />
+        <input placeholder="Mobile No." type="number" id="mobile" />
+        <input type="submit" value="Submit"  />
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Employee ID</th>
+            <th>Department</th>
+            <th>Experience in Years</th>
+            <th>Email</th>
+            <th>Mobile No</th>
+            <th>Role</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Append Rows here using JS & DOM  -->
+        </tbody>
+      </table>
+    </div>
+  
+
+  
+  </body>
+  <script>
+
+let arr =  []
+displayTableArr(arr)
+
+let formTag = document.querySelector("form")
+formTag.addEventListener("submit",ColectData)
+
+document.querySelector("#filter").addEventListener("change", filter)
+
+
+function ColectData(event){
+
+  event.preventDefault()
+
+  let obj = {
+  
+    name : formTag.name.value,
+  employee_id : formTag.employee_id.value,
+  department : formTag.department.value,
+  experience : formTag.experience.value,
+  email : formTag.email.value,
+  mobile : formTag.mobile.value
+
+  }
+
+  arr.push(obj)
+  
+ //console.log( name, employee_id,  department, experience,  email, mobile, )
+
+  displayTableArr(arr)
+
+ }
+
+
+function displayTableArr(arr){
+
+document.querySelector("tbody").innerText=""
+
+arr.forEach(function(el){
+
+  let tr = document.createElement("tr");
+    
+    let td1 = document.createElement("td");
+    td1.innerText = el.name ;
+
+    let td2 = document.createElement("td");
+    td2.innerText = el.employee_id;
+
+    let td3 = document.createElement("td");
+    td3.innerText = el.department;
+
+    let td4 = document.createElement("td");
+    td4.innerText = el.experience;
+
+    let td5 = document.createElement("td");
+    td5.innerText = el.email;
+
+    let td6 = document.createElement("td");
+    td6.innerText = el.mobile; 
+
+    let td7 = document.createElement("td");
+    if(el.experience >= 5){
+        td7.innerText = "Senior"; 
+     }else if( el.experience >= 2 && el.experience < 5){
+        td7.innerText = "Junior"; 
+     }else {
+        td7.innerText = "Fresher"; 
+     }
+
+     let td8 = document.createElement("td");
+     td8.innerText = "DELET"
+     td8.style.backgroundColor = "#132a13"
+     td8.style.color = "yellow"
+     td8.style.cursor = "pointer"
+     td8.style.fontSize = "20px"
+
+     td8.addEventListener("click", function(event){
+         event.target.parentNode.remove();
+      });
+
+     tr.append(td1,td2,td3,td4,td5,td6,td7,td8);
+     document.querySelector("tbody").append(tr);
+})
+
+}
+
+
+
+function deleteROW(index){
+   // event.target.parentNode.remove();
+
+  // arr.splice(index,1)
+  //  localStorage.setItem("students", JSON.stringify(arr))
+  //  window.location.reload()
+}
+
+
+//// filter sort 
+function filter(){
+
+
+
+let department = document.querySelector("#filter").value;
+
+if(department==""){
+  displayTableArr(arr)
+}
+
+let FilteredList = arr.filter(function(el){
+  return el.department == department
+})
+
+
+displayTableArr(FilteredList)
+
+}
+
+
+
+  </script>
+</html>

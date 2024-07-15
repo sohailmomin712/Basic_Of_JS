@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: Roboto, Arial, sans-serif;
+      }
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* gap: 15px; */
+      }
+
+
+      input {
+        width: 455px;
+        height: 28px;
+        /* border: blue; */
+      }
+
+      input:hover {
+        border-color: blue;
+      }
+      button {
+        height: 34px;
+      }
+      /* #append>div{
+  display: flex;
+  width: 500px;
+
+} */
+
+      #content {
+        width: 1400px;
+        /* border: 1px solid; */
+        display: flex;
+        margin: auto;
+        text-align: center;
+        justify-content: space-around;
+        gap: 30px;
+      }
+
+      #left {
+        /* border: 1px solid red; */
+        width: fit-content;
+        width: 60%;
+      }
+
+      #right {
+        /* border: 1px solid red; */
+        height: 800px;
+        width: 30%;
+
+        overflow: scroll;
+      }
+
+      #play_video {
+        width: 100%;
+        height: 50%;
+      }
+
+      .video {
+        display: flex;
+        width: fit-content;
+        height: 100px;
+        padding: 10px;
+        gap: 10px;
+      }
+
+      .video img {
+        width: 60%;
+      }
+
+      .video > div {
+        overflow: hidden;
+        text-align: left;
+        width: 500px;
+        align-content: center;
+      }
+
+      .video h5 {
+        line-height: 20px;
+      }
+
+      .video h6 {
+        line-height: 20px;
+        margin-top: -20px;
+      }
+      /*/////////////////////////////////////*/
+
+      #date {
+        margin-right: 130px;
+      }
+      p {
+        margin-top: 10px;
+
+        margin-left: 10px;
+      }
+      #like_ele {
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      #like_ele > img {
+        width: 30px;
+      }
+      #dislike {
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+      #share {
+        margin-top: 12px;
+        margin-left: 20px;
+      }
+      #playlist {
+        margin-top: 12px;
+        margin-left: 20px;
+      }
+      #dot_icon {
+        margin-top: 12px;
+        margin-left: 20px;
+      }
+      hr {
+        /* width: 50%; */
+        margin-left: 10px;
+        margin-right: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      #like_ele{
+        /* border: 1px solid; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -20px;
+      }
+
+      #like_ele p{
+
+
+        margin-top: 15px;
+        /* border: 1px solid; */
+        align-items: center;
+      }
+
+      #like_ele p:first-child{
+font-weight: bolder;
+font-size: 20px;
+
+
+}
+
+      #description{
+        text-align: left;
+      }
+
+     
+      #date{
+        margin-left: 290px;
+      }
+      #title{
+        text-align: left;
+      }
+      
+      </style>
+  </head>
+  
+  <body onload="playVideo()">
+    <div id="navbar">
+      <!-- <button onclick="filter()">sort</button> -->
+      <div>
+       <a href="youtube.html"> <img src="https://i.im.ge/2022/07/05/u0crX0.jpg" alt="u0crX0.jpg" /></a>
+      </div>
+
+      <div id="search">
+        <input type="text" id="query" />
+        <div><button onclick="search()">🔍</button></div>
+        <div>
+          <img
+            src="https://i.im.ge/2022/07/05/u0cB0z.jpg"
+            alt="u0cB0z.jpg"
+            border="0"
+          />
+        </div>
+      </div>
+
+      <div>
+        <img
+          src="https://i.im.ge/2022/07/08/ukntu4.png"
+          alt="u0c7KS.jpg"
+          border="0"
+        />
+      </div>
+    </div>
+    <div id="content">
+      <div id="left">
+        <iframe
+          width="560"
+          height="315"
+          id="play_video"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+
+        <div>
+
+     
+        <h3 id="title"></h3>
+        <div id="like_ele">
+
+          <div>
+            <p id="like"></p>
+          </div>
+       
+
+          <p id="date"></p>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/633/633991.png"
+            alt=""
+          />
+          <p id="like_no"></p>
+
+          <img
+            id="dislike"
+            src="https://cdn-icons-png.flaticon.com/512/633/633758.png"
+            alt=""
+          />
+          <p id="dislike_no"></p>
+          <img
+            id="share"
+            src="https://img.icons8.com/material-sharp/2x/share.png"
+            alt=""
+          />
+          <p>SHARE</p>
+          <img
+            id="playlist"
+            src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/344/external-playlist-music-royyan-wijaya-detailed-outline-royyan-wijaya.png"
+            alt=""
+          />
+          <!-- <p>SAVE</p>
+          <img
+            id="dot_icon"
+            src="https://img.icons8.com/ios-filled/72/dots-loading--v1.gif"
+            alt=""
+          /> -->
+        </div>
+        <hr />
+        <p id="description">
+          Description <br>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis iste, voluptate obcaecati temporibus earum, magni illo, natus nam laudantium quae odit perferendis accusamus. Quae perferendis quidem neque incidunt beatae, ipsam sunt nisi doloribus! Molestiae voluptatum excepturi esse! Eveniet magnam deserunt vero,suscipit nemo. Beatae quos ipsa necessitatibus harum quasi quam eligendi vero dicta repellendus in quod, aut illum eius.
+        </p>
+      </div>
+    </div> 
+      <div id="right"></div>
+    </div>
+  </body>
+</html>
+<script>
+  
+  let playVideo = () => {
+    let video = JSON.parse(localStorage.getItem("video"));
+
+    console.log(video);
+    let id = video.id.videoId;
+    let playvideo = document.getElementById("play_video");
+    play_video.src = `https://youtube.com/embed/${id}`;
+
+    let title = document.getElementById("title");
+    title.innerText = video.snippet.title;
+    let p = document.getElementById("like");
+    p.innerText = `${getRandomInt(1000)}K views`;
+    // let date = document.getElementById("date");
+    // date.innerText = video.snippet.publishedAt;
+    // console.log(video.snippet.publishTime);
+    // let description = document.getElementById("description");
+    // description.innerText = video.snippet.description;
+    let like_no = document.getElementById("like_no");
+    like_no.innerText = `${getRandomInt(100)}K `;
+    let dislike_no = document.getElementById("dislike_no");
+    dislike_no.innerText = `${getRandomInt(100)}`;
+  };
+
+  let getRandomInt = (max) => {
+    return Math.floor(Math.random() * max);
+  };
+
+  // let playvid = () => {
+  //     let vid = JSON.parse(localStorage.getItem("youtubevideo"));
+  //     console.log(vid);
+  //     let id = vid.id.videoId;
+  //     let playvid = document.getElementById("playvid");
+  //     playvid.src = `https://www.youtube.com/embed/${id}`;
+
+  //   };
+</script>
+
+<script>
+  let popular = async () => {
+    let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=50&key=AIzaSyDE06fxor42l6rDqiq5NhM_LJd-hlbT7Ec`;
+
+    let res = await fetch(url);
+    let data = await res.json();
+
+    console.log(data.items);
+    append(data.items);
+  };
+
+  popular();
+
+  //    appending function
+  let append = (data) => {
+    let container = document.getElementById("right");
+    container.innerHTML = "";
+
+    data.map((el) => {
+      // snippet-->title;
+      // snippet--> thumbnails-->medium-->url
+
+      let image = document.createElement("img");
+      image.src = el.snippet.thumbnails.medium.url;
+      image.setAttribute("class", "small");
+
+      let title = document.createElement("h5");
+
+      title.innerText = el.snippet.title;
+
+      let title2 = document.createElement("h6");
+      title.style.fontWeight = "lighter";
+      title2.innerText = el.snippet.channelTitle;
+
+      let divsmall = document.createElement("div");
+
+      let div = document.createElement("div");
+      div.onclick = () => {
+        saveVideo(el);
+      };
+      div.setAttribute("class", "video");
+
+      divsmall.append(title, title2);
+
+      div.append(image, divsmall);
+
+      container.append(div);
+    });
+  };
+</script>

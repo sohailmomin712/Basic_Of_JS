@@ -1,0 +1,34 @@
+// mongosh to run
+
+ 1) All users whose gender is male
+ => db.mongocrud.find({ gender:"Male" } )
+
+ 2) all users whose ID is even
+ => db.mongocrud.find({ id: {$mod: [2,0]  }})
+
+ 3) Users who currently live in Japan
+ => db.mongocrud.find({ native: "Japan"  })
+
+ 4) Users who are female and live in India
+ => db.mongocrud.find({ $and: [ { gender:"Female"  }, { native: "India" }]  })
+ db.mongocrud.find({ $and: [ { gender:"Female"  }, { native: "Russia" }]  })
+
+ 5) Users who are more than 25 years old
+ => db.mongocrud.find({ age:  {$gte: 25  }  } )
+
+ 6) Users who are less than 50 years old and live in United State
+ => db.mongocrud.find({ $and: [ { age :{$lte: 50}  }, { native: "United State" }  ]  })
+
+ 7) Total number of users who want to relocate to France (count only)
+ => db.mongocrud.count( {  relocate_to: "France" })
+
+ 8)Total number of users who are from USA and want to relocate to russia, sort them by age in ascending order
+ =>  
+  for all sorted data 
+  db.mongocrud.find({ $and: [ { native: "United States"  }, { relocate_to:"Russia"  }  ]  }).sort( {age:1} ) 
+ 
+ for count of all data with sort
+ db.mongocrud.count({ $and: [ { native: "United States"  }, { relocate_to:"Russia"  }  ]  }).sort( {age:1} ) 
+
+ 9) get all users, sort them by total number of family member ASC and age DESC order
+ => db.mongocrud.find({}).sort({family_members:1 } ).sort({age:-1 } )

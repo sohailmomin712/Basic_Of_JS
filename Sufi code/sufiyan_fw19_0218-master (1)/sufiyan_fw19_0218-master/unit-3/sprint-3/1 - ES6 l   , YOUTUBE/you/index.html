@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+    </style>
+</head>
+<body>
+
+
+    <input type="text" id="query">
+    <button onclick="search()">Search</button>
+    
+    <div id="container"></div>
+
+
+    
+</body>
+</html>
+
+<script>
+
+
+
+
+// youtube api = AIzaSyCr99ZSMQNnw4QKFhRP9p63ANl4MZIpCLk  
+
+//  https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=kgf&key=[YOUR_API_KEY]
+
+ // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=kgf&key=AIzaSyCr99ZSMQNnw4QKFhRP9p63ANl4MZIpCLk
+
+
+
+ const API_key = "AIzaSyCr99ZSMQNnw4QKFhRP9p63ANl4MZIpCLk"
+
+
+ let search = async () => {
+
+    let query = document.querySelector("#query").value
+    let arr = await getDATA(query)
+    console.log(arr)
+    displayDATA(arr)
+
+ }
+
+
+
+ let getDATA = async ( query ) => {
+
+    let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=${API_key}`
+
+    let res = await fetch(url)
+    let data = await res.json()
+
+    return data.items
+   
+}
+
+
+let saveVIDEO = (el) => {
+
+localStorage.setItem("videoDATA",JSON.stringify(el))
+console.log(el)
+window.location.href = "video.html"
+
+}
+
+
+
+
+
+
+let displayDATA = ( arr ) => {
+
+    let container = document.querySelector("#container"); 
+    container.innerHTML = ""
+
+    arr.map((el) => {
+      
+        let img = document.createElement("img");
+        img.src = el.snippet.thumbnails.medium.url;
+
+        let name = document.createElement("h2");
+        name.innerText = el.snippet.title ;
+
+        let div = document.createElement("div");
+        // div.addEventListener("click", function(){
+        //     saveVIDEO(el);
+        // })
+        div.onclick = () => {
+            saveVIDEO(el);
+        };
+        div.setAttribute("class","video") 
+
+        div.append(img,name)
+        container.append(div)
+
+    });
+
+
+}
+
+displayDATA()
+
+
+
+
+
+let sort = async () => {
+    let data = await getDATA(query)
+
+    data = data.filter((el) => {
+
+        return el.snippet
+    })
+}
+
+
+
+
+
+</script>
+
+
+
+ 

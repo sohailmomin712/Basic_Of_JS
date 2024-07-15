@@ -1,0 +1,33 @@
+{
+   "_id" : "72651", 
+   "city" : "MIDWAY",
+   "loc" : [ -92.431398, 36.290454 ], 
+   "pop" : 408, 
+   "state" : "AR"
+}
+
+
+db.day2.find().size()
+
+=> 29353 // count of all
+
+// return group of state names > totalpop of state > sort 
+db.day2.aggregate( [ { $group : { _id:"$state" , totalPop: { $sum:"$pop" } } } ,  { $sort: {tot: -1}  }   ]  )
+
+// return group of state names > totalpop of state >  totalpop greater than 1cr
+     
+=> db.day2.aggregate([{ $group: { _id: "$state", totalPop: { $sum: "$pop" } } }, { $match: { totalPop: { $gt: 10000000 } } }])
+////////////////////////////
+ return group of state names > totalpop of state >>> { _id: "$state", totalPop: { $sum: "$pop" } } } 
+ totalpop greater than 1cr >>> { $match: { totalPop: { $gt: 10000000 } } }
+ ////////////////////////////
+
+) Find  average population of every state per city
+
+db.day2.aggregate( [
+     { $group : {  _id : { state : "$state", city : "$city"}  , 
+     tot:{$sum:"$pop"}}  
+     },
+     { $group : {_id : "$_id.state", avg : {$avg: "$tot"}} } 
+])  
+       

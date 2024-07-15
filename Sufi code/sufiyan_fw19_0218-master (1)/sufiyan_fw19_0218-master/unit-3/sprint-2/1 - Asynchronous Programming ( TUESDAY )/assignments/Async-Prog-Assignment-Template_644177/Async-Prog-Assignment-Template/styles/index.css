@@ -1,0 +1,213 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+.navbar>div:first-child p{
+    font-family: 'Milonga';
+    font-size: 45px;
+    color: white;
+  
+}
+
+
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    width: 100%;
+}
+
+
+  /* /// NAVBAR CSS */
+
+  .navbar {
+    background: rgb(24,0,22);
+    background: linear-gradient(90deg, rgba(24,0,22,1) 0%, rgba(92,7,84,1) 25%, rgba(0,212,255,1) 62%, rgba(3,23,157,1) 100%);
+      width:100%;
+      height:80px;
+     
+      display:flex;
+      justify-content: space-around;
+      align-items: center;
+
+    border-radius: 10px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+
+
+  }
+  .navbar >  div:last-child{
+      width:40%;
+      height:50px;
+    
+  }
+
+
+    .navbar div{
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        font-size: xx-large;
+    }
+   
+  
+   .aa{
+    padding: 5px 20px;
+    background-color: #ffffff36;
+    border-radius: 5px;
+
+    }
+
+   .aa>a{
+        color: white;
+        text-decoration: none;
+        font-size: x-large;
+              
+    }
+
+
+    .aa> a:hover{
+        color: rgb(38, 43, 173);
+      
+    }
+
+    .aa:hover{
+        padding: 5px 20px;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    /**/
+
+   
+      #movies{
+       display: grid; 
+       grid-template-columns: repeat(3,1fr);
+       width: 1200px;
+        border: 0px solid none;
+         margin: auto; 
+         margin-top: 20px;
+         gap: 50px;
+
+      }
+
+ 
+
+      #movies>div h1{
+        text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      
+      #movies>div h3{
+        text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 30px;
+        margin-top: -20px; 
+        font-weight: lighter;
+        
+      }
+
+      #movies>div p{
+        text-align: center; 
+        margin-top: -25px; 
+        font-size: 30px
+      }
+
+      #movies>div button{
+        margin: auto; display:block;
+        background: rgb(40,155,255);
+background: linear-gradient(0deg, rgba(40,155,255,1) 0%, rgba(3,24,157,1) 100%);
+         padding: 10px 20px; 
+         margin-top: -5px; 
+         margin-bottom: 20px;
+         border: none;
+         font-size: 20px;
+         color: white;
+         margin-top: -20px; 
+      }
+
+      #movies div{
+        border: 0.5px solid rgb(199, 199, 199);
+        background-color: whitesmoke;
+      }
+
+      #movies>div img{
+        width: 100%;
+        height: 430px;
+
+      }
+
+
+
+     /** sort part css */
+     
+     #sort-buttons{
+        width: 500px;
+       
+        display: flex;
+        margin: auto;
+        margin-top: 30px;
+      
+
+     }
+
+     #sort-buttons h2{
+        padding: 15px 20px;
+        background-color: #1b92a734;
+        border-radius: 5px;
+    
+     }
+
+    
+
+     #sort-buttons>div{
+        display: block;
+        margin: auto;
+        text-align: center;
+     }
+
+
+     #sort-buttons>div>button{
+     
+        background: rgb(40,155,255);
+background: linear-gradient(0deg, rgba(40,155,255,1) 0%, rgba(3,24,157,1) 100%);
+         padding: 10px 20px;      
+         border: none;
+         font-size: 20px;
+         color: white;
+         border-radius: 5px;
+         cursor: pointer;
+      }
+
+
+      #slideshow{
+       width: 100%;
+       background-color: rgba(147, 147, 147, 0.421);
+       margin-top: 20px;
+      }
+
+
+      #slideshow>div{
+        width: 1000px;
+        border: 0px solid none;
+         margin: auto; 
+      
+         height: 450px;
+       }
+ 
+    
+
+      #slideshow img{
+
+        width: 100%;
+
+        height: 100%;
+        border: 0px solid none;
+         margin: auto; 
+   
+      }
+
+      
+
+
+    
+
+

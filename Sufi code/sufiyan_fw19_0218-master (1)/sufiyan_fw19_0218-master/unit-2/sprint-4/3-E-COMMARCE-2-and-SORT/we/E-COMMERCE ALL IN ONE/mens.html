@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENS</title>
+    <style>
+      
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+            .navbar>div:first-child p{
+                font-family: 'Milonga';
+                font-size: 50px;
+                color: white;
+               
+
+                
+            }
+
+        
+
+        #product{
+           
+           display: grid;
+           width: 60%;
+           grid-template-columns: repeat(4,1fr);
+           grid-template-rows: repeat(2,1fr);
+           gap: 30px;
+           margin: auto;
+           margin-top: 50px;
+           justify-content: space-between;
+           align-items: center;
+       }
+
+       #product > div{
+           
+           border-radius: 5px;
+           box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+           background-color: white;
+
+           text-align: center;
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+           
+       }
+
+       #product>div>img{
+       border-radius: 5px 5px 0px 0px;
+          width: 100%;
+         
+       }
+
+       button{
+           display: block;
+           text-align: center;
+
+     
+           margin: auto;
+          margin-bottom: 20px;    margin-top: 10px;
+           
+           padding: 5px 10px;
+           
+           border-color: none;
+           border-radius: 8px;
+           
+          
+       }
+
+      
+
+       button {
+  
+
+  border-radius: 10px;
+  border-color: red;
+ 
+  
+  }
+  
+button:hover {
+  background-color: red;
+  border-color: red;
+  color: white;
+  }
+
+
+  #product>div>p:nth-child(3),s{
+      font-size: xx-large;
+     
+  }
+
+  #product>div>p:nth-child(2){
+      font-size: 22px;
+     
+  }
+
+
+
+  /* /// NAVBAR CSS */
+
+  .navbar {
+            background-image: url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg");
+              width:100%;
+              height:80px;
+             
+              display:flex;
+              justify-content: space-around;
+              align-items: center;
+        
+            border-radius: 10px;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+           
+
+
+          }
+          .navbar >  div:last-child{
+              width:40%;
+              height:50px;
+            
+            
+  
+
+          }
+       
+        
+            .navbar div{
+                display:flex;
+                justify-content:space-around;
+                align-items:center;
+                font-size: xx-large;
+            }
+           
+          
+        
+            button:hover{
+                background-color: rgb(241, 194, 194);
+            }
+
+           .aa> a{
+                color: white;
+                text-decoration: none;
+                font-size: x-large;
+                
+            }
+
+
+            .aa> a:hover{
+                color: rgb(130, 1, 1);
+              
+            }
+
+            .aa:hover{
+                padding:10px 20px;
+                background-color: white;
+                border-radius: 5px;
+            }
+
+            select{
+
+padding: 10px 10px;
+border-color: none;
+border-radius: 8px;
+margin: auto;
+margin-top: 20px;
+
+border-color: rgb(130, 1, 1);
+
+text-align: center;
+margin-left: 20px;
+
+}
+
+
+select:hover {
+background-color:rgb(130, 1, 1);;
+border-color: rgb(255, 255, 255);
+color: white;
+}
+
+
+
+
+  
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+  <div class="navbar">
+    <div>
+        <p>suFi</p>
+    </div>
+    <div>
+        <p class="aa" id="men"> <a href="mens.html" target="_blank"  >Men</a> </p>
+        <p class="aa" id="women"> <a href="women.html" target="_blank" >Women</a> </p>
+        <p class="aa"><a href="LOGIN.html" target="_blank" >Login</a> </p>
+        <p class="aa"> <a href="SIGNUP.html" target="_blank" >Sign Up</a> </p>
+        <p class="aa"><a href="cart.html"  target="_blank" >🛒Cart</a> </p>
+    </div>
+  </div>  
+
+
+
+
+ <select id="Range" onchange="SalaryFilter()">
+  <option value="">Filter by Sallery</option>
+  <option value="Low">Low To High</option>
+  <option value="High">High to Low</option>
+</select> 
+  
+
+    <div id="product" >
+
+     
+
+    </div>
+
+
+
+    
+</body>
+</html>
+
+
+<script>
+
+var mensData = [
+    {
+      image_url:
+        " https://content.shop4reebok.com/static/Product-EX4287/reebok_EX4287_1.jpg.plp  ",
+      name: " MEN'S REEBOK RUNNING GENESIS RUNNER SHOE  ",
+      price: 1620, id:1 
+      
+    },
+    {
+      image_url:
+        " https://content.shop4reebok.com/static/Product-GK9180/reebok_GK9180_1.jpg.plp  ",
+      name: " MEN'S REEBOK TRAINING RUNNER SHORTS  ",
+      price: 779, id:2
+      
+    },
+    {
+      image_url:
+        " https://content.shop4reebok.com/static/Product-HB5732/reebok_HB5732_1.jpg.plp  ",
+      name: " MEN REEBOK CLASSICS TRACKSUIT HOODIE  ",
+      price: 3499, id:3
+      
+    },
+    {
+      image_url:
+        " https://content.shop4reebok.com/static/Product-HB5733/reebok_HB5733_1.jpg.plp  ",
+      name: "MEN'S REEBOK CLASSIC TRACKSUIT GOLF HOODIE   ",
+      price: 3499,  id:4
+      
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FQ5364/reebok_FQ5364_1.jpg.plp   ",
+      name: " UNISEX REEBOK TRAINING ACTIVE  BAG ",
+      price: 1399, id:5 
+      
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FW0318/reebok_FW0318_1.jpg.plp ",
+      name: " MEN'S REEBOK RUNNING TREND RUNNER SHOES",
+      price: 1575, id:6
+      
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-G57705/reebok_G57705_1.jpg.plp",
+      name: "UNISEX REEBOK CLASSICS  BASKETBALL SHOES",
+      price: 3919,id:7
+      
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FW0344/reebok_FW0344_1.jpg.plp",
+      name: "MEN'S REEBOK RUNNING RUN FUSION  SHOES",
+      price: 1620,id:8
+      
+    },
+  ]
+
+
+let productcont=document.getElementById("product");
+
+document.querySelector("#filter")
+
+function handleNamesort(){  
+
+let Selected = document.querySelector("#filter").value;
+
+     if(Selected=="A to Z"){
+       mensData.sort(function(a,b){
+         if(a.name > b.name) return 1
+         if(a.name < b.name) return -1
+         return 0
+       })
+       displayproduct(mensData)
+       }
+       if(Selected=="Z to A"){
+         mensData.sort(function(a,b){
+         if(a.name > b.name) return -1
+         if(a.name < b.name) return 1
+         return 0
+       })
+       displayproduct(mensData)
+
+  }
+
+}
+
+
+
+//// slect tag onchange sort by sallary high to low
+function SalaryFilter(){  
+
+let Selected = document.querySelector("#Range").value;
+
+if(Selected=="Low"){
+  mensData.sort(function(a,b){
+    return a.price - b.price
+  })
+  displayproduct(mensData)
+  }
+  if(Selected=="High"){
+    mensData.sort(function(a,b){
+    return b.price - a.price
+  })
+  displayproduct(mensData)
+
+  }
+
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+ let cartls=JSON.parse(localStorage.getItem("cart-page")) || [];
+ displayproduct(mensData)
+
+ function displayproduct(mensData){
+  
+        productcont.innerHTML="";
+
+   mensData.map(function(el){
+
+    let product = document.createElement("div")
+    
+
+    let imga = document.createElement("img")
+    imga.setAttribute("src",el.image_url)
+
+    let nam = document.createElement("h3")
+    nam.innerText = el.name
+
+   let price = document.createElement("p")
+   price.innerText = el.price
+
+
+   let addtocart = document.createElement("button")
+   addtocart.innerText = "Add to Cart"
+   addtocart.addEventListener("click", addTocart)
+
+     function addTocart(event){
+
+            if(cartls.length == 0){
+
+              let a = el ;
+              a.counter = 1 ; 
+              cartls.push(a)
+
+            }else{
+
+              let flag = false;
+              for(let i = 0; i <cartls.length; i++){
+                
+                if(cartls[i].id == el.id){
+                  cartls[i].counter++
+                  flag == true ; 
+                  break ; 
+
+                }
+
+              }if(flag == false){
+                let a = el;
+                a.counter = 1;
+                cartls.push(a)
+              }
+            }
+
+            localStorage.setItem("cart-page", JSON.stringify(cartls))
+            alert("Successfully addded to cart")
+            
+           }
+
+           product.append(imga,nam,price,addtocart)
+           document.querySelector("#product").append(product)
+
+      })
+ }
+
+ displayproduct(mensData)
+
+
+
+</script>

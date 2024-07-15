@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="getLocation()">
+    <input type="text" id="query" placeholder="CITY NAME">
+    <button onclick="getDATA()">Search</button>
+
+    <div id="container"></div>
+
+    <!-- // coppied code from embed google map site -->
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="600" height="500" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+
+            </iframe>
+            <a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon/">
+
+            </a>
+            <br>
+           </div>
+        </div>
+</body>
+
+</html>
+
+
+<script>
+
+ //   https://api.openweathermap.org/data/2.5/weather?q=sangamner&appid=5853d47d0d003b71e2918ba5ee4a1851
+
+ // https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=5853d47d0d003b71e2918ba5ee4a1851
+
+ // "https://maps.google.com/maps?q=sangamner&t=&z=13&ie=UTF8&iwloc=&output=embed"
+
+function getDATA(){
+
+    let city = document.querySelector("#query").value;
+
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5853d47d0d003b71e2918ba5ee4a1851`
+
+    fetch(url)
+    .then(function(res){  
+    
+        return res.json();  
+
+    }).then(function(res){   
+
+       console.log(res)  
+       displayDATA(res)  
+    }).catch(function(err){
+        console.log(err)
+    })
+}
+
+
+function displayDATA(data){
+
+    let url = `https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+
+    let container = document.querySelector("#container")
+    container.innerHTML = ""
+
+    let h2 = document.createElement("h2")
+    h2.innerText = data.name
+
+    let temp =  document.createElement("h3")
+    temp.innerText = `Temp : - ${data.main.temp}`
+
+    let min_temp =  document.createElement("h3")
+    min_temp.innerText = `Min - Temp : - ${data.main.temp_min}`
+    let max_temp =  document.createElement("h3")
+    max_temp.innerText = `Max - Temp : - ${data.main.temp_max}`
+
+    container.append(h2,temp,min_temp,max_temp)
+
+    
+    let iframe = document.querySelector("#gmap_canvas")
+    iframe.src = url;
+    
+}
+
+
+function getLocation(){
+
+    navigator.geolocation.getCurrentPosition(success);
+
+    function success(pos) {
+    const crd = pos.coords;
+
+    console.log('Your current position is:');
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+
+    getWheatherNlocation(crd.latitude,crd.longitude) /// passed 
+}
+
+
+}
+
+
+
+
+
+function getWheatherNlocation(lat,lon){
+
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=5853d47d0d003b71e2918ba5ee4a1851`
+
+    fetch(url)
+    .then(function(res){  
+    
+        return res.json();  
+
+    }).then(function(res){   
+
+       console.log(res)  
+       displayDATA(res)  
+    }).catch(function(err){
+        console.log(err)
+    })
+}
+</script>

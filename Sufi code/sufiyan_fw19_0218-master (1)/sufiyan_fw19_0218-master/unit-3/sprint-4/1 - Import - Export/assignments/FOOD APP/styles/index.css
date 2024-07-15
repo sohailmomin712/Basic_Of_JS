@@ -1,0 +1,50 @@
+#navbar{
+    display: flex;
+    background-color: rgb(175, 243, 132);
+
+    gap: 20px;
+    padding: 0px 40px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container{
+   
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 1000px;
+    margin: auto;
+    border: 1px solid;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+
+#LHS input {
+    width: 455px;
+    height: 45px
+    /* border: blue; */
+  }
+
+  #LHS input:hover {
+    border-color: blue;
+  }
+
+#RHS{
+    /* border: 1px solid; */
+width: 800px;
+    display: flex;
+  
+    padding: 0px 40px;
+    justify-content: space-between
+}
+
+#container > div {
+
+    border: 1px solid;
+    margin: auto;
+}
+
+#container > div img{
+    width: 200px;
+}

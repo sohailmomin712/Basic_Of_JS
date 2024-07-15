@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            gap: 50px;
+        }
+
+       
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="signup">
+            
+        <h1>SignUp</h1>
+        
+        <form  id="sign_up_form">
+            <input type="text" id="name" placeholder="Enter name"> <br>
+            <input type="text" id="email" placeholder="Enter Email"> <br>
+            <input type="text" id="password" placeholder="Enter password"> <br>
+            <input type="text" id="username" placeholder="Username"> <br>
+            <input type="text" id="mobile" placeholder="Enter Mobile"> <br>
+            <input type="text" id="description" placeholder="description"> <br>
+        </form>
+
+        <button onclick="Register()">Signuo</button>
+        
+        </div>
+    
+        <div id="login">
+        
+        <h1>LogIn</h1>
+
+        <form id="login_form" >
+            <input type="text" id="login_username" placeholder="Enter Username"><br>
+            <input type="text" id="login_password" placeholder="Enter password"><br>
+        </form>
+
+        <button onclick="Login()">Signuo</button>
+        
+        </div>
+    
+    </div>
+    
+</body>
+</html>
+
+
+<script>
+/////////////  SINGUP PART    //////////////
+    // save data in masai database
+     
+     let formSINGUP = document.querySelector("#sign_up_form")
+
+     let Register = async ()=>{
+
+          let sign_up_DATA = {
+              
+              name: formSINGUP.name.value,
+              email: formSINGUP.email.value,
+              password: formSINGUP.password.value,
+              username: formSINGUP.username.value,
+              mobile: formSINGUP.mobile.value,
+              description: formSINGUP.description.value,
+              
+          }
+          
+          // who needs data - object format 
+          // JSON Format ////////////////////////////////
+          
+          sign_up_DATA = JSON.stringify(sign_up_DATA)
+
+          let signup_api_link = "https://masai-api-mocker.herokuapp.com/auth/register" ;
+
+
+          // fetch  /////////////////////////////////////
+          // custom setting object 
+
+          let response = await fetch (signup_api_link, {
+
+            method  : "POST" ,
+
+            body : sign_up_DATA, 
+
+            headers: 
+            {
+
+                "Content-Type" : "application/json"
+
+            }
+
+          })
+
+          let data = await response.json()
+          console.log(data)
+
+     }
+
+
+/////////////  LOGIN PART   //////////////
+
+ 
+      let formLOGIN = document.querySelector("#login_form")
+ 
+      function Login (){
+         
+          let log_in_DATA = {
+                
+                 username: formLOGIN.login_username.value,  
+                password: formLOGIN.login_password.value,
+      
+            }
+  
+            // console.log(log_in_DATA)  // JSON.stringify
+
+            log_in_DATA = JSON.stringify(log_in_DATA)  
+
+            // console.log(log_in_DATA)  // JSON.stringify
+
+            // GET / POST
+
+            let login_api_link = "https://masai-api-mocker.herokuapp.com/auth/login" ;
+
+            fetch(login_api_link, {
+
+             method : "POST",
+
+             body : log_in_DATA,
+
+             headers: 
+             {
+
+                 "Content-Type" : "application/json"
+
+             }
+            })
+             
+            .then((response) =>{
+                return response.json()
+            })
+            .then((response) =>{
+                console.log(response)
+                getMyProfile(response,log_in_DATA)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+           
+
+            // let data = await response.json()
+            // console.log(data)
+
+    } 
+
+
+
+ // GET 
+    function getMyProfile( {token} , {username} ){
+
+
+
+        fetch( `https://masai-api-mocker.herokuapp.com/user/${username}`, {
+        
+        headers: 
+        {
+        
+            Authorization: `Bearer ${token}`
+        
+        }
+        })
+        .then((res)=>{
+            return res.json()
+
+        })
+        .then((res)=>{
+            console.log(res) 
+
+        })
+        .catch((err)=>{
+            console.log(err.message)
+        })
+    }
+     
+
+</script>

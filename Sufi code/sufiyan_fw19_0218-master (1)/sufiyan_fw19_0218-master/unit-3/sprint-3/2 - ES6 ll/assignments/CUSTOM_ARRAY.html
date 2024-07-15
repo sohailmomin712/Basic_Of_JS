@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let arr1 = new Array(1, 4, 8);
+
+  Array.prototype.myPop = () => {
+    let index = this.length - 1;
+    if (index == -1) {
+      console.log("underflow");
+    } else {
+      return this[index];
+    }
+  };
+
+  console.log(arr1);
+  let popTest = arr1.myPop();
+  console.log(popTest);
+
+  // **********************Push Method******************************
+
+
+  Array.prototype.myPush = (ele) => {
+    let last = this.length;
+    this[last] = ele;
+  };
+
+  let arr2 = new Array(2, 4, 6);
+  arr2.myPush(8);
+  console.log(arr2);
+
+  // ************************ForEach Method*************************
+
+
+  Array.prototype.myForEach = (fun) => {
+    for (let i = 0; i < this.length; i++) {
+      this[i] = fun(this[i]);
+    }
+  };
+
+  let arr3 = new Array(1, 2, 3);
+
+  arr3.myForEach(function (x) {
+    return x * 2;
+  });
+  
+  console.log(arr3);
+  arr3.myPush(8);
+  console.log(arr3);
+
+  // ******************map Method**********************************
+
+
+  Array.prototype.myMap = (fun) => {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+      arr.push(fun(this[i]));
+    }
+    return arr;
+  };
+  let arr4 = new Array(5, 7, 2, 3, 6, 17);
+  arr4 = arr4.myMap(function (ele) {
+    return ele % 2 == 1;
+  });
+  console.log(arr4);
+
+  // *******************Filter Method***********************************
+
+
+  Array.prototype.myFilter = (fun) => {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+      if (fun(this[i])) {
+        arr.push(this[i]);
+      }
+    }
+    return arr;
+  };
+  let arr5 = new Array(5, 7, 2, 3, 6, 17, 51, 52);
+  arr5 = arr5.myFilter(function (ele) {
+    return ele % 2 == 1;
+  });
+  console.log(arr5);
+
+  // *********************Chaining***************************************
+
+  
+
+  let arr6 = new Array(1, 5, 335, 684, 64, 215, 8, 9, 4);
+  arr6 = arr6.myPush(21).myFilter((ele) => {
+    return ele % 2 == 0;
+  });
+  console.log(arr6);
+</script>

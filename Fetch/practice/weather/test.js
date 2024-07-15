@@ -74,14 +74,3 @@ function getWeatherOnLocation(lat, lon) {
       console.log(err);
     });
 }
-//https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
-
-// const options = {
-//   enableHighAccuracy: true,
-//   timeout: 5000,
-//   maximumAge: 0,
-// };
-
-// function error(err) {
-//   console.warn(`ERROR(${err.code}): ${err.message}`);
-// }

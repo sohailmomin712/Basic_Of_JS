@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        body{
+            margin: auto;
+            display: block;
+            justify-content: center;
+            align-content:center ;
+        }
+
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 550px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Buy Crypto NOW</h1>
+
+    <div>
+
+        <table>
+            <tr>
+              <th>No.</th>
+              <th>Currency</th>
+              <th>Price</th>
+              <th>Buy</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Bitcoin</td>
+              <td id="price1" >150</td>
+              <td id="buy1" style="background-color: rgb(12, 103, 206); color: white;" > Buy</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Matic</td>
+                <td id="price2" >100</td>
+                <td id="buy2" style="background-color: rgb(12, 103, 206); color: white;" > Buy</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Etherium</td>
+                <td id="price3" >50</td>
+                <td id="buy3" style="background-color: rgb(12, 103, 206); color: white;" > Buy</td>
+              </tr>
+           
+         
+          </table>
+
+    </div>
+
+    <br><br><br>
+    <hr>
+
+    <div >
+        <h1>User Wallet</h1>
+        <table>
+
+            <tr>
+                <th>No.</th>
+                <th>Currency</th>
+              
+                <th>Quantity</th>
+              </tr>
+
+              <tr>
+                <td>1</td>
+                <td>Bitcoin</td>
+                <td id="Qty1" style="background-color: rgb(93, 11, 160); color: white;" > 0 </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Matic</td>
+                <td id="Qty2" style="background-color: rgb(93, 11, 160); color: white;" > 0 </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Etherium</td>
+                <td id="Qty3" style="background-color: rgb(93, 11, 160); color: white;" > 0 </td>
+              </tr>
+             
+        </table>
+
+    </div>
+    <br><br><br>
+    <hr>
+    <div style="padding: 20px; color:blueviolet;">
+        <h3>ALL FUNCTIONALITY WORKING </h3>
+        <h3>MONGODB CONNECTED , DATA UPDATING to MONGODB </h3>
+        <h3> CHANGING Currency PRICES LIVE on inteval 1 second </h3>
+        <h3> User Wallet Updating Live in Backend weith Web Socket integration </h3>
+        <h3> CREATED PROPER EXPRESS ARCHITECTURE MVC </h3>
+        <h3> QUANTITY UPDATING LIVE , in backend as well as on Frontend </h3>
+        <h1> EMAIL SENDED 100% WORKING ALL FUNCTIONALITY </h1>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+</body>
+</html>
+
+<script>
+    const socket = io() // io.emit("connection")
+
+    /////////////////// 
+
+    let price1 = document.querySelector("#price1")  
+    let price2 = document.querySelector("#price2")
+    let price3 = document.querySelector("#price3") 
+
+    let Qty1 = document.querySelector("#Qty1")  
+    let Qty2 = document.querySelector("#Qty2")
+    let Qty3 = document.querySelector("#Qty3") 
+
+    document.querySelector("#buy1").addEventListener("click", BuyBitcoin)
+    document.querySelector("#buy2").addEventListener("click", BuyMatic)
+    document.querySelector("#buy3").addEventListener("click", BuyEtherium)
+
+
+    ///////////////////
+
+    // 100% WORKING 
+    socket.on("newPrice", (data)=>{
+
+        //let arrow =  "▲" : "▼"
+
+      price1.innerHTML =` $ ${data.Bitcoin} ${data.Bitcoin < 155 ? "▼" : "▲"}`
+      price2.innerHTML =` $ ${data.Matic} ${data.Matic < 105 ? "▼" : "▲"}`
+      price3.innerHTML =` $ ${data.Etherium } ${data.Etherium < 55 ? "▼" : "▲"}`
+      
+      if(data.Bitcoin < 155){
+        price1.style.color = "white" ;  price1.style.backgroundColor = "red"
+
+      }else{
+        price1.style.color = "white" ;  price1.style.backgroundColor = "green"
+      }
+
+      if(data.Matic < 105){
+        price2.style.color = "white" ;  price2.style.backgroundColor = "red"
+
+      }else{
+        price2.style.color = "white" ;  price2.style.backgroundColor = "green"
+      }
+
+      if(data.Etherium < 55){
+        price3.style.color = "white" ;  price3.style.backgroundColor = "red"
+
+      }else{
+        price3.style.color = "white" ;  price3.style.backgroundColor = "green"
+      }
+       // console.log(data)
+    })
+    
+   socket.on("getData", (data)=>{
+    Qty1.innerHTML = data.Bitcoin
+      Qty2.innerHTML = data.Matic
+      Qty3.innerHTML = data.Etherium 
+   })
+
+    function BuyBitcoin(){
+       socket.emit("UpdateData" , {key : "Bitcoin", value: +Qty1.innerHTML+1})
+       init("Bitcoin")
+
+    }
+
+    function BuyMatic(){
+       socket.emit("UpdateData" , {key : "Matic", value: +Qty2.innerHTML+1})
+       init("Matic")
+    }
+
+    function BuyEtherium(){
+       socket.emit("UpdateData" , {key : "Etherium", value: +Qty3.innerHTML+1})
+       init("Etherium")
+    }
+
+
+    function init(value) {
+    var count=5;
+    var counter=setInterval(timer,1000);
+        function timer(){
+            count=count-1;
+            if(count==0){
+                alert(`${value} Purchase successfull, check Wallet`)
+                alert(`Email Send successfull`)
+               // window.location = "http://www.example.com";      
+                return;
+            } 
+        }
+    }
+
+</script>

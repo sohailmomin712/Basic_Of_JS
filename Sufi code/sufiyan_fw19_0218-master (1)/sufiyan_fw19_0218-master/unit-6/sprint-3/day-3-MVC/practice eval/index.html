@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body{
+    margin: auto;
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+
+table {
+        margin: auto;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 500px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<body style="width: 70%;">
+    <div style="margin: auto; border: 1px solid; text-align: center;">
+        
+        <h1>CRYPTO CURRENT LAGA</h1>
+        
+        <div>
+            <select id="timeList" onchange="selectTime()">
+                <option value="500" >500 m</option>
+                <option value="1000" >1000 m</option>
+                <option value="1500" >1500 m</option>
+                <option value="2000" >2000 m</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="tableD">
+        
+<table  >
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>BUY</th>
+    </tr>
+    <tr  >
+      <td>1</td>
+      <td>Bitcoin</td>
+      <td id="value1" >0</td>
+      <td  id="BuyNow1"  style="background-color: rgb(132, 199, 100);" >BUY NOW</td>
+    </tr>
+    <tr  >
+      <td>2</td>
+      <td>Matic</td>
+      <td id="value2" >0</td>
+      <td  id="BuyNow2" style="background-color: rgb(132, 199, 100);" >BUY NOW</td>
+    </tr>
+
+    <tr  >
+      <td>3</td>
+      <td>Doge</td>
+      <td id="value3"  >0</td>
+      <td  id="BuyNow3" style="background-color: rgb(132, 199, 100);" >BUY NOW</td>
+    </tr>
+   
+  </table>
+  
+    </div>
+
+    <div >
+       <h1 >USER Purchase</h1>
+           
+         
+       <table>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Buy Price</th>
+            <th>Qty</th>
+            <th>Amount</th>
+          </tr>
+
+          <tbody  id="purchase" > 
+
+          </tbody>
+          
+         
+        </table>
+
+    </div>
+
+
+    <hr style="color: black;" >
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js" ></script>
+</body>
+</html>
+<script>
+const socket = io() // io.emit("connection")
+let value1 = document.querySelector("#value1")
+let value2 = document.querySelector("#value2")
+let value3 = document.querySelector("#value3")
+
+
+const selectTime = ()=>{
+ var x = document.getElementById("timeList").value;
+ // sending to backend
+  socket.emit("priceChange", x)
+  console.log(x)
+}
+      
+let count = 0
+
+socket.on("price", (data)=>{
+   //console.log("new" , data)
+  
+   value1.innerHTML = data.Bitcoin
+   value2.innerHTML = data.Matic
+   value3.innerHTML = data.Doge
+
+
+   if(value1.innerHTML < 45 ){
+    value1.style.color = "red"
+   }else{
+       value1.style.color = "green"
+   }
+
+   if(value2.innerHTML < 65 ){
+    value2.style.color = "red"
+   }else{
+       value2.style.color = "green"
+   }
+
+   if(value3.innerHTML < 55 ){
+    value3.style.color = "red"
+   }else{
+       value3.style.color = "green"
+   }
+
+
+})
+
+let data = JSON.parse(localStorage.getItem("data")) || []
+
+
+document.querySelector("#BuyNow1").addEventListener("click",BuyNow1)
+document.querySelector("#BuyNow2").addEventListener("click",BuyNow2)
+document.querySelector("#BuyNow3").addEventListener("click",BuyNow3)
+
+
+function BuyNow1(event){
+
+let Qty = prompt("Enter your Quantity")
+
+if(!Qty){
+    Qty = prompt("plz add  qty")
+}
+
+data.push({ name:"Bitcoin",
+ price: value1.innerHTML,
+  qty: Qty,
+   total : +value1.innerHTML * +Qty  })
+
+   localStorage.setItem("data" , JSON.stringify(data))
+   DisplayData(data)
+alert("Purchase Successfull")   
+//console.log(data)
+}
+
+function BuyNow2(event){
+
+let Qty = prompt("Enter your Quantity")
+
+if(!Qty){
+    Qty = prompt("plz add  qty")
+}
+
+data.push({ name:"Matic",
+ price: value2.innerHTML,
+  qty: Qty,
+   total : +value2.innerHTML * +Qty  })
+
+   localStorage.setItem("data" , JSON.stringify(data))
+   DisplayData(data)
+alert("Purchase Successfull")   
+console.log(data)
+}
+
+function BuyNow3(event){
+
+let Qty = prompt("Enter your Quantity")
+
+if(!Qty){
+    Qty = prompt("plz add  qty")
+}
+
+data.push({ name:"Doge",
+ price: value3.innerHTML,
+  qty: Qty,
+   total : +value3.innerHTML * +Qty  })
+
+   localStorage.setItem("data" , JSON.stringify(data))
+   DisplayData(data)
+alert("Purchase Successfull")   
+console.log(data)
+}
+
+
+DisplayData(data)
+
+function DisplayData(data){
+
+
+
+    let container = document.querySelector("#purchase")
+    container.innerHTML = null
+
+    if(data.length == 0){
+        let td1 = document.createElement("h1")
+        td1.innerText = "NO PURCHASE"
+
+        container.append(td1)
+    }
+
+   data && data.map(function(el,i){
+
+
+
+let tr = document.createElement("tr")
+
+let index = document.createElement("td")
+index.innerText = i+1
+
+let td1 = document.createElement("td")
+td1.innerText = el.name
+
+let td2 = document.createElement("td")
+td2.innerText = el.price
+
+let td3 = document.createElement("td")
+td3.innerText = el.qty
+
+let td4 = document.createElement("td")
+td4.innerText = +el.qty * +el.price
+
+tr.append(index,td1,td2,td3,td4)
+container.append(tr)
+
+})
+
+}
+
+
+
+
+
+
+</script>

@@ -1,0 +1,55 @@
+db.users.find({},{ "age":1,"name":1, "_id":0 })
+
+only data key with age and name will return 
+ACception : but for _id ewe need to use 0 
+
+
+db.users.find( {age:20},{ "age":1,"name":1, "_id":0 })
+
+math operator : eg , ne , gt ,gte , lt , lte , in , nin
+logical operator : and , or , nor
+
+////// db.users.find( {lastName: {$exists:true}})
+
+
+/// age less than 40 
+ db.users.find({ age:{ $lte:40}},{ "age":1,"name":1, "_id":0 })
+
+/// age less than 40 
+ db.users.find({ age:{ $lte:40}},{ "age":1,"name":1, "_id":0 })
+
+
+// age = 40 .... data only age and name
+ db.users.find({ age:{ $eq:40}},{ "age":1,"name":1, "_id":0 })
+
+
+// age:{ $in:[40,21,42,55,6]}  ... data only age and name
+db.users.find({ age:{ $in:[40,21,42,55,6]}},{ "age":1,"name":1, "_id":0 }) 
+
+// age:{ $nin:[40,21,42,55,6]}  = NOT EQUALT TO .
+db.users.find({ age:{ $nin:[40,21,42,55,6]}},{ "age":1,"name":1, "_id":0 })
+
+
+//////////////////   || or or condition age = 23 or gender = Female
+{ $or: [ {age:23}, {gender:"Female"}]
+>>>>>>
+db.users.find({ $or: [ {age:23}, {gender:"Female"}]},{ "age":1,"name":1, "_id":0, gender:1 })
+
+
+//////////////////   && and and  condition age = 23 or gender = Female
+{ $or: [ {age:23}, {gender:"Female"}]
+>>>>>>
+db.users.find({ $amd: [ {age:23}, {gender:"Female"}]},{ "age":1,"name":1, "_id":0, gender:1 })
+
+
+db.users.find({ age: {$not: {$gte:23} }  },{ "age":1,"name":1, "_id":0 })  
+
+
+//// age > 25 && age < 24
+
+ db.users.find( {  $and: [ {age: {$gt:23}}, {age: {$lt:25}},   ]   },{ "age":1,"name":1, "_id":0 })
+
+/// limit will be 10 of data
+ .limt(10)
+
+

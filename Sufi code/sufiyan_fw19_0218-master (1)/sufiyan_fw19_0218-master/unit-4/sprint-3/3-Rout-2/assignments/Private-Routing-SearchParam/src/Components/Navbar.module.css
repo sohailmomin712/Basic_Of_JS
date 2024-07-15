@@ -1,0 +1,48 @@
+
+
+.active {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    background-color: rgba(41, 160, 168, 0.733);
+  }
+  
+ .default {
+   color: black;
+   text-decoration: none;
+   padding: 0.5rem 2rem;
+ }
+  
+ .buttonS{
+    border: none;
+    background-color:  rgb(42, 173, 182);
+    padding: 0.5rem 2rem;
+    color: white;
+
+ }
+
+ .buttonS:hover{
+    border: none;
+    background-color:  rgb(9, 70, 75);
+    padding: 0.5rem 2rem;
+    color: white;
+
+ }
+
+ .userName{
+
+    background-color: rgb(47, 146, 153);
+    display: grid;
+    padding: 0.5rem 20px;
+    margin-top: 5px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+ }
+
+ .DivUser{
+    display: grid;
+    text-align: center;
+    width: 50px;
+    border: 1px solid;
+ }

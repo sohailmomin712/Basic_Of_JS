@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            margin: auto;
+            text-align: center;
+        }
+
+#otp{
+    width: 500px;
+    height: 50px;
+    font-size: x-large;
+}
+
+button{
+    height: 50px;  font-size: x-large;
+}
+    </style>
+</head>
+<body>
+    <h1>ENTER OTP IN 10 SECOND and Wait</h1>
+    <div>
+        <img id="pay" src="https://c.tenor.com/K2UGDd4acJUAAAAC/load-loading.gif" alt="">
+    </div>
+
+   <input type="number" name="" id="otp" placeholder="enter in 10 Second  ( right otp 12345 )">
+   <button onclick="checkOTP()">SUBMIT</button>
+    
+</body>
+</html>
+<!-- <script src="payment.js"></script> -->
+<script>
+
+
+
+let otp = document.querySelector("#otp")
+let stockOTP = 12345 ; 
+
+
+function checkOTP(){
+
+if(otp.value == stockOTP){
+
+    
+    return true
+}else{
+    return false
+}
+
+}
+
+let payment_promise = new Promise(function(resolve,reject){
+
+    
+setTimeout(function(){    
+
+    let pin = checkOTP()   
+
+    if (pin){
+        resolve("Payment Successfull")
+    }else{
+        reject("Try Again Lager")
+    }
+   
+},10000)
+})
+
+
+
+let img = document.querySelector("#pay")
+
+async function content(){
+
+try{
+
+ let resolve = await payment_promise
+ console.log(resolve)
+ img.src = "https://www.linkpicture.com/q/success.gif"
+
+
+}catch(err){
+    console.log(err)
+    img.src = "https://www.linkpicture.com/q/Failed.gif"
+}
+}
+
+content()
+
+
+</script>

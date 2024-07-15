@@ -1,0 +1,39 @@
+
+////////   STEPS   ////////////////////////
+////////   STEPS   ////////////////////////
+- create react app 
+    - install redux react-redux
+    - create
+        - actionTypes
+        - actions
+        - reducer
+            - inital state
+            - reducer function
+        - store
+    - Provider to wrap our application
+        - useSelector
+        - useDispatch
+    - redux dev tools
+        - compose
+        - window.__REDUX_DEVTOOLS_EXTENSION__
+
+
+////////   GOALS  ////////////////////////
+
+
+        -- authentication 
+            -login 
+            -signyo 
+            -logout 
+
+        --- theme management 
+           - light -- dark 
+
+       -- counter 
+            - increamnertt
+            - decreament 
+       -- totos app
+            -get 
+            -add
+            -update
+            -delete              

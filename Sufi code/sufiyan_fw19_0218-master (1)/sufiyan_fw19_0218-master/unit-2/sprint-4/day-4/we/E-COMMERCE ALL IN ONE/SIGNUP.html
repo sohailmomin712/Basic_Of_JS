@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+            .navbar>div:first-child p{
+                font-family: 'Milonga';
+                font-size: 50px;
+                color: white;
+               
+
+                
+            }
+
+
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  margin: auto;
+  margin-top: 100px;
+
+}
+.navbar>image{
+    width: 100%;
+}
+
+
+.wrapper {
+    animation: slideUp 2000ms ease ;
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+
+    }
+}
+form {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 35%;
+  box-shadow: rgba(149, 157, 165, 0.7) 0px 12px 24px;
+  padding: 10px 30px;
+  border-radius: 20px;
+
+}
+
+label{
+    font-size: 22px;
+    
+}
+
+
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h3{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+
+input[type="text"],input[type="email"],input[type="password"],select,textarea{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+
+     font-size: 20px; 
+    /* // importan PROPERTY */
+    box-sizing: border-box; 
+    resize: vertical;
+    margin-bottom: 15px;
+    
+  }
+  
+button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #ba0032 ;
+    color: white;
+    
+  }
+  
+  button:hover{
+    background-color: #510a2a;
+  }
+
+  br +p{
+   text-align: center;
+   font-size:x-small ;
+   color: rgb(133, 128, 128);
+  }
+
+  button+p{
+   text-align: center;
+   font-size:large ;
+   color: rgb(65, 65, 65);
+  }
+  a{
+      color: rgb(38, 87, 247);
+      font-weight: bolder;
+      text-decoration: none;
+  }
+
+
+  .navbar {
+            background-image: url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg");
+              width:100%;
+              height:80px;
+             
+              display:flex;
+              justify-content: space-around;
+              align-items: center;
+        
+            border-radius: 10px;
+            color: white;
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: xxx-large;
+           
+
+
+          }
+         
+        
+
+
+            #rebook{
+              color: white;
+            }
+  
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+  <div class="navbar">
+    
+        <p>suFi</p>
+    
+  </div> 
+
+  <div class="wrapper">
+
+    <form>
+      
+      <h3>SIGN UP</h3>
+      
+      <label for="">Full Name</label><br />
+      <input id="name" type="text" placeholder="Enter Your Full Name" /><br />
+      
+      <label for="">Email</label><br />
+      <input id="email" type="email" placeholder="Enter Your Email" /><br />
+      
+      <label for="">Password</label><br />
+      <input id="password" type="password" placeholder="Enter Passwrod" />
+      
+      <br />
+
+        <p>By signing up,I accept the Masai School <a href="">Terms of Service</a>
+             and acknowledge the <a href="">Privacy Policy</a></p>
+  
+             <button id="submit" type="submit">SIGN UP</button> 
+
+             <p>Already have an account ? <a href="LOGIN.html" target="_blank">Sign in</a>  </p>
+       
+            </form>
+            
+    </div>
+            
+      <div class="navbar">
+        <div>
+            <p>suFi</p>
+        </div>
+      </div> 
+    
+</body>
+</html>
+<script> 
+
+  let infoArr =  JSON.parse(localStorage.getItem("details")) || [] ;
+
+
+  document.querySelector("form").addEventListener("submit",signupSAVEDATA)
+
+
+  let formTag = document.querySelector("form")
+ 
+  function signupSAVEDATA(event){
+     event.preventDefault();
+   
+     
+    let name = formTag.name.value
+     let email = formTag.email.value
+    let  pass = formTag.password.value 
+ 
+   if(name==="" || email ==="" || pass === "" ){
+
+      alert("Please Fill All Detais")
+
+   }else{
+       
+    let obj = {
+     "name":name,
+     "email":email,
+     "pass":pass
+    }
+    infoArr.push(obj);
+    localStorage.setItem("details",JSON.stringify(infoArr))
+    alert("Your Successfully Sign Up")
+    window.location.href="LOGIN.html"
+   }
+
+}
+     
+</script>
+
+
+</body>
+
+
+

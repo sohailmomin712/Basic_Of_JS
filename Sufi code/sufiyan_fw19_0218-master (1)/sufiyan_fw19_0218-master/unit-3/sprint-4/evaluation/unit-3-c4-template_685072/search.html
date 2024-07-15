@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search results</title>
+    <style>
+        body{
+        background-color: rgb(209, 255, 247);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+
+      #navbar{
+
+        background-color: rgb(67, 35, 212);
+        border: 1px solid;
+     display: flex;
+     height: 70px;
+     justify-content: space-between;
+      align-items: center;
+      color: white;
+      padding: 0px 30px;
+      }
+
+      #navbar a{
+        color: white;
+      }
+
+      #search_input{
+        width: 80%;
+        height: 80%;
+        border-radius: 20px;
+        margin: auto;
+      }
+
+
+   
+
+    #block {
+
+      /* border: 1px solid red; */
+
+      display: flex;
+ 
+      justify-content: space-around;
+      gap: 30px;
+      margin: auto;
+    }
+
+    #sidebar {
+
+      display: flex;
+      flex-direction: column;
+
+      /* border: 1px solid red; */
+      width: 300px;
+    }
+
+    #sidebar>h3{
+
+      background-color: rgb(67, 35, 212);
+      color: white;
+      padding: 20px;
+      cursor: pointer
+    }
+
+
+
+    #results {
+      border: 1px solid none;
+    
+      width: 80%;
+      margin: auto;
+      
+    }
+
+    .news {
+
+      display: flex;
+  
+      gap: 20px;
+
+     margin-top: 20px;
+     border-radius: 10px;
+     background-color: white;
+
+    }
+
+    .news>img {
+      width: 20%;
+    }
+
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <div id="navbar">
+
+    </div>
+
+
+
+    <div id="results"></div>
+    <!-- Same navbar with same functionality  -->
+
+    <!-- Append results inside div with id "results"  -->
+    <!-- News divs will have class "news"  -->
+  </body>
+</html>
+<script src="./scripts/search.js" type="module"></script>

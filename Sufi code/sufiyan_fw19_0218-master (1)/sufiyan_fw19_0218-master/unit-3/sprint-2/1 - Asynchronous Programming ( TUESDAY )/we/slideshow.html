@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide SHow</title>
+</head>
+<body>
+
+    <h1>Slide SHow</h1>
+    <input type="text" id="image_url">
+    <button onclick="addimage()">Add</button>
+
+    <button onclick="slideSHOW()">click to SLIDE</button>
+
+    <button onclick="STOP()">STOP </button>
+    <div id="slide_show"></div>
+
+
+</body>
+</html>
+
+<script>
+
+    // 1 ) take image url as a input 
+    // 2 ) store the image in local storage 
+
+  let arrOFimage = JSON.parse(localStorage.getItem("imageDATA")) || [] ;
+
+  let inputDATA = document.querySelector("#image_url") 
+
+    function addimage(){
+        
+        let img_url = inputDATA.value // stored value from input 
+        arrOFimage.push(img_url)  // pushed in array 
+
+        // added to localstorage
+        localStorage.setItem("imageDATA",JSON.stringify(arrOFimage))
+   
+        img_url = null ;
+       // instead of using window.reload.location() we are doing null 
+       // it will clear only not refreshh the page 
+        // every time we submit we clear the entered url in browser with using null
+        // img_url = null ;
+    }
+
+
+// 3 ) use these images to create slide show 
+
+let id; // taked global id 
+let i = 0; // taked this and increamented every set interval
+
+
+
+function slideSHOW(){
+
+    let container = document.getElementById("slide_show")
+    
+//   id value updated 
+   id = setInterval(function(){
+
+        if( i == arrOFimage.length ){
+            i=0
+        }
+
+        console.log(i) // to check its starting from 0 or not after coplete cycle
+
+        let img = document.createElement("img")
+        img.src = arrOFimage[i]; 
+        // data from local storage   arrOFimage[i]
+
+        container.innerHTML = null 
+       container.append(img);
+        i++
+
+      
+    },500) // repeat in every 1 sexond 
+}
+
+
+function STOP(){
+    clearInterval(id) 
+//   passed id to stop SETINTERVAL
+}
+
+
+
+</script>
+
+
+// bugs in code 
+
+1 ) submittion is empty showing 
+
+
+
+

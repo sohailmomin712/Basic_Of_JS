@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own Functions</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<!-- Mymap -->
+<script>
+    
+    Array.prototype.myMap=function(callback){
+  
+  var arr = [];                       
+
+  for(let i=0; i<this.length; i++)    
+  {
+   arr.push(callback(this[i]));       
+  }
+  
+  return arr;                         
+   };
+
+
+   let arr=[1,2,3,4,5];
+   let result= arr.myMap(function(arr){
+    return arr * 3
+   })
+   console.log(result)
+</script>
+
+<!-- Foreach -->
+<script>
+
+    //  arr2=this 
+    
+    Array.prototype.MyforEach=function(call){
+        let arr2=[];
+         for (let i=0;i<this.length;i++){
+
+            arr2.push(call (this[i]))
+         }
+         return arr2;
+    }
+
+
+
+let arr2=[1,3,5,7,9,]
+let res=arr2.MyforEach(function(arr2){
+    return arr2 * 5
+})
+console.log(res)
+</script>
+
+<!-- myFilter -->
+<script>
+
+Array.prototype.myFilter = function(call){
+ 
+ var arr3 = [];                        
+ 
+ for(let i=0; i<this.length; i++)
+ {
+  if(call(this[i]) == true)        
+  {
+   arr3.push(this[i]);                 
+  }
+  
+ }
+ 
+ return arr3;                          
+}
+    
+
+    let arr3=[10,20,30,40,50]
+    let reslt=arr3.myFilter(i=> i<30)
+    console.log(reslt)
+</script>
+
+<!-- Myreduce -->
+
+<script>
+
+    Array.prototype.myReduce=function(call){
+      
+        let arr4=0
+        for(let i =0 ;i<this.length;i++){
+
+            call(arr4=arr4+this[i])
+        }
+          
+        return arr4;
+    }
+
+
+    let arr4=[1,6,7,8,8,9]
+    let resu=arr4.myReduce(function(acc,el){
+   return acc+el
+    })
+    console.log(resu)
+</script>
+
+

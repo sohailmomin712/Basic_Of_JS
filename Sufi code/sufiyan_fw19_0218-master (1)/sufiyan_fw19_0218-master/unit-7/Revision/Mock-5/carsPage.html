@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>suFi | Ad Page </title>
+    <style>
+
+
+          *{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       
+    }
+   
+    nav {
+  background-color: rgba(21, 141, 87, 0.864);
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 37px;
+  background-color: #157051;
+
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#logo{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    box-shadow: rgba(8, 116, 94, 0.537) 0px 8px 24px;
+  
+}
+
+
+form {
+  margin: 0 auto;
+ 
+  width: 40%;
+  box-shadow: rgba(149, 157, 165, 0.54) 0px 8px 24px;
+  padding: 30px;
+}
+
+label {
+  font-size: 20px;
+}
+
+
+input[type="text"],
+input[type="number"],input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 20px;
+}
+
+input[type="submit"] {
+  background-color: rgba(21, 141, 87, 0.864);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+
+  cursor: pointer;
+  width: 100%;
+  font-size: 30px;
+}
+
+#edit{
+    background-color: rgba(21, 141, 87, 0.864);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+
+  cursor: pointer;
+  width: 100%;
+  font-size: 30px;
+    background-color: rgba(141, 95, 21, 0.864);
+}
+
+input[type="submit"]:hover {
+  background-color:rgba(6, 60, 36, 0.864);
+}
+
+nav button{
+    background-color: #ffffff;
+  color: rgb(23, 157, 48);
+
+  border: none;
+  
+  cursor: pointer;
+padding: 20px;
+  font-size: 30px;
+}
+
+#sort-filter{
+  
+  display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+
+margin: auto;
+gap: 20px;
+}
+
+#sort-filter > div {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+
+#cars-box{
+        display: grid;
+      
+        grid-template-columns: repeat(4,1fr);
+        max-width: 1200px;
+       gap: 25px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        
+    }
+
+    #cars-box > div {
+       
+        height: fit-content;
+        width: fit-content;
+     border-radius: 7px;
+     border: 1px solid rgb(237, 228, 228);
+     
+    }
+    
+    #cars-box img {
+        border-radius: 7px 7px 0 0;
+    }
+
+    #cars-box > div > div{
+       height: 155px;
+        position: relative;
+     
+     padding: 5px;
+     justify-content: center;
+     align-items: center;
+
+    }
+
+    #title{
+        position: absolute;
+     left: 12px;
+        top: 0px;
+    }
+    #typeS{
+        position: absolute;
+        right: 10px;
+        top: 3px;
+    }    
+    #price{
+        position: absolute;
+        left: 10px;
+        top: 65px;
+        color: rgb(240, 132, 15);
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    /* #cars-box > div button{
+     position: absolute;
+     right: -10px;
+     bottom: -5px;
+     padding: 5px 20px;
+     background: rgb(30, 161, 132);
+     border-radius: 5px;
+     border: none;
+     font-size: 18px;
+     
+    } */
+
+   
+    #card-label {
+        width: 100%;
+        position: absolute;
+        left: -2px;
+        top: 35px;
+        display: flex;
+      justify-content: space-around;
+    }
+
+    #card-line{
+        position: absolute;
+        left: 10px;
+        top: 105px;
+        width: 90%;
+    
+    }
+
+    #card-btns {
+        width: 100%;
+        position: absolute;
+        left: -2px;
+        top: 125px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #card-btns button {
+        padding: 5px 10px;
+     background: rgb(3, 146, 115);
+     border-radius: 5px;
+     border: none;
+     color: white;
+     font-size: 15px;
+    }
+
+    #card-btns button:nth-child(2){
+        background: rgb(17, 150, 170);
+    }
+
+    #card-btns button:nth-child(3){
+        background: rgb(232, 58, 19);
+    }
+
+    #Reset{
+        padding: 5px 10px;
+     background: rgb(146, 53, 3);
+     border-radius: 5px;
+     border: none;
+     color: white;
+     font-size: 25px;
+    }
+   
+
+    #card-label p {
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 6px;
+        background-color: #e4eff0;
+    }
+
+
+@media (max-width: 768px) {
+    #navbar-container{
+        gap: 0px;
+        flex-direction: column;
+    }
+   #cars-box{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            width: 50%;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            justify-self:  center;
+        }
+}
+
+
+
+/* media query to change number of cards per row on small screens */
+@media (max-width: 480px) {
+    #navbar-container{
+        gap: 0px;
+        flex-direction: column;
+    }
+   #cars-box{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+        }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+   
+    <!-- Navbar Section -->
+    <nav>
+        <p>s</p>
+        <img id="logo" width="100px" src="https://i.ibb.co/ByrxxfS/handshake-2.png" />
+        <a href="index.html" id="index-section-link">Ad Page</a>
+       
+
+        <a href="carsPage.html" id="carsPage-section-link"> <div style="display: flex;">
+            <div>Cars Page</div> <div id="CarsPageData"> : 0 </div>
+        </div> </a>
+
+        <a href="WishList.html" id="WishList-section-link"> <div style="display: flex;">
+            <div>Wishlist</div> <div id="wishListData"> : 0 </div>
+        </div> </a>
+      
+      </nav>
+
+      <h1 style="text-align: center; color: #157051; font-size: 25px;" >Cars Page</h1>
+      
+
+       <!-- Features Section -->
+    <div id="sort-filter" >
+
+        <div>
+            <label for="filter-cars">Filter By Category</label>
+            <select id="filter-cars" onchange="FilterCarsData()">
+                <option value="all">All</option>
+                <option value="Tata">Tata</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+             
+            </select>
+        </div>
+
+        <button onclick="ResetFilters()" id="Reset">Reset Filters</button>
+
+        <div>
+            <label for="sort-cars">Sort By Price and KMS driven</label>
+            <select id="sort-cars" onchange="SortCarsData()">
+                <option value="asc-price">Low to High Price</option>
+                <option value="desc-price">High to Low Price</option> 
+                <option value="asc-kms">Low to High Kms</option>
+                <option value="desc-kms">High to Low Kms</option> 
+                
+            </select>
+        </div>
+    </div>
+
+
+ <!-- Cars Section -->
+ <div id="cars-box">
+
+ </div> 
+
+
+
+
+
+
+
+
+
+
+    <div id="form-div" style="display: none;">
+        
+          
+        <!-- Add Book Form -->
+        <form id="add-car-form"> 
+     
+        
+            <label for="brand">Brand of car:</label><br>
+            <select id="brand" name="brand">
+              <option value="Tata">Tata</option>
+              <option value="Mahindra">Mahindra</option>
+              <option value="Toyota">Toyota</option>
+              <option value="Honda">Honda</option>
+              <option value="Renault">Renault</option>
+            </select><br>
+
+
+            <label for="type">Manual or Automated:</label><br>
+            <select id="type" name="type">
+              <option value="Manual">Manual</option>
+              <option value="AMT">Automated</option>
+             
+          </select><br>
+
+
+          <label for="year">Year of purchase:</label><br>
+            <select id="year" name="year">
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+          </select><br>
+
+          <label for="KMdriven">KM driven:</label><br>
+          <input type="text" id="KMdriven" name="KMdriven"><br>
+
+          <label for="Description">Description:</label><br>
+          <input type="text" id="Description" name="Description"><br>
+
+          <label for="Price">Price:</label><br>
+            <input type="text" id="Price" name="Price"><br>
+            
+          
+           <input id="edit" value="Edit"  type="button" />
+          </form>
+          
+      
+        </div>
+
+
+
+ <p style="margin-top: 50px;" >CAR once Added To WishList cant add Twice</p>
+ <p>Sorting And Filtering Work Together , Reset Filters</p>
+ <p>All Crud Wishlist , Delete , Edit</p>
+ <p>Filtered Products Not Available then Different UI EMPTY CARS </p>
+
+
+    
+
+        <!-- Form Section -->
+
+
+</body>
+</html>
+<script>
+    let wishListData =  []
+    let CarsData =  []
+    
+    let baseUrl = "https://json-server-3spu.onrender.com/api"
+
+     // fetch data
+     const GetProductData = async ()=>{
+     
+          try{
+           
+            const Carsres = await fetch(baseUrl + "/cars")
+              const Carsdata = await Carsres.json()
+              CarsData = Carsdata
+
+              const wishres = await fetch(baseUrl + "/wishlisted_cars")
+              const wishdata = await wishres.json()
+              wishListData = wishdata
+            
+          //   console.log(Carsdata, "SDAS")        
+             
+             document.querySelector("#CarsPageData").innerHTML = ` : ${Carsdata.length}`
+
+             document.querySelector("#wishListData").innerHTML = ` : ${wishdata.length}`
+            
+             
+            DisplayProductData(Carsdata)   
+                         
+          }catch(e){
+             console.log("Something Went Wrong")
+             document.querySelector("#cars-box").innerHTML="<h1>Something Wrong</h1>"
+          
+          }
+     
+     }
+
+     GetProductData()
+
+
+     function DisplayProductData(data){
+     
+      
+
+      let box = document.querySelector("#cars-box")
+      box.innerHTML = ""
+
+      if(data.length == 0) return box.innerHTML += `<img  src="https://media1.giphy.com/media/MSU9sITGoHWMGGVn9n/giphy.gif" />`
+
+      data.map((el,i)=> {
+        //console.log(el)
+    
+
+            box.innerHTML += `
+            <div class="single-card" >
+                <img width="250px" src="https://fastly-production.24c.in/hello-ar/dev/uploads/b67871b4-a973-45e2-8ff7-cdc2a270c39b/d0144c61-eb47-418f-9628-58f3ce05774c/43.jpg?w=1248&h=704&auto=format" alt="${el.brand}">
+       
+               <div>
+               
+                 
+                  <h3 id="title" >${el.year} | ${el.brand}</h3>
+                  <p id="typeS">Type :  ${el.type}</p>
+                  <p id="price"> $ ${el.Price} / Per Month</p>
+
+                  <div id="card-label" >    
+                    <p >${el.kms} Km</p> 
+                    <p >First Owner</p>
+                    <p > Petrol</p>
+                </div>
+                <hr id="card-line" />
+                <div id="card-btns" >    
+                    <button id="btn-wish" onclick="AddToWishlist(${el.id})" >WishList</button>
+                    <button id="btn-wish" onclick="editData(${el.id})" >Edit</button>
+                    <button id="btn-wish" onclick="deleteCars(${el.id})" >Delete</button>
+                   
+                </div>
+                
+               
+                
+              
+              </div>
+
+       </div>
+        `
+      })
+    }
+//https://fastly-production.24c.in/hello-ar/dev/uploads/bc3d3693-82bd-486c-a7ff-d39cc438f643/78ae2b6f-40a3-4842-86d6-98a657b73cf2/47.jpg?w=1248&h=704&auto=format
+
+
+
+
+function deleteCars(id) {
+  // Make a DELETE request to the server with the ID of the book as a parameter
+  fetch(`${baseUrl}/cars/${id}`, {
+    method: "DELETE"
+  })
+    .then(response => response.json())
+    .then(data => {
+      // If the delete was successful, remove the book from the table
+     alert("CAR DELETED SUCCESSFULLY")
+     window.location.reload();
+    });
+}
+
+
+   // add to wishlisat 
+   const AddToWishlist = (id)=>{
+        //console.log(id)
+
+        let CheckFirst = wishListData.find((el)=> el.id == id)
+
+        if(CheckFirst){
+          return  alert("Product Already in Wishlist")
+        }
+
+      let FindData = CarsData.find((el)=> el.id == id)
+
+
+     
+          // Send a POST request to the JSON server
+       fetch(baseUrl + "/wishlisted_cars", {
+         method: "POST",
+         body: JSON.stringify(FindData),
+         headers: {
+           "Content-Type": "application/json"
+         }
+       })
+         .then(response => response.json())
+         .then(data => {
+           console.log("Success:", data);
+           // Add the book to the table
+           alert("Product Added To Wishlist")
+           window.location.reload()
+         })
+         .catch(error => {
+           console.error("Error:", error);
+         });
+
+      
+    }
+
+
+        // filter products 
+        const FilterCarsData=()=>{
+        let brand= document.querySelector("#filter-cars").value
+
+            // all // Tata // Mahindra // Toyota // Honda
+
+        if(brand == "all"){
+            GetProductData()
+        }
+
+        else{
+          
+            let filteredData = CarsData.filter((el)=> el.brand == brand)
+          //  console.log(filteredData)
+          DisplayProductData(filteredData)
+          CarsData = filteredData
+        }
+    }
+
+    // sort by price and kms
+
+//     asc-price
+// desc-price
+// asc-kms
+// desc-kms
+
+    const SortCarsData =()=>{
+        let X  = document.querySelector("#sort-cars").value
+
+        if(X == "desc-price"){
+            let data = CarsData.sort((a,b)=> +b.Price - +a.Price)
+            DisplayProductData(data)
+        }else if(X == "asc-price"){
+            
+            let data = CarsData.sort((a,b)=> +a.Price - +b.Price)
+            DisplayProductData(data)
+        }
+
+        if(X == "desc-kms"){
+            let data = CarsData.sort((a,b)=> +b.kms - +a.kms)
+            DisplayProductData(data)
+        }else if(X == "asc-kms"){
+            
+            let data = CarsData.sort((a,b)=> +a.kms - +b.kms)
+            DisplayProductData(data)
+        }
+    }
+
+
+    const ResetFilters = ()=>{
+        GetProductData()
+    }
+
+
+const addCarForm = document.getElementById("add-car-form");    
+let EditedData = {}
+
+function editData(id){
+
+    let FindData = CarsData.find((el)=> el.id == id)
+
+   console.log(FindData)
+
+   addCarForm.elements.brand.value = FindData.brand
+    addCarForm.elements.type.value = FindData.type
+    addCarForm.elements.year.value = FindData.year
+   addCarForm.elements.KMdriven.value = FindData.kms
+   addCarForm.elements.Description.value = FindData.Description
+   addCarForm.elements.Price.value = FindData.Price
+
+    EditedData = {
+    brand: addCarForm.elements.brand.value,
+    type: addCarForm.elements.type.value,
+    year: addCarForm.elements.year.value,
+    kms: addCarForm.elements.KMdriven.value,
+    Description: addCarForm.elements.Description.value,
+    id : id,
+    Price: addCarForm.elements.Price.value,
+   
+  };
+
+  document.querySelector("#cars-box").style.display = "none";
+  document.getElementById("form-div").style.display = "block";
+
+  
+}
+
+
+let EditButton = document.getElementById("edit")
+EditButton.addEventListener("click", updateBook)
+
+function updateBook() {
+  // Make a PATCH request to the server with the updated data for the book
+  EditedData = {...EditedData , 
+    brand: addCarForm.elements.brand.value,
+    type: addCarForm.elements.type.value,
+    year: addCarForm.elements.year.value,
+    kms: addCarForm.elements.KMdriven.value,
+    Description: addCarForm.elements.Description.value,
+  Price: addCarForm.elements.Price.value,
+
+};
+  console.log(EditedData)
+  fetch(`https://json-server-3spu.onrender.com/api/cars/${EditedData.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(EditedData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      // If the update was successful, update the table row with the new data
+      window.location.reload();
+    console.log(data)
+      alert("CAR UPDATED SUCCESSFULLY")
+    });
+
+    
+}
+
+
+
+
+</script>

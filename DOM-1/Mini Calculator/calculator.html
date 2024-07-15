@@ -1,0 +1,72 @@
+<!-- When user enter 2 and 4 and clicks on multiply button, an alert should come with 8 as ans
+When user enter 8 and 4 and clicks on Divide button,an alert should come with 2 as ans -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <input id="NUM1" type="number" placeholder="enter first number" />
+    <input id="NUM2" type="number" placeholder="enter first number" />
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Sub</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+    <h1 id="head">OUTPUT</h1>
+</body>
+<script>
+
+    function add() {
+
+        let N1 = document.querySelector("#NUM1").value
+        let N2 = document.getElementById("NUM2").value
+
+        let A = document.getElementById("head").innerText =
+            Number(N1) + Number(N2);
+        alert(A);
+
+    }
+
+    function sub() {
+
+        let N1 = document.getElementById("NUM1").value
+        let N2 = document.getElementById("NUM2").value
+
+        let A = document.getElementById("head").innerText =
+            Number(N1) - Number(N2);
+
+        alert(A);
+
+    }
+
+    function multiply() {
+
+        let N1 = document.querySelector("#NUM1").value
+        let N2 = document.getElementById("NUM2").value
+
+        let A = document.getElementById("head").innerText =
+            Number(N1) * Number(N2);
+
+        alert(A);
+
+    }
+
+    function divide() {
+
+        let N1 = document.querySelector("#NUM1").value
+        let N2 = document.getElementById("NUM2").value
+
+        let A = document.getElementById("head").innerText =
+            Number(N1) / Number(N2);
+
+        alert(A);
+
+    }
+
+</script>
+
+</html>

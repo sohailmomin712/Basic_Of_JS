@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: auto;
+        width: 65%;
+        text-align: center;
+      }
+      #menu > div {
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 80%;
+        padding: 10px;
+      }
+      #menu > div:hover {
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      #menu > div > img {
+        width: 45%;
+        border-radius: 15px;
+      }
+      #menu > div > img:hover {
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+
+      #navbar {
+        display: flex;
+        height: 66px;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-right: 30px;
+      }
+      #count_coffee {
+        /* display: flex; */
+        /* justify-content: flex-start; */
+        text-align: center;
+        font-size: 50px;
+        border: 1px solid;
+        width: 5%;
+        color: blue;
+        border-radius: 10%;
+      }
+      a {
+        text-decoration: none;
+        font-family: "Arima", cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <a href=""> <p>LOGIN</p> </a>
+      <a href=""> <p>SIGNUP</p> </a>
+      <a href=""> <p>PRODUCT</p> </a>
+      <a href="bucket.html"> <p>BUCKET</p> </a>
+      <img
+        src="https://img.freepik.com/free-vector/vector-shopping-cart-icon-paper-sticker-with-shadow-colored-shopping-symbol-isolated_118339-1774.jpg?w=2000"
+        alt=""
+      />
+      <div id="count_coffee"></div>
+    </div>
+
+    <div id="menu"></div>
+  </body>
+</html>
+<script>
+  
+  const url = "https://masai-food-api.herokuapp.com/api/meals/india";
+  let arr;
+
+  async function getData() {
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      arr = data[0].meals;
+
+      displayDATA(arr);
+      //   console.log(arr);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  getData();
+
+  function displayDATA(arr) {
+    // console.log(arr);
+    arr.forEach(function (el, index) {
+      let cont = document.querySelector("#menu");
+      let img = document.createElement("img");
+      img.src = el.strMealThumb;
+
+      let p = document.createElement("p");
+      p.innerText = el.strMeal;
+
+      let price = document.createElement("p");
+      price.innerText = el.price;
+
+      let div = document.createElement("div");
+      // div.setAttribute("id","bucket")
+
+      let but = document.createElement("button");
+      but.setAttribute("id", "add_to_bucket");
+      but.innerText = "Add To Cart";
+      but.addEventListener("click", function () {
+        add_to_bucket(el, index);
+      });
+
+      div.append(img, p, price, but);
+      menu.append(div);
+    });
+  }
+
+  let bucketarr = JSON.parse(localStorage.getItem("coffee")) || [];
+
+  function add_to_bucket(el, index) {
+    // add to cart function
+    bucketarr.push(el);
+    localStorage.setItem("coffee", JSON.stringify(bucketarr));
+    // counter-function below
+    document.querySelector("#count_coffee").innerText = bucketarr.length;
+  }
+  document.querySelector("#count_coffee").innerText = bucketarr.length;
+</script>

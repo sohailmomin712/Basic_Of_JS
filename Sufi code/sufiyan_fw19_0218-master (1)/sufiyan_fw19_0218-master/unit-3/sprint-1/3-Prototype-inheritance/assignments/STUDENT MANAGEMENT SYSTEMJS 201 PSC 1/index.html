@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PSC</title>
+    <style>
+       #navbar{
+        width: 100%;
+        height: 20%;
+        background-color: #1f3a5c;
+        color: white;
+        border-radius: px;
+      padding: 5px;
+      padding-left: 40px;
+      font-size: x-large;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        
+      }
+
+      
+form{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 60%;
+    box-shadow: rgba(150, 157, 180, 0.2)
+    0px 10px 28px;
+    padding: 30px;
+}
+
+label{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+input[type="text"],input[type="number"],select,textarea{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin-bottom: 15px;
+  }
+  
+  input[type="submit"]{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    background-color: #1b3d66;
+    color: white;
+  }
+  input[type="submit"]:hover{
+    background-color: #3e628e;
+  }
+
+  h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+  }
+
+
+  button{
+           display: block;
+           text-align: center;
+
+     
+           margin: auto;
+          margin-bottom: 20px;    margin-top: 10px;
+           
+           padding: 15px 15px;
+           
+           border-color: none;
+       
+  border-radius: 10px;
+  border: none;
+  font-size: xx-large;
+ background-color:  #1b3d66;
+  border-color: rgb(15, 24, 82);
+           
+          
+       }
+       a{
+        text-decoration: none;
+        color: white;
+       }
+
+      
+
+  
+button:hover {
+  background-color:  rgb(34, 41, 87);
+  border-color: rgb(113, 124, 192);
+  color: white;
+  }
+
+    </style>
+  </head>
+  
+  <body>
+   
+    <div id="navbar">
+      <p>List :-</p>
+      <p id="BATCH">Batch Details</p>
+    </div>
+<br><br>
+
+<button><a href="dashboard.html">Dashboard</a></button>
+<h1>ADD STUDENT DATA</h1>
+    <form id="Students_Data" onsubmit="storeData()">
+      <input type="text" id="name" placeholder="Enter your Name" /><br /><br />
+      <input type="text"  id="course"      placeholder="Enter your Course Name" /><br /><br />
+      <input type="number" id="unit" placeholder="Enter your Unit Number" /><br /><br />
+      <input   type="text"   id="image"   placeholder="Enter Your Image URl" /><br /><br />
+      <input type="number" id="batch" placeholder="Ft-web Batch No." /><br /><br />
+      <input type="submit" /><br /><br />
+    </form>
+  </body>
+</html>
+<script>
+
+
+
+
+let arr = JSON.parse(localStorage.getItem("Database")) || []
+
+
+function storeData() {
+  event.preventDefault();
+
+  let form = document.getElementById("Students_Data");
+
+  let name = form.name.value;
+  let course = form.course.value;
+  let unit = form.unit.value;
+  let image = form.image.value;
+  let batch = form.batch.value;
+
+  let data = new NewData(name, course, unit, image, batch);
+  arr.push(data);
+  localStorage.setItem("Database", JSON.stringify(arr));
+}
+
+
+function NewData(n, c, u, i, b){
+  this.name = n;
+  this.course = c;
+  this.unit = u;
+  this.image = i;
+  this.batch = `Ft-web${b}`;
+}
+
+
+function calculate() {
+  let arr = JSON.parse(localStorage.getItem("Database")) || [];
+
+  let obj = {};
+
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (obj[arr[i].batch] !== 0) {
+      obj[arr[i].batch] = 0;
+    }
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    obj[arr[i].batch]++;
+  }
+
+  let key = JSON.stringify(obj);
+  document.querySelector("#BATCH").innerHTML = key;
+  console.log(obj);
+}
+
+calculate();
+</script>

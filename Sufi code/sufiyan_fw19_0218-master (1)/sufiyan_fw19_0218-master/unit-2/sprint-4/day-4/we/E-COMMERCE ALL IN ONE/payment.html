@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+            .navbar p{
+                font-family: 'Milonga';
+                font-size: 50px;
+                color: white;
+               
+
+                
+            }
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  margin: auto;
+  margin-top: 100px;
+
+}
+.navbar>image{
+    width: 100%;
+}
+
+#zip{
+    display: flex;
+  
+    width: 100%;
+gap: 10px
+   
+}
+.class{
+     /* // importan PROPERTY */
+     box-sizing: border-box; 
+    resize: vertical;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    animation: slideUp 1500ms ease ;
+    width: 1000px;
+    
+  
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+
+    }
+}
+
+
+form {
+  margin: 0 auto;
+  margin-top: 50px;
+  
+  
+  padding: 20px 40px;
+
+  
+
+}
+
+label{
+    font-size: 22px;
+    
+}
+
+
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h3{
+    text-align: left;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-size: 35px;
+    color: #900242e0;
+}
+
+
+input[type="text"],input[type="email"],input[type="password"],input[type="number"],select,textarea{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+
+     font-size: 20px; 
+    /* // importan PROPERTY */
+    box-sizing: border-box; 
+    resize: vertical;
+    margin-bottom: 15px;
+    
+  }
+  
+button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #ba0032 ;
+    color: white;
+    
+  }
+  
+  button:hover{
+    background-color: #510a2a;
+  }
+
+  br +p{
+   text-align: center;
+   font-size:x-small ;
+   color: rgb(133, 128, 128);
+  }
+
+  button+p{
+   text-align: center;
+   font-size:large ;
+   color: rgb(65, 65, 65);
+  }
+  a{
+      color: rgb(38, 87, 247);
+      font-weight: bolder;
+      text-decoration: none;
+  }
+
+
+  .navbar {
+            background-image: url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg");
+              width:100%;
+              height:80px;
+             
+              display:flex;
+              justify-content: space-around;
+              align-items: center;
+        
+            border-radius: 10px;
+            color: white;
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: xxx-large;
+           
+
+
+          }
+         
+        
+
+
+            #rebook{
+              color: white;
+            }
+  
+
+
+
+            #verify{
+  padding: 15px 25px;
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  margin-top: 20px;
+
+  font-size: 22px;
+  background-color: #acc5ff;
+  color: white;
+
+  
+}
+
+#verify:hover{
+  background-color: #457eff;
+}
+
+.popup-content>input[type="number"]{
+  margin-bottom: 15px; margin-top: 20px; 
+
+}
+
+.popup-content > p{
+  opacity: 60%;
+}
+
+#OTP{
+  width: 50%
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+h1{
+  font-family: "Poppins" ;
+}
+
+
+.popup{
+
+  position: absolute;
+  width: 100%; height: 100vh; 
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.popup-overlay{
+  background-color: rgba(0, 0, 0, 0.575);
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+
+.main-popup{
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  width: 45%;
+  z-index: 1;
+  padding: 30px 20px; 
+ 
+  background-color: white;
+  transform: translateX(100%);
+}
+
+.close-btn{
+  border: .6px solid white;
+  padding: 10px 20px;
+  position: absolute; 
+  top: 1rem; right: 1rem; 
+  font-size: 2rem; cursor: pointer;
+  transition: .5s ease all;
+}
+
+.close-btn:hover{
+  background-color:#d7e1f8;
+}
+
+@keyframes slide-in{
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+
+@keyframes slide-out{
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+  <div class="navbar">
+    
+        <p>suFi</p>
+    
+  </div> 
+
+
+             <!-- POPUP SLIDEINDOW -->
+             <div class="popup">
+              <div class="popup-overlay">
+                  <div class="main-popup">
+                      <div class="popup-content">
+                          <!-- /// MAIN CONTENT -->
+                         <span class="close-btn">&times;</span>
+                          <h1>Verify Mobile Number</h1><br />
+                          <label > Please enter the OTP set to your mobile number</label><br />
+                          <input id="OTP" type="number" placeholder="Enter Your OTP Here" />
+                <p >Didn't receive an OTP ? <a href="">Resend</a></p>
+                <button id="verify" type="submit">Verify</button> 
+                         
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+       <!-- payment -->
+  <div class="wrapper">
+
+     <div class="left"> 
+         <form >
+               
+         <h3>Shipping Details</h3>
+              
+         <label for="">Full Name</label><br />
+         <input  type="text" placeholder="Enter Full Name" /><br />
+         
+         <label for="">Address</label><br />
+         <input id="password" type="text" placeholder="Enter Your Full Address" />
+
+         <div id="zip">
+            <div>
+                <label for="">City</label><br />
+                <input class="city" type="text" placeholder="" /><br />
+            </div>
+            <div>
+                <label for="">State</label><br />
+                <input class="city" type="text" placeholder="" /><br />
+            </div>
+            <div>
+                <label for="">zip</label><br />
+                <input class="city" type="text" placeholder="" /><br />
+            </div>
+
+            
+           
+
+         </div>
+
+         <label for="">Mobile</label><br />
+         <input id="Number" type="text" placeholder="Enter Mobile Number" />
+         
+         <br />
+         
+      
+             
+             
+         </form>
+     </div>
+
+     <div class="right"> 
+        <form id="#form">
+              
+        <h3>Payment Details</h3>
+             
+        <label for="">Credit Card Number</label><br />
+        <input id="email" type="text" placeholder="Card Number" /><br />
+
+         <div id="zip">
+            <div>
+                <label for="">Exp</label><br />
+                <input class="city" type="text" placeholder="" /><br />
+            </div>
+            <div>
+                <label for="">CVV</label><br />
+                <input class="city" type="password" placeholder="" /><br />
+            </div>
+            </div>
+       
+        <p>By signing up,I accept the all  <a href="">Terms of Service</a>
+            and acknowledge the <a href="">Privacy Policy</a></p>
+            
+         <button id="submit"  onclick="func()">PAY</button> 
+            
+         <p>Go Back to Cart ? <a href="cart.html" > CART</a>  </p>
+            
+        </form>
+    </div>
+
+
+     
+
+
+    </div>
+
+      
+        <div class="navbar">
+            <div>
+                <p>suFi</p>
+            </div>
+        </div> 
+
+</body>
+</html>
+<script> 
+
+
+
+ // STORED all popup button
+ document.querySelector(".close-btn").addEventListener("click",close_btn )
+ const popup = document.querySelector(".popup")
+ const main_popup = document.querySelector(".main-popup")
+
+
+
+
+
+function func(){
+  event.preventDefault();
+  //  open popup OTP window
+   popup.style.display = "flex"
+   main_popup.style.cssText = "animation:slide-in .5s ease ; animation-fill-mode: forwards;"
+
+   /// stored value OTP from input     
+   let stored_OTP = 12345; 
+     let otpStored =  document.querySelector("#OTP")
+     document.querySelector("#verify").addEventListener("click",checkOTP)
+
+     function checkOTP(){
+      if( otpStored.value == stored_OTP ){
+        alert("Purchase Succssfull")
+        alert("Thanks For Shopping")
+        window.location.href="mens.html"
+
+     }else{
+        alert("OTP IS WRONG")
+     }
+
+    
+    }
+
+
+} 
+
+
+// close popup window
+function close_btn(){
+  
+  main_popup.style.cssText = "animation:slide-out .5s ease ; animation-fill-mode: forwards;"
+  setTimeout( ()=>{
+   popup.style.display = "none"
+
+  }, 500 );// this 500 is a timeout for display none
+}
+
+// close popup window   on touching  outside screen of popup page  
+window.addEventListener("click", (el)=>{
+
+if(el.target == document.querySelector(".popup-overlay")){
+
+main_popup.style.cssText = "animation:slide-out .5s ease ; animation-fill-mode: forwards;"
+
+setTimeout( ()=>{
+popup.style.display = "none"
+
+}, 500 );// this 500 is a timeout for display none
+}
+
+
+});        
+
+
+
+</script>
+
+
+</body>
+
+
+

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Mart</title>
+</head>
+<style>
+    *{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        
+
+    }
+
+    
+
+    #products-box{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(4,1fr);
+        max-width: 1200px;
+      
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        
+    }
+
+    #products-box > div {
+        height: fit-content;
+        width: fit-content;
+
+     
+    }
+    
+
+    #products-box > div > div{
+       height: 100px;
+        position: relative;
+     background: #eeee;
+     padding: 5px;
+     justify-content: center;
+     align-items: center;
+
+    }
+    #products-box > div button{
+     position: absolute;
+     right: 10px;
+     bottom: 10px;
+     padding: 6px;
+     background: white;
+     border-radius: 50%;
+     border: none;
+     font-size: 18px;
+     
+    }
+
+   
+    #title{
+        position: absolute;
+    
+        top: 0px;
+        left: 122px;
+    }
+    #category{
+        position: absolute;
+        left: 10px;
+        top: 30px;
+    }    
+    #price{
+        position: absolute;
+        left: 10px;
+     top: 60px;
+    }
+
+    #products-box > div > div > div{
+     
+    
+    
+    }
+
+    /* styles for navbar and controls */
+#navbar-container {
+  display: flex;
+ gap: 50px;
+  align-items: center;
+  background: #eeee;
+  padding: 10px;
+  text-decoration: none;
+  min-width: 100%;
+}
+
+#navbar-container > div{
+    display: flex;
+    gap: 50px;
+}
+
+#navbar-container > div > a{
+    text-decoration: none;
+    font-size: 25px;
+    padding: 6px 25px;
+    background-color: rgb(96, 22, 165);
+    color: white;
+  
+}
+
+#sort-filter{
+  
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  margin: auto;
+  gap: 20px;
+}
+
+#sort-filter > div {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+#pagination-box {
+   
+    margin: auto;
+    justify-content: center;
+    width: fit-content;
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+#pagination-box > button{
+   border:none;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 6px 25px;
+    background-color: rgb(96, 22, 165);
+    color: white;
+    border: 1px solid rgb(96, 22, 165);;
+   
+}
+
+#pagination-box > button:hover{
+    background-color: rgb(253, 253, 253);
+    color:  rgb(96, 22, 165);;
+}
+
+#pagination-box > button:nth-child(2){
+   border: 1px solid;
+   font-size: 15px;
+   font-weight: 900;
+   padding: 6px 25px;
+   background-color: rgb(247, 247, 247);
+   color:  rgb(96, 22, 165);;
+  
+}
+
+select{
+    background-color: rgb(96, 22, 165);
+    color: white;
+    border: 1px solid rgb(96, 22, 165);;
+}
+
+#cart-length{
+
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: white;
+}
+
+/* media query to change number of cards per row on medium screens */
+@media (max-width: 768px) {
+    #navbar-container{
+        gap: 0px;
+        flex-direction: column;
+    }
+   #products-box{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            width: 50%;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            justify-self:  center;
+        }
+}
+
+/* media query to change number of cards per row on small screens */
+@media (max-width: 480px) {
+    #navbar-container{
+        gap: 0px;
+        flex-direction: column;
+    }
+   #products-box{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+        }
+}
+
+   
+    
+
+</style>
+<body>
+    <!-- Navbar Section -->
+    <section id="navbar-container">
+        
+         <img width="300px" src="https://i.ibb.co/MRpWnSd/Capture.png" alt="Capture" border="0">
+        <div> <a href="index.html">Products </a>
+            <a href="wishlist.html">Wishlist </a></div>
+
+            <div id="cart-length">
+              CART =><h1 id="cartp">0</h1>
+            </div>
+    </section>
+
+    <h1>WISHLIST</h1>
+
+ <!-- Products Section -->
+    <div id="products-box">
+
+    </div> 
+
+
+
+
+</div>
+
+
+</body>
+</html>
+
+<script>
+
+    
+
+    // paginate function : paginations one page 12 card 4 row 
+    // display Products : 
+    // Fetch Function : 
+    // Sorting Functiuon
+    // Filtering
+    // Add To Wishlist
+
+    let wishListData = JSON.parse(localStorage.getItem("wish-list")) || []
+  
+    document.querySelector("#cartp").innerHTML = wishListData.length
+    
+    
+    DisplayProductData(wishListData)
+
+    // append data in DOM
+    function DisplayProductData (wishListData){
+      //console.log(data)
+      
+      let box = document.querySelector("#products-box")
+      box.innerHTML = ""
+
+      if(wishListData.length == 0){
+        box.innerHTML += `
+        <div>
+            <img src="https://cdn.dribbble.com/users/2046015/screenshots/4591856/first_white_girl_drbl.gif" />
+            </div>
+        `
+      }
+
+      wishListData.map((el)=> {
+        //console.log(el)
+        if(el.category == "women"){
+
+            box.innerHTML += `
+            <div class="single-card" >
+                <img width="250px" src="https://images.bewakoof.com/t1080/women-s-red-boyfriend-t-shirt-170465-1658918677-1.jpg" alt="${el.title}">
+       
+         <div>
+         
+        
+            <h3 id="title" >${el.title}</h3>
+            <p id="category">${el.category}</p>
+            <p id="price"> $ ${el.price}.00</p>
+        
+        
+           
+           <button class="btn-wish" onclick="RemoveProduct(${el.id})" >🗑️</button>
+          
+        
+        </div>
+
+       </div>
+        `
+    }else if(el.category == "men"){
+        box.innerHTML += `
+            <div class="single-card" >
+                <img width="250px" src="https://images.bewakoof.com/t1080/men-s-very-peri-color-block-oversized-plus-size-t-shirt-521193-1667505391-1.jpg" alt="${el.title}">
+       
+         <div>
+         
+            <p id="brand" >BRAND : ${el.brand}</p>
+            <h3 id="title" >${el.title}</h3>
+            <p id="category">${el.category}</p>
+            <p id="price"> $ ${el.price}.00</p>
+        
+        
+           
+            <button class="btn-wish" onclick="RemoveProduct(${el.id})" >🗑️</button>
+          
+        
+        </div>
+
+       </div>
+        `
+    }else{
+        box.innerHTML += `
+            <div class="single-card" >
+                <img width="250px" src="https://cdn.shopify.com/s/files/1/0288/2948/3146/products/TK2022_The-Last-Airbender_Kids-T-Shirt_S2_Black_1_720x.jpg?v=1624793055" alt="${el.title}">
+       
+         <div>
+         
+            <p id="brand" >BRAND : ${el.brand}</p>
+            <h3 id="title" >${el.title}</h3>
+            <p id="category">${el.category}</p>
+            <p id="price"> $ ${el.price}.00</p>
+        
+        
+           
+            <button class="btn-wish" onclick="RemoveProduct(${el.id})" >🗑️</button>
+          
+        
+        </div>
+
+       </div>
+        `
+    }
+      })
+
+
+    }
+
+
+    function RemoveProduct(id){
+        
+        let data = wishListData.filter((el)=> el.id != id)
+        console.log(data)
+     
+        document.querySelector("#cartp").innerHTML = wishListData.length
+        localStorage.setItem("wish-list", JSON.stringify(data))
+        DisplayProductData(data)
+
+          alert("Product Deleted ")
+    }
+
+
+
+
+</script>

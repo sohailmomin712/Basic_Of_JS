@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+    <style>
+           
+      form{
+          margin: 0 auto;
+          margin-top: 50px;
+          width: 60%;
+          box-shadow: rgba(150, 157, 180, 0.2)
+          0px 10px 28px;
+          padding: 30px;
+      }
+
+      
+*{
+    box-sizing: border-box;
+}
+
+input[type="text"],input[type="number"],select,textarea{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin-bottom: 15px;
+  }
+  
+  input[type="submit"]{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    background-color: #1b3d66;
+    color: white;
+  }
+  input[type="submit"]:hover{
+    background-color: #3e628e;
+  }
+  h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+  }
+
+
+  button{
+    margin-top: 50px;
+           display: block;
+           text-align: center;
+
+     
+           margin: auto;
+          margin-bottom: 20px;    margin-top: 10px;
+           
+           padding: 15px 15px;
+           
+           border-color: none;
+       
+  border-radius: 10px;
+  border: none;
+  font-size: xx-large;
+ background-color:  #1b3d66;
+  border-color: rgb(15, 24, 82);
+           
+          
+       }
+       a{
+        text-decoration: none;
+        color: white;
+       }
+
+       h2{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+  }
+
+
+      
+
+  
+button:hover {
+  background-color:  rgb(34, 41, 87);
+  border-color: rgb(113, 124, 192);
+  color: white;
+  }
+    </style>
+  </head>
+
+  <body>
+    <div id="menu">
+
+      <button id="show_products"><a href="inventory.html">Show Product</a> </button>
+      <!--Create Show Products button here, give id as "show_products". avoid making spelling mistakes in HTML id's-->
+    </div>
+
+    <div>
+      <h2>Add Products</h2>
+
+      <form action="" id="product_form" onsubmit="storedata()">
+
+        <input type="text" placeholder="Brand Name" id="product_brand" > <br><br>
+        <input type="text" placeholder="Enter Name" id="product_name" > <br><br>
+        <input type="number" placeholder="Enter Price" id="product_price" > <br><br>
+        <input type="text" placeholder="Enter Url" id="product_image" > <br><br>
+
+        <input type="submit" id="submit"> <br><br>      
+      <!--Create four inputs to accept brand, name, price, image and brand-->
+      <!--give the inputs following respective id's, "product_brand", "product_name", "product_price","product_image"-->
+      <!--create a submit option to submit form, give it html id as "submit"-->
+      </form>
+
+
+    </div>
+  </body>
+</html>
+
+<script src="./scripts/index.js"></script>
+<script>
+
+  let arr = JSON.parse(localStorage.getItem("data")) || [] ; 
+
+  function storedata(){
+
+    event.preventDefault();
+
+    let form = document.querySelector("#product_form");
+
+    let Brand = form.product_brand.value; 
+    let Name  = form.product_name.value; 
+    let Price  = form.product_price.value; 
+    let Image  = form.product_image.value; 
+
+    let Product = new NewData(Brand,Name,Price,Image); 
+    arr.push(Product)
+    localStorage.setItem("data", JSON.stringify(arr))
+
+  } 
+
+
+    function  NewData(b,n,p,i){
+
+      this.Brand = b;
+      this.Name = n;
+      this.Price = p;
+      this.Image = i;
+
+    }
+
+
+
+</script>
+
+
+

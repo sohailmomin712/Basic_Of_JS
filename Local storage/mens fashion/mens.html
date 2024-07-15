@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MENS</title>
+    <style>
+      #con {
+        display: grid;
+        width: 60%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 30px;
+        margin: auto;
+        margin-top: 50px;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #con > div {
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        background-color: white;
+        text-align: center;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      #con > div > img {
+        border-radius: 5px 5px 0px 0px;
+        width: 100%;
+      }
+
+      button {
+        display: block;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-color: none;
+        border-radius: 8px;
+      }
+
+      p:nth-child(2) {
+        font-size: 22px;
+      }
+
+      button {
+        border-radius: 10px;
+        border-color: red;
+      }
+
+      button:hover {
+        background-color: red;
+        border-color: red;
+        color: white;
+      }
+
+      p:nth-child(3),
+      s {
+        font-size: xx-large;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="con"></div>
+  </body>
+</html>
+
+<script>
+  var mensData = [
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: "MEN'S REEBOK RUNNING ROADMAP SHOES",
+      price: "1170",
+      strikedoffprice: "$2599",
+    },
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+      price: 699,
+      strikedoffprice: 999,
+    },
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+      price: 945,
+      strikedoffprice: 2099,
+    },
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: "MEN'S REEBOK SWIM AVENGER FLIP LP SLIPPERS",
+      price: 399,
+      strikedoffprice: 799,
+    },
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: "MEN'S REEBOK RUNNING TEMPO SHOES ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: " MEN'S REEBOK RUNNING ASTRO BOOSTER SHOES ",
+      price: 1440,
+      strikedoffprice: 3199,
+    },
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: " MEN'S TRAINING WORKOUT READY ELITAGE PANTS ",
+      price: 1999,
+      strikedoffprice: 3199,
+    },
+    {
+      image_url: "https://m.media-amazon.com/images/I/51U1qOkfRrL._SX679_.jpg",
+      name: " MEN'S TRAINING WORKOUT READY ELITAGE PANTS ",
+      price: 1999,
+      strikedoffprice: 3199,
+    },
+  ];
+
+  mensData.forEach(function (el) {
+    let diva = document.createElement("div");
+
+    let imga = document.createElement("img");
+    imga.setAttribute("src", el.image_url);
+
+    let nam = document.createElement("p");
+    nam.innerText = el.name;
+
+    let price = document.createElement("p");
+    price.innerText = el.price;
+
+    let price2 = document.createElement("s");
+    price2.innerText = el.strikedoffprice;
+
+    let but = document.createElement("button");
+    but.innerText = "Add to Cart";
+
+    diva.append(imga, nam, price, price2, but);
+
+    document.querySelector("#con").append(diva);
+  });
+
+  document.querySelector("#con");
+</script>

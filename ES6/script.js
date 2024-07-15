@@ -28,7 +28,7 @@ let append = (data) => {
     let div = document.createElement("div");
     div.onclick = () => {
       saveVIDEO(el);
-  };
+    };
     div.setAttribute("classs", "video");
     div.append(img, h3);
 
@@ -36,17 +36,15 @@ let append = (data) => {
   });
 };
 
-let saveVIDEO=(data)=>{
-  localStorage.setItem("videoDATA",JSON.stringify(data))
-  window.location.href="video.html"
-}
+let saveVIDEO = (data) => {
+  localStorage.setItem("videoDATA", JSON.stringify(data));
+  window.location.href = "video.html";
+};
 
 let sort = async () => {
-  let data = await getDATA(q)
+  let data = await getDATA(q);
 
   data = data.filter((el) => {
-
-      return el.snippet
-  })
-}
-
+    return el.snippet;
+  });
+};

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* The navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* The logo */
+.navbar-logo {
+  padding: 0 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* The links */
+.navbar-links {
+  display: flex;
+}
+
+.navbar-links a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* The hamburger menu */
+.navbar-hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* The links */
+  .navbar-links {
+    display: none;
+  }
+
+  /* The hamburger menu */
+  .navbar-hamburger {
+    display: block;
+  }
+}
+/* The links dropdown */
+.navbar-links.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  z-index: 1;
+}
+
+.navbar-links.active a {
+  padding: 10px 20px;
+}
+
+    </style>
+</head>
+<body>
+    <!-- The navbar container -->
+<nav class="navbar">
+  <!-- The logo -->
+  <a href="#" class="navbar-logo">Logo</a>
+
+  <!-- The links -->
+  <div class="navbar-links">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+
+  <!-- The hamburger menu -->
+  <div class="navbar-hamburger">
+    <div class="navbar-hamburger-line"></div>
+    <div class="navbar-hamburger-line"></div>
+    <div class="navbar-hamburger-line"></div>
+  </div>
+</nav>
+    
+</body>
+</html>
+
+<script>
+// Get the navbar, links, and hamburger menu elements
+const navbar = document.querySelector('.navbar');
+const links = document.querySelector('.navbar-links');
+const hamburger = document.querySelector('.navbar-hamburger');
+
+// Add a click event listener to the hamburger menu
+hamburger.addEventListener('click', () => {
+  // Toggle the "active" class on the links and hamburger menu
+  links.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
+</script>

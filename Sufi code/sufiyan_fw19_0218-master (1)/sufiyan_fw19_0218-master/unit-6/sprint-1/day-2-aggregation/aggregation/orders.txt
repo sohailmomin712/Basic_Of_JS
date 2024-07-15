@@ -1,0 +1,49 @@
+https://www.mongodb.com/docs/manual/reference/operator/aggregation/
+db.orders.aggregate()
+
+1 ) $limit
+ db.orders.aggregate([ {$limit:20} ])
+
+ 2 ) $sort 1 assending
+ db.orders.aggregate([ {$limit:4},  {$sort:  {price:1 } } ])  
+ //first 4 then .>>>>> out of assending low to high price 
+
+ db.orders.aggregate([ {$sort:  {price:1 } } , {$limit:4 } ])
+  //first all assending low to high price >>>> then limit 4
+
+ 3 ) $match 
+  db.orders.aggregate([ { $match: {size:"small"}  } ])  
+  // return only that matched 
+
+ )()()(... find me all the pizza whoes price is greater than 16 
+ => db.orders.aggregate([ { $match: {size:"small"} }  , { $match: { price : {$gte:16} }  } ])
+
+ => db.orders.aggregate([ { $match: {size:"small", price: {$gt:16}  } } ])
+
+ 4 )   $group 
+   db.orders.aggregate([ { $group : { _id: "$name" } } ])
+   it wil make different data of group that match to key name same 
+
+   db.orders.aggregate([ { $group : { _id: "$name", total: {$sum : "$price" } } } ])
+   it will return sum of prices of particular group 
+[
+  { _id: 'Pepperoni', total: 60 },
+  { _id: 'Cheese', total: 39 },
+  { _id: 'Vegan', total: 35 }
+]
+
+5 ) return all medium size pizza then , 
+    group with name and sum of vegan quantity
+
+query = > db.orders.aggregate( 
+  [   { $match : {size:"medium" }  },  
+      { $group : { _id: "$name", total: {$sum : "$quantity"} } }  
+  ]
+  )
+op = > 
+[
+  { _id: 'Cheese', total: 50 },
+  { _id: 'Vegan', total: 10 },
+  { _id: 'Pepperoni', total: 20 }
+]
+

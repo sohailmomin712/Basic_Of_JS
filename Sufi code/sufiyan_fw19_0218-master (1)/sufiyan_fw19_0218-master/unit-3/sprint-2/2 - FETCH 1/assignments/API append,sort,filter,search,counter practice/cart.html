@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: auto;
+        width: 80%;
+        text-align: center;
+      }
+      #container > div {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 80%;
+      }
+      #container > div:hover {
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      #container > div > img {
+        width: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div><h2 id="count">Cart</h2></div>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  let arr = JSON.parse(localStorage.getItem("cart"));
+
+  append(arr);
+
+  function append(arr) {
+    document.querySelector("#container").innerHTML = "";
+    arr.forEach(function (el, index) {
+      let cont = document.querySelector("#container");
+      let img = document.createElement("img");
+      img.src = el.Poster;
+
+      let p = document.createElement("p");
+      p.innerText = el.Title;
+
+      let price = document.createElement("p");
+      price.innerText = el.Year;
+
+      let div = document.createElement("div");
+
+      let Remove = document.createElement("button");
+      Remove.innerText = "Remove";
+      Remove.addEventListener("click", function () {
+        deleteitem(index);
+      });
+
+      div.append(img, p, Remove);
+      container.append(div);
+    });
+  }
+
+  let countDATA = JSON.parse(localStorage.getItem("counter")) || 0;
+
+  function deleteitem(index) {
+    arr.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(arr));
+
+    
+    document.querySelector("#count").innerText = countDATA;
+    localStorage.setItem("counter", JSON.stringify(countDATA));
+    window.location.reload();
+  }
+
+  document.querySelector("#count").innerText = countDATA;
+</script>

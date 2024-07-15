@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log-In</title>
+    <style>
+      *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+      }
+      #navbar{
+        width: 100%;
+        margin: auto;
+        height: 60px;
+        /* background-color: rgb(21, 61, 61); */
+        padding: 0% 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #navbar>div{
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+      #form{
+        width: 25%;
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      #form>input,button{
+        width: 100%;
+        margin: 10px auto;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <a href="./index.html" id="home">Home</a>
+      <a href="./signup.html" id="signUp">Sign Up</a>
+    </div>
+    <div id="form">
+      <h1>User Log In</h1>
+      <!-- - The input fields will have ids:- "email" and "password"
+  - The log-in button will have id:- "log_in".   -->
+      <!-- <form action=""> -->
+        <input type="text" id="email" placeholder="Enter Email">
+        <input type="password"  id="password" placeholder="Enter Password">
+        <!-- <input type="submit" name="" value="LOGIN"> -->
+        <button onclick="getData()" id="log_in">LOGIN</button>
+      <!-- </form> -->
+    </div>
+  </body>
+</html>
+<script>
+
+  let userArr = JSON.parse(localStorage.getItem('users')) || []
+
+  let login = localStorage.getItem('login') || false
+
+  
+  getData = ()=>{
+
+    const email = document.getElementById('email').value
+
+    const password = document.getElementById('password').value
+
+    if(!verifyUser(email,password)){
+
+      return
+
+    }
+    localStorage.setItem('login',true)
+    window.location.href = './index.html'
+
+
+  }
+
+  verifyUser = (newemail,newpassword)=>{
+    let userArr = JSON.parse(localStorage.getItem('users')) || []
+    for(let ele of userArr){
+      let {email,password} = ele
+      if(email == newemail && newpassword == password){
+        alert('Login successful!')
+        return true
+      }else if(email == newemail && newpassword !=password){
+        alert('Wrong credentials')
+        return false
+      }
+    }
+
+    alert("User doesn't exist, Sign Up")
+    return false
+    
+  }
+</script>

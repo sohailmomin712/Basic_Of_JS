@@ -1,0 +1,63 @@
+ /////   Mongoose Relationships
+   one - one
+   
+   ont - many
+   
+   many - one
+   
+   many - many
+   
+   .populate("user")
+   
+   .populate({path: "user", select: [/*Field names in string */], populate: {internal references}})
+   
+////   Goal
+   Create a simple product website:
+   login
+   signup
+   list products // done
+   get my cart items
+   add item to cart
+   remove item from cart
+   update quantity of item in cart
+
+///Schema
+ ---1  user
+         name: required
+         email: required, unique
+         password: required, min: 2, max:4
+         age,
+
+ ---2  product
+         name: required
+         description
+         price: required, min: 1
+         quantity: required
+
+ ---3  cart
+         product: TODO, required
+         user: TODO, required
+         quantity: required, min: 1   
+
+
+         Create a Project with following steps:
+npm init -y
+npm i express mongoose cors
+npm i -D nodemon dotenv
+add script in package.json
+"start": "nodemon src/server.js"
+Folder Structure
+src
+config
+db.js
+features
+product
+product.model.js
+product.router.js
+user
+user.model.js
+user.router.js
+cart
+cart.model.js
+cart.router.js
+server.js

@@ -1,0 +1,53 @@
+
+CREATED FOLDER STRUCTURE 
+
+step 1 >>  .env 
+    add port and url 
+    // PROT = 8000
+    // DB_URL =  mongodb://127.0.0.1:27017/masaizon
+
+/////////////*******************/*****////////////////////////
+
+// step 2 
+    config > db.js
+    // imported mongoos 
+{    const mongoose = require("mongoose")
+    const connect = async ()=>{
+
+    return mongoose.connect(process.env.DB_URL)
+      
+      }
+      
+      module.exports = connect
+}
+
+
+/////////////*******************/*****////////////////////////
+
+// step 3 server.js    
+{
+         require("dotenv").config()
+         const express = require("express")
+         const cors = require("cors")
+         
+         const connect = require("./config/db")
+         
+         const PORT = process.env.PORT
+         
+         
+         const app = express()
+         app.use(express.json())
+         app.use(cors())
+         
+         app.listen(PORT, async()=>{
+              await connect()
+              console.log(`..Serving Chief > http://localhost:${PORT}`)
+         })
+
+}
+/////////////*******************/*****////////////////////////
+
+
+
+// step 4  features > user > user.route.js
+// step 5  features > user > user.model.js

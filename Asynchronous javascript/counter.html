@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Counter:-</h1>
+    <h2 id="Counter"></h2>
+    <input type="text" id="text" placeholder="start typing" />
+</body>
+<script>
+
+    let name = "Sufiyan";
+
+    function counter() {
+        let count = 0;
+        let nameWeGot = document.querySelector("#text")
+
+        let wholeCounter = setInterval(function () {
+
+            if (nameWeGot.value === text) {
+                alert("hogya bhai");
+                clearInterval(wholeCounter)
+            }
+            if (count === 7) {
+                text.disabled == true;
+                alert("nhi ho paya")
+                clearInterval(wholeCounter)
+            }
+
+            let h2 = document.querySelector("#Counter");
+            h2.innerText = count;
+            count++;
+        }, 1000);
+    }
+    counter();
+</script>
+
+</html>

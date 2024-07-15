@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>suFi</title>
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+            .navbar>div:first-child p{
+                font-family: 'Milonga';
+                font-size: 50px;
+                color: white;
+               
+
+                
+            }
+            
+        
+           .navbar {
+            background-image: url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg");
+              width:100%;
+              height:80px;
+             
+              display:flex;
+              justify-content: space-around;
+              align-items: center;
+        
+            border-radius: 10px;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+           
+
+
+          }
+         
+          .navbar >  div:last-child{
+              width:40%;
+              height:50px;
+            
+            
+  
+
+          }
+       
+        
+            .navbar div{
+                display:flex;
+                justify-content:space-around;
+                align-items:center;
+                font-size: xx-large;
+            }
+           
+          
+        
+            button:hover{
+                background-color: rgb(241, 194, 194);
+            }
+
+           .aa> a{
+                color: white;
+                text-decoration: none;
+                font-size: x-large;
+                
+            }
+
+
+            .aa> a:hover{
+                color: rgb(130, 1, 1);
+              
+            }
+
+            .aa:hover{
+                padding:10px 20px;
+                background-color: white;
+                border-radius: 5px;
+            }
+
+           
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div>
+            <p>suFi</p>
+        </div>
+        <div>
+            <p class="aa" id="men"> <a href="mens.html" target="_blank"  >Men</a> </p>
+            <p class="aa" id="women"> <a href="women.html" target="_blank" >Women</a> </p>
+            <p class="aa"><a href="LOGIN.html" target="_blank" >Login</a> </p>
+            <p class="aa"> <a href="SIGNUP.html" target="_blank" >Sign Up</a> </p>
+            <p class="aa"><a href="cart.html"  target="_blank" >🛒Cart</a> </p>
+        </div>
+      </div>  
+    
+    
+</body>
+</html>
+
+
+<script>
+
+
+document.querySelector("#men").addEventListener("click", checkLOG)
+
+document.querySelector("#women").addEventListener("click", checkLOG)
+
+let loadVal = JSON.parse(localStorage.getItem("logdetails"))
+
+
+function checkLOG(){
+
+    if(loadVal == null ){
+        
+        alert("You Need to Sign In First")
+        window.location.href="SIGNUP.html"
+      
+    }
+
+
+}
+  // window.location.href = 'http://www.google.com'; //Will take you to Google.
+
+//   window.open('http://www.google.com'); //This will open Google in a new window.
+
+</script>
+
+  

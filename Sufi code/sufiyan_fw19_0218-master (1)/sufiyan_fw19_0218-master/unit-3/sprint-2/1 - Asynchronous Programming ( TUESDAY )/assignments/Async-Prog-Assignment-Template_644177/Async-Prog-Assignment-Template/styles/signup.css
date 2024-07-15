@@ -1,0 +1,173 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+.navbar>div:first-child p{
+    font-family: 'Milonga';
+    font-size: 45px;
+    color: white;
+   
+
+    
+}
+
+
+
+
+#signup-form-div {
+    animation: slideUp 1000ms ease ;
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+
+    }
+}
+
+form {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 35%;
+  box-shadow: rgba(149, 157, 165, 0.7) 0px 12px 24px;
+  padding: 10px 30px;
+  border-radius: 20px;
+
+}
+
+label{
+    font-size: 22px;
+    
+}
+
+
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h3{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+
+input[type="text"],input[type="number"],input[type="email"],input[type="password"],select,textarea{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+
+     font-size: 20px; 
+    /* // importan PROPERTY */
+    box-sizing: border-box; 
+    resize: vertical;
+    margin-bottom: 15px;
+    
+  }
+  
+button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 20px;
+    background-color: #1f3a6986;
+    color: white;
+    
+  }
+  
+  button:hover{
+    background-color:  #1f3a69;
+  }
+
+  br +p{
+   text-align: center;
+   font-size:x-small ;
+   color: rgb(133, 128, 128);
+  }
+
+  button+p{
+   text-align: center;
+   font-size:large ;
+   color: rgb(65, 65, 65);
+  }
+  a{
+      color: rgb(38, 87, 247);
+      font-weight: bolder;
+      text-decoration: none;
+  }
+
+
+
+  /* /// NAVBAR CSS */
+
+  .navbar {
+    background: rgb(3,23,157);
+    background: linear-gradient(43deg, rgba(3,23,157,1) 0%, rgba(0,212,255,1) 25%, rgba(92,7,84,1) 79%, rgba(24,0,22,1) 100%);
+      width:100%;
+      height:80px;
+     
+      display:flex;
+      justify-content: space-around;
+      align-items: center;
+
+    border-radius: 10px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+
+
+  }
+  .navbar >  div:last-child{
+      width:40%;
+      height:50px;
+    
+  }
+
+
+    .navbar div{
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        font-size: xx-large;
+    }
+   
+  
+   .aa{
+    padding: 5px 20px;
+    background-color: #ffffff36;
+    border-radius: 5px;
+
+    }
+
+   .aa> a{
+        color: white;
+        text-decoration: none;
+        font-size: x-large;
+              
+    }
+
+
+    .aa> a:hover{
+        color: rgb(38, 43, 173);
+      
+    }
+
+    .aa:hover{
+        padding: 5px 20px;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+

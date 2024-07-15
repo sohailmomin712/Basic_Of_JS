@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <style>
+      *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+      }
+      h1{
+        text-align: center;
+      }
+      #hotel_details{
+        width: 40%;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+      }
+      #hotel_details>div{
+        padding-bottom: 10px;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      #hotel_details>div>div>img{
+        width: 50%;
+      }
+      #checkout{
+        width: 25%;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      #checkout>input,button{
+        width: 100%;
+        margin: 10px auto;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Final Checkout</h1>
+    <div id="hotel_details">
+      <!-- Append the hotel detail inside div with id: "hotel_details" -->
+    </div>
+    <div id="checkout">
+      <!-- - The hotel details will be appended inside div with id:- "hotel_details".
+  - The input fields will have ids:- "user_name", "user_number", "check_in" and "check_out"
+  - The book button will have id:- "book"   -->
+        <!-- <form action=""> -->
+          <input type="text" id="user_name" placeholder="Enter Name">
+          <input type="number"  id="user_number" placeholder="Enter Number of Persons">
+          <input type="date" id="check_in">
+          <input type="date"  id="check_out">
+          <button onclick="checkout()" id="book">Book</button>
+        <!-- </form> -->
+    </div>
+  </body>
+</html>
+<script>
+
+
+
+  let hotel = JSON.parse(localStorage.getItem('hotel')) || []
+
+
+
+  window.addEventListener('load',()=>{
+    addHotel(hotel)
+  })
+
+
+
+
+  addHotel=(arr)=>{
+    let container = document.getElementById('hotel_details');
+    container.innerHTML = null
+    arr.forEach((ele,i) => {
+      let {Ac,Images:{one,two},Price,Rating,Rooms,Title} = ele
+      const card = document.createElement('div');
+      const twoimg = document.createElement('div');
+      const img1 = document.createElement('img');
+      img1.src = one
+      const img2 = document.createElement('img');
+      img2.src = two
+      twoimg.append(img1,img2)
+      const title = document.createElement('p');
+      title.innerText = `Title: ${Title}`
+      const price = document.createElement('p');
+      price.innerText = `Price: ${Price}`
+      const rating = document.createElement('p');
+      rating.innerText = `Rating: ${Rating}`
+      const ac = document.createElement('p');
+      ac.innerText = `AC Status: ${Ac}`      
+      card.append(twoimg,title,price,rating,ac)
+      container.append(card)
+    });
+  }
+
+
+
+
+  checkout = ()=>{
+    const name = document.getElementById('user_name').value;
+    setTimeout(()=>{
+      alert(`${name}, Your booking is successful!`)
+    },5000)
+  }
+</script>

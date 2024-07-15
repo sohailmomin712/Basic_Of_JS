@@ -1,0 +1,20 @@
+>>> /
+ 
+>>> /login 
+          - login
+          - logout
+ 
+>>> /feed 
+         - get
+ 
+>>> /post 
+         - get
+    
+>>> /careears
+
+4 Features
+   2 : authentication 
+   1 : feed 
+   1 : posts
+
+{} Reducers : 3   

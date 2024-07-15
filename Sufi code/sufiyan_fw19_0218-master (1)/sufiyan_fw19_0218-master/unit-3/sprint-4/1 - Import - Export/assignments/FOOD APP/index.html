@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/index.css">
+   
+</head>
+<body>
+
+    <div id="navbar">
+
+       
+
+
+    </div>
+
+
+
+    <div id="container">
+
+    </div>
+    
+</body>
+
+</html>
+
+<script src="./scripts/index.js" type="module"></script>
+
+<!-- <script>
+
+   /// search link 
+
+   /// www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
+ 
+
+let main = async ()=> {
+
+    let query = document.querySelector("#query").value
+
+    let data = await getDATA(query)
+
+    console.log(data)
+    displayDATA(data)
+  
+}
+
+
+let getDATA = async (query) => {
+
+     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+     
+     let res = await fetch(url)
+     let data = await res.json()
+   
+    //  console.log(data.meals)
+     return data.meals
+
+   }
+
+
+
+let direct = async ()=>{
+
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=`
+     
+     let res = await fetch(url)
+     let data = await res.json()
+   
+    //  console.log(data.meals)
+    displayDATA(data.meals)
+    
+}   
+
+direct()
+
+let displayDATA = (data) =>{
+
+ let container = document.querySelector("#container")
+ 
+   container.innerHTML = ""
+
+        data.map( ( {strMealThumb, strMeal, strArea , strInstructions, strYoutube} ) => {
+        
+            let img = document.createElement("img");
+            img.src = strMealThumb ;
+        
+            let name = document.createElement("h3");
+            name.innerText = strMeal;
+        
+            let region = document.createElement("p");
+            region.innerText = strArea;
+
+            let instruction = document.createElement("p");
+            instruction.innerText = strInstructions;
+
+
+            let div = document.createElement("div")
+        
+            div.append(img,name,region)
+            container.append(div)
+    
+        
+        })
+
+}
+
+
+
+
+   
+
+
+
+
+//////////
+
+
+let id ; 
+
+let deBOUNCE = (func, delay) =>{
+
+  if(id){
+    clearTimeout(id)
+  }
+
+  id = setTimeout( ()=>{
+
+      func()
+
+  },delay)
+
+
+} 
+
+
+
+</script> -->

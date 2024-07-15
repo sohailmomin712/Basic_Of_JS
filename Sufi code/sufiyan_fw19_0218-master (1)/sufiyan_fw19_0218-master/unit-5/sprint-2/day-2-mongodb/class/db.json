@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+        
+          "name": "Saurabh",
+          "lnames": "shaikh",
+          "age": 20,
+          "gender": "men"
+        },
+        {
+       
+          "name": "Meher",
+          "lnames": "shaikh",
+          "age": 25,
+          "gender": "female"
+        }
+      ]
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      #products_data{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      }
+
+
+      
+
+  #add_product{
+           display: block;
+           text-align: center;
+
+     
+           margin: auto;
+          margin-bottom: 20px;    margin-top: 10px;
+           
+           padding: 15px 15px;
+           
+           border-color: none;
+       
+  border-radius: 10px;
+  border: none;
+  font-size: xx-large;
+ background-color:  #1b3d66;
+  border-color: rgb(15, 24, 82);
+           
+          
+       }
+       a{
+        text-decoration: none;
+        color: white;
+       }
+
+
+       button{
+           display: block;
+           text-align: center;
+
+     
+           margin: auto;
+          margin-bottom: 20px;    margin-top: 10px;
+           
+           padding: 5px 10px;
+           
+           border-color: none;
+           border-radius: 8px;
+           
+          
+       }
+
+      
+
+       button {
+  
+
+  border-radius: 10px;
+  border-color: red;
+ 
+  
+  }
+  
+button:hover {
+  background-color: red;
+  border-color: red;
+  color: white;
+  }
+
+
+      
+
+  
+#add_product:hover {
+  background-color:  rgb(34, 41, 87);
+  border-color: rgb(113, 124, 192);
+  color: white;
+  }
+
+
+
+  #products_data{
+           
+           display: grid;
+           width: 60%;
+           grid-template-columns: repeat(4,1fr);
+           grid-template-rows: repeat(2,1fr);
+           gap: 30px;
+           margin: auto;
+           margin-top: 50px;
+           justify-content: space-between;
+           align-items: center;
+       }
+
+       #products_data > div{
+           
+           border-radius: 5px;
+           box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+           background-color: white;
+
+           text-align: center;
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+           
+       }
+
+       #products_data>div>img{
+       border-radius: 5px 5px 0px 0px;
+          width: 100%;
+         
+       }
+
+
+    </style>
+    <style>
+
+    </style>
+  </head>
+
+  <style></style>
+
+  <body>
+    <div id="menu">
+      <button id="add_product"><a href="index.html">Add Product</a> </button>
+    </div>
+
+    <div id="products_data">
+      <!--append all products data here in grid format-->
+    </div>
+  </body>
+</html>
+
+<script src="./scripts/inventory.js"></script>

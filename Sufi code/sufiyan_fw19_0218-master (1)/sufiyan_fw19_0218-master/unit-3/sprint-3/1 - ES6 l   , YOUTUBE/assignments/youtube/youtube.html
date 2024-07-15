@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Youtube Clone</title>
+    <style>
+
+      * {
+        font-family: Roboto, Arial, sans-serif;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* gap: 15px; */
+      }
+      
+      input {
+        width: 455px;
+        height: 28px;
+        /* border: blue; */
+      }
+      input:hover {
+        border-color: blue;
+      }
+      button {
+        height: 34px;
+      }
+      /* #append>div{
+  display: flex;
+  width: 500px;
+
+} */
+      #append {
+        display: flex;
+
+        /* border: 1px solid red; */
+        gap: 10px;
+      }
+
+  
+
+
+       #container {
+        /* border: 1px solid; */
+        /* height: 20px; */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      
+      }
+
+      .small {
+        width: 80%;
+        border-radius: 5px;
+      }
+      #button {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+      #button > button {
+        /* gap:5px */
+        border-radius: 10px;
+        border: 1px;
+        padding: 10px;
+        background-color: #dcd8d8;
+        margin-right: 6px;
+      }
+      #button > button:hover {
+        background-color: black;
+        color: white;
+      }
+
+      .video{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* border: 1px solid; */
+        width: 100%;
+       max-height: 400px;
+       font-weight:bolder;
+      }
+      .video >p{
+        /* border: 1px solid; */
+   
+        max-width: 500px;
+        position: relative;
+        top: -14px;
+        font-weight:bolder;
+      }
+      .video img{
+        
+        /* border: 1px solid; */
+        width: 100%;
+      }
+
+      .viewS {
+        /* border: 1px solid; */
+        display: flex;
+        max-width: fit-content;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: -30px;
+        max-width: 500px;
+        position: relative;
+        top: -8px;
+        font-weight:lighter;
+        font-size: smaller;
+      }
+
+      
+
+
+
+      .viewS p:last-child {
+        margin-left: 77px;
+      }
+
+
+
+      
+
+
+
+    </style>
+   
+
+
+  </head>
+  <body onload="popular()">
+    <div id="navbar">
+      <!-- <button onclick="filter()">sort</button> -->
+      <div>
+        <img src="https://i.im.ge/2022/07/05/u0crX0.jpg" alt="u0crX0.jpg" />
+      </div>
+
+      <div id="search">
+        <input type="text" id="query" />
+        <div><button onclick="search()">🔍</button></div>
+        <div>
+          <img
+            src="https://i.im.ge/2022/07/05/u0cB0z.jpg"
+            alt="u0cB0z.jpg"
+            border="0"
+          />
+        </div>
+      </div>
+
+      <div>
+        <img
+          src="https://i.im.ge/2022/07/08/ukntu4.png"
+          alt="u0c7KS.jpg"
+          border="0"
+        />
+      </div>
+    </div>
+
+
+    <div id="button">
+      <button>All</button>
+      <button>Mixes</button>
+      <button>Music</button>
+      <button>Live</button>
+      <button>Gaming</button>
+      <button>T-Series</button>
+      <button>Lo-fi</button>
+      <button>Udit Narayan</button>
+      <button>computer Programming</button>
+      <button>Deep House</button>
+      <button>colleges</button>
+      <button>Indian Pop-Music</button>
+      <button>Electronic dance Music</button>
+      <button>Reverberation</button>
+      <!-- <button>Gadgets</button>
+  <button>Watched</button> -->
+      <!-- <button>New to you</button> -->
+    </div>
+
+    <div id="append">
+      <div id="left">
+        <img
+          src="https://i.im.ge/2022/07/05/u0Rm2x.jpg"
+          alt="u0Rm2x.jpg"
+          border="0"
+        />
+      </div>
+      <div id="container"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+
+
+// youtube api = AIzaSyCr99ZSMQNnw4QKFhRP9p63ANl4MZIpCLk  
+
+//  https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=kgf&key=[YOUR_API_KEY]
+
+ // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=kgf&key=AIzaSyCr99ZSMQNnw4QKFhRP9p63ANl4MZIpCLk
+
+//  https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=40&key=[YOUR_API_KEY]'
+
+  let popular = async () => {
+    let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=40&key=AIzaSyDE06fxor42l6rDqiq5NhM_LJd-hlbT7Ec`;
+
+    let res = await fetch(url);
+    let data = await res.json();
+
+    console.log(data.items);
+    append(data.items);
+  };
+
+  const api = "AIzaSyCr99ZSMQNnw4QKFhRP9p63ANl4MZIpCLk";
+
+  let q = "";
+  //   search function
+  let search = async () => {
+    let query = document.getElementById("query").value;
+    data = await getData(query);
+    append(data);
+    q = query;
+  };
+
+  
+  //  url fetching
+  let getData = async (query) => {
+    let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=AIzaSyCr99ZSMQNnw4QKFhRP9p63ANl4MZIpCLk`;
+
+    let res = await fetch(url);
+    let data = await res.json();
+
+    // console.log(data);
+    return data.items;
+  };
+
+
+  
+  //    appending function
+  let append = (data) => {
+    let container = document.getElementById("container");
+    container.innerHTML = "";
+
+    data.map((el) => {
+      // snippet-->title;
+      // snippet--> thumbnails-->medium-->url
+
+      let image = document.createElement("img");
+      image.src = el.snippet.thumbnails.medium.url;
+      image.setAttribute("class", "small");
+
+      let title = document.createElement("p");
+
+      title.innerText = el.snippet.title;
+
+      let title2 = document.createElement("p");
+    
+
+      let p = document.createElement("p");
+      p.innerText = `${getRandomInt(1000)}K views`;
+
+      title2.innerText = el.snippet.channelTitle;
+      let div = document.createElement("div");
+      div.onclick = () => {
+        saveVideo(el);
+      };
+      div.setAttribute("class", "video");
+
+      let divmin = document.createElement("div");
+      divmin.setAttribute("class", "viewS");
+      divmin.append(title2, p);
+      div.append(image, title, divmin);
+
+      container.append(div);
+    });
+  };
+
+  let getRandomInt = (max) => {
+    return Math.floor(Math.random() * max);
+  };
+
+  let saveVideo = (data) => {
+    localStorage.setItem("video", JSON.stringify(data));
+    window.location.href = "video.html";
+  };
+
+
+  let filter = async () => {
+    // container.innerHTML = "";
+    let data = await getData(q);
+    data = data.filter((el) => {
+      return (el.snippet.channelId = "UCvC4D8onUfXzvjTOM-dBfEA");
+    });
+    append(data);
+  };
+</script>

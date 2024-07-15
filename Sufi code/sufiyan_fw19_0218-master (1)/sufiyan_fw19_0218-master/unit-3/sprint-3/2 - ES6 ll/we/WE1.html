@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+
+   
+
+    class Stack{
+
+        constructor(){
+            this.length = 0;
+            this.stack = []
+        }
+// collect all para in arr via spread 
+        Push(...arr){     // spread & rest 3 dot [...arr]
+
+            // each element so that we can push
+            arr.map((el) =>{
+
+                let index = this.length
+                this.stack[index] = el
+
+                this.length ++       
+
+            })  
+        }
+
+        remove(){
+
+            let index = this.length -1
+
+            delete this.stack[index]
+
+            this.stack.length -- 
+            this.length--
+        }
+
+
+        peek(){
+            return this.stack[this.length - 1 ]
+        }
+
+        isEMPTY(){
+
+
+            // ternary operator
+           // condition ? option1(when true) : option 2 (when false)
+           let value = this.length ===0 ? `Stack is Empty` : `Stack has ${this.length} length` 
+            
+            console.log(value)
+        }
+    }
+
+    let s1 = new Stack()
+
+    let oldarr = [10,20,30]
+
+    s1.Push(...oldarr,1,2,3,4,5,6)
+    console.log(s1)
+
+ 
+    s1.remove()
+    console.log(s1)
+  
+
+   let last = s1.peek()
+    console.log(last)
+   
+    s1.isEMPTY()
+
+
+</script>

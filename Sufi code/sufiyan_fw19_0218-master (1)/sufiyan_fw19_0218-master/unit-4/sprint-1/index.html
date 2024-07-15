@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+class Todo{
+
+    #todos;
+    #onUpdateCallBack
+
+    constructor(){
+        this.#todos = []
+    }
+    get items(){
+      return this.#todos
+    }
+    addTodo(title){
+
+        const newItem = {
+            id: Date.now() + title ,
+            title: title,
+            status: false
+        };
+        this.#todos = [...this.#todos, newItem]
+        if(this.#onUpdateCallBack){
+            this.#onUpdateCallBack()
+        }
+
+    }
+    toggleStatus(id){
+
+    }
+    deletItem(id){
+
+    }
+    set updateCallback(cb){
+        this.#onUpdateCallBack = cb
+    }
+
+}
+
+   
+const list = new Todo();
+
+list.updateCallback = renderDom
+
+window.addEventListener("load",()=>{
+
+     const addBtn = document.getElementById("add-btn");
+
+     addBtn.addEventListener("click", ()=>{
+
+        const text = document.getElementById("input").value;
+        list.addTodo(text)
+        console.log(`new list`, list.items)
+
+     })
+
+
+})
+
+function TodoItem({
+    title,
+    status
+}){
+    const li = document.createElement("li")
+    li.innerHTML = `${title} - ${status.toString()}`
+    return li
+}
+
+
+
+
+
+
+
+</script>
+

@@ -1,0 +1,11 @@
+There are only 3 levels of roles in the company:
+  => HR
+  => Employee
+  => Guests
+
+There's no frontend only API endpoints  
+   /login => To log user in
+   /signup => To sign up a user
+   /reset-password => to change password
+   /user/:userid => gives user details
+   /verify => to verify a token. return a new token if it's expired token

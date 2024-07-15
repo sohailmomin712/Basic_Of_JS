@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      
+      *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+      }
+
+
+      #navbar{
+        width: 100%;
+        margin: auto;
+        height: 60px;
+        /* background-color: rgb(21, 61, 61); */
+        padding: 0% 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #navbar>div{
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      #navbar>div:nth-child(2){
+        width: 30%;
+      }
+
+      #navbar>div>input{
+        width: 100%;
+        padding: 5px 20px;
+      }
+
+      #sorting{
+        width: 100%;
+        margin: auto;
+        height: 60px;
+        padding: 0% 5%;
+        background-color: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #hotels_list{
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+      }
+      
+      #hotels_list>div{
+        padding-bottom: 10px;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+
+      
+      #hotels_list>div>img{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+
+      <h2>Hotel App</h2>
+
+      <!-- the search-box id:- "query"
+ - the log-in and sign-up link will have ids:- "login" and "signup" -->
+      <div>
+        <input type="text" name="" id="query" placeholder="Search">
+      </div>
+      <div>
+        <div ><a id="login" href="./login.html">LOGIN</a> </div>
+        <div><a id="signup" href="./signup.html">SIGNUP</a></div>
+      </div>
+    </div>
+    <div id="sorting">
+      <!-- sort by price low to high Id:- "sort_lth"
+ - sort by price high to low Id:- "sort_htl"
+ - Filter Ac hotels Id:- "filter_ac"
+ - Filter Non Ac hotels Id:- "filter_nonac" -->
+
+
+
+
+        <button onclick="sortlh()" id="sort_lth">Sort Low to High</button>
+
+        <button onclick="sorthl()" id="sort_htl">Sort High to Low</button>
+
+        <button onclick="filterac()" id="filter_ac">AC</button>
+
+        <button onclick="filternonac()" id="filter_nonac">Non-Ac</button>
+
+
+
+
+
+    </div>
+
+
+
+
+    <div id="hotels_list">
+      <!-- - Append all fetched hotels inside div with id:- "hotels_list"
+ - Every hotel card will have id:-  "hotel"
+ - The book now button will have class as "book" -->
+    </div>
+  </body>
+</html>
+<script>
+
+
+
+
+  
+  const query = document.getElementById('query')
+
+
+
+  let hotel = JSON.parse(localStorage.getItem('hotel')) || []
+
+
+
+
+  let searchedArr = []
+
+  query.addEventListener('change',()=>{
+    main()
+  })
+
+
+
+
+  main = async ()=>{
+    const query = document.getElementById('query').value;
+    let data = await getData(query)
+    console.log(data)
+    searchedArr = data
+    appendData(data)
+  }
+
+
+
+
+
+  getData = async (query)=>{
+    let url = `https://masai-mock-api.herokuapp.com/hotels/search?city=${query}`
+    let res = await fetch(url)
+    let data = await res.json()
+    // console.log(data.hotels)
+    return data.hotels
+  }
+
+
+
+
+  appendData=(arr)=>{
+    let container = document.getElementById('hotels_list');
+    container.innerHTML = null
+    arr.forEach((ele,i) => {
+
+      let {Ac,Images:{one},Price,Rating,Rooms,Title} = ele
+      const card = document.createElement('div')
+
+      card.setAttribute('id','hotel')
+      const img = document.createElement('img')
+      img.src = one
+
+      const title = document.createElement('p')
+      title.innerText = `Title: ${Title}`
+
+
+      const price = document.createElement('p')
+      price.innerText = `Price: ${Price}`
+
+      const rating = document.createElement('p')
+      rating.innerText = `Rating: ${Rating}`
+
+      const ac = document.createElement('p')
+      ac.innerText = `AC Status: ${Ac}`
+
+      const book = document.createElement('button')
+      book.innerText = 'Book'
+
+      book.addEventListener('click',()=>{
+        verifyLoginandcheckout(ele,i)
+      })
+
+      book.setAttribute('class','book')
+      card.append(img,title,price,rating,ac,book)
+      container.append(card)
+      
+    })
+  }
+
+
+
+
+
+  verifyLoginandcheckout=(ele,i)=>{
+
+    let login = localStorage.getItem('login') || false
+
+    console.log(login)
+
+
+    if(!login){
+      alert('Log In to continue!')
+      window.location.href='./login.html'
+      return
+    }
+    let hotel = JSON.parse(localStorage.getItem('hotel')) || []
+    hotel = []
+    hotel.push(ele)
+    localStorage.setItem('hotel',JSON.stringify(hotel))
+    window.location.href='./checkout.html'
+  }
+  
+
+
+
+
+  sortlh = ()=>{
+    let sorted = searchedArr.sort((a,b)=>{
+      return a.Price - b.Price
+    })
+    appendData(sorted)
+  }
+
+
+
+
+
+  sorthl = ()=>{
+    let sorted = searchedArr.sort((a,b)=>{
+      return b.Price - a.Price
+    })
+    appendData(sorted)
+  }
+
+
+
+
+
+
+  filterac=()=>{
+    let filterd = searchedArr.filter((ele)=>{
+      return ele.Ac == true
+    })
+    appendData(filterd)
+  }
+
+
+  filternonac=()=>{
+    let filterd = searchedArr.filter((ele)=>{
+      return ele.Ac == false
+    })
+    appendData(filterd)
+  }
+
+
+  
+</script>

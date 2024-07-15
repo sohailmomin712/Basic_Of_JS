@@ -1,0 +1,79 @@
+
+
+#con{
+    background-image: url("https://i.im.ge/2022/06/23/uXUDSF.jpg");
+    background-repeat: no-repeat;
+
+
+    width: 100%; height: 910px;
+
+   margin: auto;
+   background-position: center;
+   
+   }
+
+   .wrapper{
+    width: 70% ;
+   margin: auto;
+   text-align: center;
+   
+
+   }
+
+   #back{
+    background-color: rgba(0, 0, 0, 0.498);
+    border-radius: 20px;
+    width: fit-content;
+    margin: auto;
+   
+  
+    
+   }
+
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");  
+   h1{
+    
+    margin-top: 10px; font-size: 6rem; 
+    color: white;
+    font-family: "Poppins" ;
+    
+   }
+   
+
+   .member{
+    margin: 50px 50px;
+    text-align: center;
+    display: inline-block;
+
+   }
+
+   p{
+    font-size: 2.5rem;
+    color: rgb(25, 0, 212);
+    font-family: "Poppins" ;
+    padding: 5px;
+    background-color: rgb(248, 239, 0);
+    border-radius: 5px;
+    margin-top: -25px;
+   }
+
+   img{
+    width: 150px;
+   }
+
+   button{
+    margin-top: 30px;
+    padding: 20px 60px;
+    border-radius: 12px;
+    background-color: rgb(248, 239, 0);
+    color: rgb(25, 0, 212);
+    border: none;
+    font-size: xx-large;
+    font-family: "Poppins" ;
+   }
+
+   button:hover{
+    
+    background-color: rgb(187, 23, 2);
+    color:  rgb(248, 239, 0);
+   }

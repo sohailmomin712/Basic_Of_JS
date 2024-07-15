@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+      
+        #movies{
+       display: grid; 
+       grid-template-columns: repeat(3,1fr);
+       width: 1200px;
+        border: 0px solid none;
+         margin: auto; 
+         margin-top: 20px;
+         gap: 20px;
+
+      }
+
+      body{
+        background: rgb(240, 251, 255);
+      }
+
+    
+      #movies>div h2{
+        text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 30px;
+        margin-top: 5px; 
+        font-weight: lighter;
+        
+      }
+
+      #movies>div p{
+        text-align: center; 
+        margin-top: -25px; 
+        font-size: 30px
+      }
+
+ 
+
+      #movies div{
+        border: 0.5px solid rgb(206, 217, 255);
+        background-color:  rgb(255, 255, 255);;
+        border-radius: 0px 20px;
+        
+      }
+
+      #movies>div img{
+        width: 100%;
+        height: 430px;
+        border-radius: 0px 20px 0px 0px;
+      }
+
+      #movies>div button{
+        margin: auto; display:block;
+        background: rgb(40,155,255);
+
+         padding: 10px 20px; 
+         margin-top: -5px; 
+         margin-bottom: 20px;
+         border: none;
+         font-size: 20px;
+         color: white;
+         margin-top: -20px; 
+         border-radius: 0px 20px;
+      }
+
+      
+
+     
+
+      #query{
+        width:750px;
+        font-size: x-large;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      #up{
+        width: fit-content;
+       display: flex;
+       justify-content: space-between;
+       margin: auto;
+       gap: 30px;
+      }
+      
+    </style>
+</head>
+<body>
+
+<div id="up">
+
+    <h1> Closures </h1>
+    
+    <!-- oninput used to for debound passing main function after delayng 2 second -->
+   
+    <input oninput="deBOUNCE(main ,2000)" type="text" id="query" placeholder="Search">
+</div>
+
+    <div id="movies"></div>
+    
+</body>
+</html>
+
+<script>
+
+ // https://www.omdbapi.com/?s=Movies&apikey=c1c983b0
+
+ // DEBOUNCING
+
+ // [2] this
+ // main function 
+
+//1) main function will run
+// 2) then getdata function will call 
+
+async function main(){
+    let query = document.querySelector("#query").value
+   console.log(query)
+    let data = await getDATA(query) 
+    console.log(data)
+// got promise bcz function is async
+// then again async await here 
+    displayDATA(data)
+ }
+
+
+
+ // http://www.omdbapi.com/?apikey=[yourkey]&s=${query}
+ // http://www.omdbapi.com/?apikey=c1c983b0&s=[moviename]
+
+ // [3] this
+
+// no matter what async function always return us a PROMISE
+
+ async function getDATA(query){
+
+        const url = `http://www.omdbapi.com/?apikey=c1c983b0&s=${query}`
+       
+        let res = await fetch(url)
+        let data = await res.json()
+           // console.log(data.Search)
+        return(data.Search)
+        
+    }
+
+  
+//this [4] 
+    function displayDATA(data){
+
+        // to fix error in console of browser
+        if (!data){
+            return
+        }
+
+
+        let container = document.querySelector("#movies")
+        container.innerHTML = ""
+
+        data.forEach(function(el){
+
+            let div = document.createElement("div")
+            div.setAttribute
+
+            let img = document.createElement("img")
+            img.src = el.Poster
+
+            let h2 = document.createElement("h2")
+            h2.innerText = el.Title
+
+            div.append(img,h2)
+            container.append(div)
+        })
+
+
+    }
+
+
+
+ // when we type in search any word in debounce function 
+ // 1)it will check id means a previous main function it will clear that 
+ // 2) and (call) or (func) function with a delay of 1 second we passed in onload in html
+// 3) new id will created and thain main function will run 
+// 4) next time we type any word again previous id will clear and new will created
+ 
+
+//if we stop typing 1 second delay will complete and it will go in callstack 
+
+
+ // to load main after some seconds
+ // func == main , delay means time take
+
+ // this [1]
+ 
+ let id ;
+
+    function deBOUNCE(func, delay){
+
+      
+      if(id){
+            clearTimeout(id) // it will remove func from browser 
+        }
+
+       id = setTimeout(function(){
+            func()
+        },delay);
+
+    }
+</script>
+

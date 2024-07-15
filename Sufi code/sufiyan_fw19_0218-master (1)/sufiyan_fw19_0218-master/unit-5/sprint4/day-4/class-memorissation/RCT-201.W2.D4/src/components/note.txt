@@ -1,0 +1,39 @@
+
+
+1 ) // component memorisation 
+export default memo(Child);
+  
+/// 1 ) memorise Component >>> child component 
+/// 2 ) memorise Function >>> useCallback to function
+
+  // update count is function its created and updated on every rerender
+  // we passed it in child component so its also calling child component  and its re rendering 
+  // so we used useCallback and passed function , and count in arg 
+  // so only count changed will update function else it will stay in memory till next update
+  /// first it was creates and destroy on every rerender 
+  /// but now update count only change or update on count change 
+ 
+ 
+ >>> const updateCount = useCallback( ()=> setCount(count + 1), [ count ] )
+
+
+
+
+// another method instead of useCallback
+
+{/*  
+
+const areEqual = (prevProps, nextProps) =>{
+
+  // false => rerender
+  // true => no-rerender
+
+  if(prevProps.count === nextProps.count){
+    return true ;
+  }
+  return false 
+}
+
+export default memo(Child, areEqual );
+
+*/}

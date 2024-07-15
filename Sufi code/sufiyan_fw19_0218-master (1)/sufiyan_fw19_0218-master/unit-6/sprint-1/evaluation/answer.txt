@@ -1,0 +1,38 @@
+
+ 
+ 
+ ( 1 ) Find total population of all the countries in Eastern Europe Region
+ => db.eva1.aggregate([{ $match : { Region :"EASTERN EUROPE"  } } , { $group : { _id:"$Region" , pop : {$sum : "$Population" } } }  ])
+
+ // first it will match all region name EASTERN EUROPE 
+ // then it will make sum and return total population
+
+( 2 ) Find Average population per country in All regions 
+ => db.eva1.aggregate([{$group:{_id:{Country:"$Country",Region:"$Region"},avg:{$avg:"$Population"}}}])
+
+
+( 3 ) Find Average birth rate of entire world
+ => db.eva1.aggregate([{ $group: { _id: "Birthrate", avg: { $avg: "$Birthrate" } } }])
+
+( 4 ) Find all the countries, sort them by GDP ascending, population descending, take top 10 countries out
+=> db.eva1.aggregate([{ $sort: { "GDP ($ per capita)":-1  , Population:-1, } }, { $limit: 10 }])
+
+( 5 ) Find all the countries Birthrate lower than 20, group them by region, find lowest birthrate region.
+=> db.eva1.aggregate([ {$match :{Birthrate : {$lt: 20}} },  {$group: {_id: {Reg: "$Region", birthRate:"$Birthrate" } } }, {$sort: {"_id.birthRate":1} } , {$limit:1} ])
+
+( 6 )Find sum of population according to region
+=> db.eva1.aggregate([{$group:{_id:{Region:"$Region"},total:{$sum:"$Population"}}}])
+
+( 7 ) Find average birthrate according to region, sort them by low birthrate first
+=> db.eva1.aggregate([{$group:{_id:{Region:"$Region"},avgBirth:{$avg:"$Birthrate"}}},{$sort:{"total":1}}])
+
+( 8 ) Sort all countries by population descending, get 11 to 20 position countries from these.
+=> db.eva1.aggregate([ {$sort:  {Population:-1 } },{$skip:10} , {$limit:10 
+} ])
+
+
+( 9 ) Write an update query for: find all the countries with phones per thousand greater than 400, set it to 1000.
+ => db.eva1.updateMany( {PhonesPerThousand:{$gt:400} } , {$set: {PhonesPerThousand:1000}  } )   
+
+( 10 ) Write an update query for: replace all the countries Climate to 0.
+=> db.eva1.updateMany({}, {$set: {Climate:0}  }  )

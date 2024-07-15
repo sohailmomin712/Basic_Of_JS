@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<style>
+        div{
+    margin: auto;
+   
+    text-align: center;
+    border: 1px solid rgb(167, 167, 167);
+    width: 50%;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    
+    
+}
+
+div>input{
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 50px;
+
+}
+div > button {
+  
+margin-top: 20px;
+padding: 5px 20px;
+border-radius: 10px;
+border-color: red;
+margin-left: 5px;
+margin-bottom: 30px;
+
+}
+
+div > button:hover {
+background-color: red;
+border-color: red;
+color: white;
+}
+
+#rec{
+    height: 30px;
+    width: 100%;
+  background-color: rgb(25, 25, 125);
+   margin: auto;
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
+
+#rec2{
+    height: 30px;
+    width: 100%;
+  background-color: rgb(25, 25, 125);
+   margin: auto;
+   margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+	<div id="rec">   </div>
+    <div>
+        
+      
+      
+        
+		<input type="text" name="name" id="name">
+		<select id="gender">
+			<option value="">--</option>
+			<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+	<input type="text" name="email" id="email">
+	<input type="text" name="mobile" id="mobile">
+	<hr>
+	<h1 id="dName">NAME</h1>
+	<h2 id="dGender">GENDER</h2>
+	<h3 id="dEmail">EMAIL</h3>
+	<h4 id="dMobile">MOBILE</h4>
+	<hr>
+	<button onclick="showName()">NAME</button>
+	<button onclick="showGender()">GENDER</button>
+	<button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button>
+	<button onclick="resetForm()">RESET FORM</button>
+	<button onclick="resetDisplay()">RESET DISPLAY</button>
+	
+</div>
+<div id="rec">   </div>
+	<script type="text/javascript">
+
+		function showName() {	
+            
+			let NAME = document.getElementById("name").value
+			document.getElementById("dName").innerText = NAME
+
+		}
+
+		function showGender() {
+		
+			let GENDER = document.getElementById("gender").value
+			document.getElementById("dGender").innerText = GENDER
+		}
+
+		function showEmail() {			
+			let EMAIL = document.getElementById("email").value
+			document.getElementById("dEmail").innerText = EMAIL
+		}
+
+		function showMobile() {
+			let MOBILE = document.getElementById("mobile").value
+			document.getElementById("dMobile").innerText = MOBILE
+		}
+
+		function resetForm() {
+
+			document.getElementById("dName").innerText = "NAME"
+			document.getElementById("dGender").innerText = "GENDER"
+            document.getElementById("dEmail").innerText = "EMAIL"
+			document.getElementById("dMobile").innerText = "MOBILE"
+			
+		
+
+		}
+
+		function resetDisplay() {
+
+			document.getElementById("dName").innerText = ""
+			document.getElementById("dGender").innerText = ""
+            document.getElementById("dEmail").innerText = ""
+			document.getElementById("dMobile").innerText = ""
+		} 
+
+
+       
+
+
+
+        
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

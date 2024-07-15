@@ -1,0 +1,57 @@
+// 
+
+1 ) npm install redux 
+2 ) npm install react-redux 
+
+redux >>>>>
+will update javascript STATEs 
+but to knows React we need to install 
+>>> react-redux
+
+
+
+
+///////////////
+
+Q: How do we mange state in react ?
+A: hooks, Context api
+
+Q: Hooks are used for ?
+A: State management inside a Component
+
+Q: Context API is used for ?
+A: State Management for accross a feature/ globally.
+
+Q There is no uniform way of hand ling state changes ?
+A:
+- no preditable way to manage state I7 useReducer
+- there is no single place to know the changes happening in my
+application
+
+
+MVC (Scalability issue with proper state management)
+
+Flux Context
+from React
+(Unidirectional flow
+Predictable state management)
+
+y
+
+REDUX
+
+(Open-source state management library based
+‘on Flux architecture)
+
+
+
+3 Principles of Redux
+
+1. Single source of truth:
+2. State is Read-only
+3. Changes are made with pure functions:
+
+extension to flux principles
+
+
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: auto;
+        width: 65%;
+        text-align: center;
+      }
+      #menu > div {
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 80%;
+        padding: 10px;
+      }
+      #menu > div:hover {
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      #menu > div > img {
+        width: 45%;
+        border-radius: 15px;
+      }
+      #menu > div > img:hover {
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      #navbar {
+        display: flex;
+        height: 66px;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-right: 30px;
+      }
+      #count_coffee {
+        /* display: flex; */
+        /* justify-content: flex-start; */
+        text-align: center;
+        font-size: 50px;
+        border: 1px solid;
+        width: 5%;
+        color: blue;
+        border-radius: 10px;
+      }
+      a {
+        text-decoration: none;
+        font-family: "Arima", cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html"> <p>HOME</p> </a>
+
+    <div id="total"></div>
+    <div id="menu"></div>
+    <button onclick="check()" id="confirm_checkout">Checkout</button>
+  </body>
+</html>
+<script>
+  let bucketarr = JSON.parse(localStorage.getItem("coffee"));
+  let total = 0;
+
+  function append(bucketarr) {
+    document.querySelector("#menu").innerHTML = "";
+    bucketarr.forEach(function (el, index) {
+      let cont = document.querySelector("#menu");
+      let img = document.createElement("img");
+      img.src = el.strMealThumb;
+
+      let p = document.createElement("p");
+      p.innerText = el.strMeal;
+
+      let price = document.createElement("p");
+      price.innerText = el.price;
+
+      let div = document.createElement("div");
+
+      let Remove = document.createElement("button");
+      Remove.innerText = "Remove";
+      Remove.setAttribute("id", "remove_coffee");
+      Remove.addEventListener("click", function () {
+        deleteitem(index);
+      });
+
+      div.append(img, p, price, Remove);
+      menu.append(div);
+
+      total = total + el.price;
+    });
+  }
+  append(bucketarr);
+
+  document.querySelector("#total").innerText = total;
+
+  let bucketarr1 = JSON.parse(localStorage.getItem("coffee"));
+  function deleteitem(index) {
+    bucketarr.splice(index, 1);
+    localStorage.setItem("coffee", JSON.stringify(bucketarr));
+    window.location.reload();
+    // document.querySelector("#count_coffee").innerText = bucketarr.length
+  }
+
+function check(){
+  window.location.href = "checkout.html";
+}
+
+</script>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CART</title>
+        <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+            .navbar>div:first-child p{
+                font-family: 'Milonga';
+                font-size: 50px;
+                color: white;
+               
+
+                
+            }
+            *{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            #main{
+                
+               
+             
+                border: 1px solid none;
+             
+                align-content: center;
+             
+                padding: 30px 40px;
+                margin: auto;
+                
+            }
+
+            body>h2{
+                 width: 10%;
+                text-align: center;
+                margin: auto;
+                padding: 15px; border-radius: 10px;
+                background-color: rgba(83, 3, 47, 0.959);
+                color: aliceblue;
+                margin-top: 15px;
+            }
+            
+            /* cartitem */
+
+            #cartitem{
+              
+           
+           display: grid;
+        
+       grid-template-columns: repeat(4,1fr);
+       width: 60%;
+           gap: 30px;
+           margin: auto;
+           
+           justify-content: space-between;
+           align-items: center;
+       }
+
+       #cartitem > div{
+           
+           border-radius: 10px;
+           box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+           background-color: white;
+
+           text-align: center;
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          
+           
+       }
+
+       #cartitem>div>img{
+       border-radius: 10px 10px 0px 0px;
+          width: 100%;
+         
+       }
+
+      .card>h3+p{
+      font-size: xx-large;
+      margin-top: -10px;
+     
+  }
+
+  .card>h3+p+p{
+      font-size: x-large;
+      margin-top: -20px;
+     
+  }
+
+
+  #Total{
+       
+  
+    display:flex;
+         width: 30%;
+    margin: auto;
+    margin-top: 20px;
+           justify-content: space-between;
+           align-items: center;
+           background-image: url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg");
+          
+           text-align: center;
+        
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+  }
+
+  #Total > div{
+width: 700%; 
+color: white;
+padding: 10px;
+  }
+
+  #Total > div>h1{
+   text-align: center;
+  }
+  .totalprice{
+    font-size: 25px;
+  }
+
+  table{
+   
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    border-color: azure;
+    padding: 10px;
+  }
+  
+  table > thead, tbody {
+   border: 1px solid ;
+   gap: 20px;
+   margin-top: 10px;
+   padding: 20px;
+    font-size: 25px;
+  }
+
+  table td{
+    border: 1px solid ;
+   gap: 20px;
+  
+   padding: 10px;
+   
+  }
+
+  tbody{
+    background-color: white;
+    color: rgb(104, 12, 50);
+  }
+
+  #place{
+    margin-top: 20px;
+  }
+
+  #coupansection{
+ 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: -30px;
+   
+    
+
+  }
+  #coupansection>p{
+  padding: 10px 0px;
+    background-color: rgb(255, 244, 244);
+    color: rgb(138, 0, 0);
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #coupansection>button{
+    margin-top: -5px;
+  }
+
+
+
+
+       button{
+
+           display: block;
+           text-align: center;
+     
+           margin: auto;
+           margin-bottom: 20px;    margin-top: 10px;
+           
+           padding: 5px 10px;
+           
+           border-color: none;
+           border-radius: 8px;
+           
+           border-radius: 6px;
+           border-color: red;
+
+       }
+
+
+  
+ button:hover {
+   background-color: red;
+   border-color: red;
+   color: white;
+  }
+
+  p:nth-child(2){
+    font-size: 22px;  
+  }
+
+
+  p:nth-child(3),s{
+      font-size: xx-large;
+     
+  }
+
+  
+  /* /// NAVBAR CSS */
+
+  .navbar {
+            background-image: url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg");
+              width:100%;
+              height:80px;
+             
+              display:flex;
+              justify-content: space-around;
+              align-items: center;
+        
+            border-radius: 10px;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+           
+
+
+          }
+          .navbar >  div:last-child{
+              width:40%;
+              height:50px;
+            
+            
+  
+
+          }
+       
+        
+            .navbar div{
+                display:flex;
+                justify-content:space-around;
+                align-items:center;
+                font-size: xx-large;
+            }
+           
+          
+        
+
+           .aa> a{
+                color: white;
+                text-decoration: none;
+                font-size: x-large;
+                
+            }
+
+
+            .aa> a:hover{
+                color: rgb(130, 1, 1);
+              
+            }
+
+            .aa:hover{
+                padding:10px 20px;
+                background-color: white;
+                border-radius: 5px;
+            }
+
+
+
+
+  
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div>
+        <p>suFi</p>
+    </div>
+    <div>
+        <p class="aa" id="men"> <a href="mens.html" target="_blank"  >Men</a> </p>
+        <p class="aa" id="women"> <a href="women.html" target="_blank" >Women</a> </p>
+        <p class="aa"><a href="LOGIN.html" target="_blank" >Login</a> </p>
+        <p class="aa"> <a href="SIGNUP.html" target="_blank" >Sign Up</a> </p>
+        <p class="aa"><a href="cart.html"  target="_blank" >🛒Cart</a> </p>
+    </div>
+  </div>  
+
+ 
+ 
+
+    <h2 id="head"> MY CART</h2> 
+    <div id="main">
+    
+     
+        <div id="cartitem">
+          
+
+        </div>
+
+        <div id="Total">
+            <div>
+                <h1>PRICE DETAILS</h1>
+                <hr>
+                <table>
+                    <thead id="TABLE">
+                        <td>Total Quantity</td>
+                        <td>Total Price</td>
+                    </thead>
+
+                    <tbody>
+                        <td id="quantity">0</td>
+                        <td id="totalprice">0</td>
+                    </tbody>
+
+                   
+
+                    <p id="coupantitle">Available Coupan</p>
+
+                    <div id="coupansection">
+                        <p id="coupans">masai30</p>
+                        <button id="promobtn">Apply PROMO</button>
+
+                    </div>
+
+                  
+
+                </table>
+
+                <button id="place">Check Out</button>
+            
+              
+            </div>
+            </div>
+
+        
+        
+             
+    </div>
+</body>
+</html>
+
+<script>
+
+
+
+   // TOTAL AMOUNT & DISCOUNT 
+       let total = 0 ; 
+       let disc = 0 ;  
+   
+   
+   // COUPAN APPLY
+   let coupans = document.querySelector("#coupans").innerText ; 
+   
+   document.querySelector("#promobtn").addEventListener("click",    applyCoupan)
+   
+   // COUPAN BUTTON FUNCTION APPLY PROMO
+       function applyCoupan(){
+
+        if(coupans == "masai30"){
+
+            let per = total*50/100;
+            disc = total - per 
+            alert("Congrats... You got the Discount")
+            document.querySelector("#totalprice").innerText = disc ; 
+            total = disc ;
+        }
+        
+    }
+   
+   // -----------------------------------
+   
+   let loadcart = JSON.parse(localStorage.getItem("cart-page")) 
+   
+   let quantity = 0 ; 
+   let sum = 0 ; 
+   
+   loadcart.map(function(el,index){
+
+       quantity = quantity + el.counter ;
+       document.querySelector("#quantity").innerText = quantity
+
+       sum = sum + Number(el.price)*el.counter
+       total = sum;
+       document.querySelector("#totalprice").innerText = total
+
+
+
+       let div = document.createElement("div")
+       let div2 =  document.createElement("div")
+       div2.setAttribute("class","card")
+
+
+        let imga = document.createElement("img")
+        imga.setAttribute("src",el.image_url)
+
+        let nam = document.createElement("h3")
+        nam.innerText = el.name
+
+       let price = document.createElement("p")
+       price.innerText = el.price
+
+       let Quantity = document.createElement("p")
+       Quantity.innerText = "Quantity :" + " " + el.counter
+
+       let remove = document.createElement("button");
+       remove.innerText = "Remove"
+       remove.addEventListener("click", function(){
+        deleteitem(index);})
+
+
+
+       div2.append(nam,price,Quantity,remove)
+       div.append(imga,div2)
+       document.querySelector("#cartitem").append(div)
+  
+   })
+
+
+
+   document.querySelector("#place").addEventListener("click",pricestore)
+
+   function pricestore(){
+
+    let totalamt = [{total:total}];
+    localStorage.setItem("pricestore",JSON.stringify(loadcart))
+    window.location.href = "payment.html"
+
+   }
+
+   function deleteitem(index){
+    
+    loadcart.splice(index,1)
+    localStorage.setItem("cart-page",JSON.stringify(loadcart))
+    window.location.reload();
+   }
+
+
+
+
+
+
+
+</script>

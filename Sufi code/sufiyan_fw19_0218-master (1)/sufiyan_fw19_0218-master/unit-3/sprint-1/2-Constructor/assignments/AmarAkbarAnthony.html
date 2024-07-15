@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+
+      let Amar = {
+      
+          skill:"Singer",
+      
+          print: function ( skill) {
+            console.log(`Amar is a ${this.skill}, live in Goa`);
+          },
+      }
+      
+      
+      let Akbar = {
+      
+          skill:"chef",
+      
+      
+          print: function ( order,skill) {
+            console.log(`Akbar is a ${this.skill}, live in Mumbai`);
+          },
+      }
+      
+      
+      let Anthony = {
+      
+          skill:"Magician",
+       
+      
+          print: function ( order,skill) {
+            console.log(`Anthony is a ${this.skill}, live in Kashmir`);
+          },
+      }
+
+
+//// 
+
+Amar.print() // Default
+Amar.print.call(Akbar)
+Amar.print.call(Anthony)
+
+//// 
+console.log("-----------------------------")
+
+Akbar.print() // Default
+Akbar.print.call(Amar)
+Akbar.print.call(Anthony)
+
+//// 
+console.log("-----------------------------")
+
+
+Anthony.print() // Default
+Anthony.print.call(Amar)
+Anthony.print.call(Akbar)
+
+
+
+
+
+
+</script>

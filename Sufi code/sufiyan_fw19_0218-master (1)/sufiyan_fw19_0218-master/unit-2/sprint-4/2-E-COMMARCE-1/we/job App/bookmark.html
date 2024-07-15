@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admitted</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job Applied</th>
+            <th>Delete Bookmark</th>
+          </tr>
+        </thead>
+        <tbody id="body"></tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    //you need to code here
+
+  
+    
+    let bookmarkArrFROMLS=JSON.parse(localStorage.getItem("bookmarkData")) || [];
+
+    bookTable(bookmarkArrFROMLS);
+
+    function bookTable(bookmarkArrFROMLS){
+      
+      bookmarkArrFROMLS.forEach(function(elem,index){
+
+        let tr=document.createElement("tr");
+
+        let td1=document.createElement("td");
+        td1.innerText=elem.personName
+
+        let td2=document.createElement("td");
+        td2.innerText=elem.personEmail
+        
+        let td3=document.createElement("td");
+        td3.innerText=elem.personRole
+
+        let td5 = document.createElement("td");
+        td5.innerText="DELETE"
+        td5.style.backgroundColor = "red"
+        td5.addEventListener("click", function(){
+          deleteData(index)
+        })
+
+        tr.append(td1,td2,td3,td5);
+        document.querySelector("tbody").append(tr);
+
+       
+
+      });
+     
+    }
+    
+    function deleteData(index){
+    
+      bookmarkArrFROMLS.splice(index,1)
+      localStorage.setItem("bookmarkData", JSON.stringify(bookmarkArrFROMLS))
+      window.location.reload()
+    }
+   
+
+
+    
+  </script>
+</html>

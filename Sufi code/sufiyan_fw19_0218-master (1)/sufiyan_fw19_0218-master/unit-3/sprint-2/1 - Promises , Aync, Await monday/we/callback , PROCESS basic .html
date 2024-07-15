@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img id="pay" src="https://c.tenor.com/K2UGDd4acJUAAAAC/load-loading.gif" alt="">
+    </div>
+
+</body>
+</html>
+<script>
+
+///  [ 1 ] CALLBACK
+// sometimes one function is dependent on other function 
+
+    let url = "PROMISES"
+
+    function download(url, callback){
+
+        setTimeout(function(){ 
+            console.log(`Downloading ${url}`)
+            
+        }, 2000)
+
+
+        setTimeout(function(){ 
+           
+            callback(url)
+        }, 5000)
+    }
+
+    
+    function process(url){
+        console.log(`Processing ${url}`)
+    }
+
+
+    // passed function as a parameter in download fucntion 
+    download(url,process)
+
+
+///  [ 2 ] PROMISE
+
+// resolve : -  SAB KUCH THIK HE  
+ //reject : - DAL ME KUCH KALA HE 
+ 
+// constructor function always return object
+
+
+
+
+</script>

@@ -1,0 +1,70 @@
+
+ use collection 
+ db.createCollection("usersCollection")
+ 
+ db.usersCollection.insertMany([{
+        
+  "first_name": "Saurabh",
+  "last_name": "shaikh",
+  "age": 20,
+  "gender": "men"
+   },
+   {
+   
+     "first_name": "Meher",
+     "last_name": "shaikh",
+     "age": 20,
+     "gender": "men"
+   },
+{
+
+  "first_name": "Sufi",
+  "last_name": "shaikh",
+  "age": 20,
+  "gender": "men"
+   },
+{
+  "first_name": "Naaz",
+  "last_name": "shaikh",
+  "age": 20,
+  "gender": "men"
+  
+   },
+{
+        
+  "first_name": "Saurabh",
+  "last_name": "shaikh",
+  "age": 20,
+  "gender": "men"
+   },
+{
+
+  "first_name": "Meher",
+  "last_name": "shaikh",
+  "age": 20,
+  "gender": "men"
+   },
+{
+
+  "first_name": "Sufi",
+  "last_name": "shaikh",
+  "age": 20,
+  "gender": "men"
+   },
+{
+  "first_name": "Naaz",
+  "last_name": "shaikh",
+  "age": 20,
+  "gender": "men"
+  
+   }
+ ])
+ 
+ db.usersCollection.find()
+ 
+ db.usersCollection.updateOne({"name":Naaz}, {$set: {"name":Naazmin}}) 
+ db.usersCollection.updateOne({"name":sufi}, {$set: {"name":sufiyan}}) 
+ 
+ db.usersCollection.deleteOne({"age":25})
+ find({$or: [{name:sufi} , {age:25}] }).limit(5)
+ will give 5 data or limited data

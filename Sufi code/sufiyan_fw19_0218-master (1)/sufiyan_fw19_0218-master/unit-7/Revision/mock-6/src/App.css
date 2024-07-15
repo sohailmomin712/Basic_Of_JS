@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#dashbord-div{
+  width: 70vh;
+  min-width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+  
+  padding: 30px;
+  text-align: left;
+  border: 1px solid rgb(222, 217, 217);
+}
+
+
+
+#form-div {
+  width: 70vh;
+  min-width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: rgba(41, 48, 56, 0.2) 5px 8px 44px;
+  padding: 30px;
+  text-align: left;
+}
+
+
+label {
+  font-size: 20px;
+}
+
+
+
+
+input[type="text"],
+input[type="number"],input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+#main-button {
+  background-color: rgba(10, 15, 52, 0.864);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+
+  cursor: pointer;
+  width: 100%;
+  font-size: 25px;
+}
+
+
+#link{
+
+  border: none;
+  color: blue;
+  cursor: pointer;
+  background-color: rgba(204, 204, 204, 0);
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+
+
+#main-button:hover {
+  background-color:rgba(0, 1, 10, 0.864);
+}
+
+
+#form-div{
+   
+    margin: auto;
+    justify-content: center;
+    
+}
+
+
+#header-dash{
+  display: flex;
+  width: 100%;
+  
+  justify-content: space-between;
+
+}
+
+#header-dash > button{
+  background-color: rgba(38, 53, 170, 0.864);
+  color: white;
+padding: 5px 20px;
+  border: none;
+height: 40px;
+  cursor: pointer;
+
+  font-size: 25px;
+}

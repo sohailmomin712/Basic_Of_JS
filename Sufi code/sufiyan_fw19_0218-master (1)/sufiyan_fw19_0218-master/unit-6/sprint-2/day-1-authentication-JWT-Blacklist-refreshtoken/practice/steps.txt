@@ -1,0 +1,21 @@
+
+
+
+
+--- ROLES
+// HR 
+// Employee
+// Guests
+
+--- ROUTES
+/login
+/signup
+/reset-password
+    //  /reset-password
+    //  /reset-password
+    
+/user/user:id
+/verify
+
+
+

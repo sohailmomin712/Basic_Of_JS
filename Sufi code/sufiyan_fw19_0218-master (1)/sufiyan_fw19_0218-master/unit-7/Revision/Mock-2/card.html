@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card</title>
+    <style>
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap'); 
+
+ *{
+    font-family: 'Poppins', sans-serif;
+
+ }
+
+
+ .main{
+       position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50% , -50%);
+    
+        
+          width: 90%;
+          max-width: 1000px;
+          height: 500px;
+          padding: 50px;
+          display: flex;
+ }
+        .credit-card-container{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50% , -50%);
+    
+        gap: 50px;
+          width: 90%;
+          max-width: 1000px;
+          padding: 20px;
+          display: flex;
+        }
+
+        .credit-card-left{
+            position: relative;
+           
+            width: 50%;
+        }
+
+        
+        .credit-card-left div{
+           display: flex;
+        }
+        .credit-card-left > img{
+            position: relative;
+            object-fit:contain;
+            width: 500px;
+            
+        }
+
+.card-number{
+    color: white;
+    position: absolute;
+    bottom: 4.5rem;
+    left: 3rem;
+    word-spacing: 30px;
+    font-size: xx-large;
+   
+}
+.card-holder{
+    color: white;
+    position: absolute;
+    bottom: 2.5rem;
+    left: 3rem;
+
+    font-size: x-large;
+}
+.date{
+    color: white;
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+    font-size: x-large;
+    
+}   
+
+
+.credit-card-right{
+           position: relative;
+       
+            width: 50%;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           max-height: 500px;
+}
+.credit-card-right form{
+           
+       
+            width: 90%;
+            gap: 10%;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           margin: 0;
+
+           
+}
+
+form>div{
+    display: flex;
+    width: 100%;
+    gap: 3%;
+}
+
+
+input[type="name"],input[type="number"]{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+     font-size: 20px; 
+    /* // importan PROPERTY */
+    box-sizing: border-box; 
+    resize: vertical;
+    margin-bottom: 15px;
+    
+  }
+
+  .expiry-date-input{
+    width: 20%;
+}
+.cvc-input{
+    width: 20%;
+}    
+
+
+
+  button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #f7e43a;
+    color: black;
+   
+    position: relative;
+    bottom: -26rem;
+    left: 45%;
+    
+  }
+  
+  button:hover{
+    background-color: #1f1c1c ;
+    color: rgb(238, 225, 113);
+  }
+
+  
+        
+
+    </style>
+</head>
+
+<body>
+
+    <!-- MAIN CONTAINER -->
+   <div class="main" >
+    
+    <div class="credit-card-container">
+
+        <!-- CARD  -->
+       <div class="credit-card-left" >
+           <image src="https://i.ibb.co/s2XfFWQ/debit.png" />
+            <p style="word-spacing: 20px;" class="card-number" >•••••••••••</p>
+            <p class="card-holder" >Your Name Here</p>
+            <div class="date">   <p class="expiry-date" >••</p> <P>/</P>
+                <p class="expiry-year" >••</p>
+            </div>
+           
+       </div>
+
+       
+
+       <!-- FORM CONTAINER  -->
+       <div class="credit-card-right" >
+           <form action="">
+               
+               <input class="card-number-input" type="number" placeholder="Card Number">
+               <input class="card-holder-input" type="name" placeholder="Name">
+              <div>
+                <input class="expiry-date-input" type="name" placeholder="Month" maxlength="2">
+                <input class="expiry-year-input" type="name" placeholder="Year" maxlength="2">
+               
+              </div>
+           </form>
+      </div>
+
+   </div>
+
+   <button type="button" class="pay-button" >Pay Now</button>
+   </div>
+
+
+    
+</body>
+</html>
+
+<script>
+
+/// trigged all inputs
+const cardNumberinput = document.querySelector(".card-number-input")
+const cardHolderinput = document.querySelector(".card-holder-input")
+const expiryDateinput = document.querySelector(".expiry-date-input")
+const expiryYearinput = document.querySelector(".expiry-year-input")
+
+const payButton = document.querySelector(".pay-button")
+
+/// added events
+cardNumberinput.addEventListener('input', CardNumberManipulation)
+cardHolderinput.addEventListener('input', updatecardHolderinput)
+expiryDateinput.addEventListener('input', updateexpiryDateinput)
+expiryYearinput.addEventListener('input', updateexpiryYearinput)
+
+payButton.addEventListener("click", RedirectOTPPage)
+
+/// main card need to changes
+let formatCard = document.querySelector(".card-number").innerHTML
+
+/// updater card Number
+function CardNumberManipulation (){
+
+ const cardNumber = cardNumberinput.value
+ for(let i=0; i<cardNumber.length; i++){
+
+    if(i%5===0 && i !==0){
+        formatCard += " "
+    }
+
+    if(formatCard[i] == "•"){
+        formatCard = formatCard.substr(0, i) + cardNumber[i] + formatCard.substr(i+ 1)
+    }
+
+   document.querySelector(".card-number").innerHTML = formatCard
+ }
+
+}
+
+
+/// updater card name
+function updatecardHolderinput(){
+    const cartHolder = cardHolderinput.value
+    document.querySelector(".card-holder").innerHTML = cartHolder
+}
+
+
+
+/// updater card date
+function updateexpiryDateinput(){
+    const cartExpiry = expiryDateinput.value
+    document.querySelector(".expiry-date").innerHTML = cartExpiry
+
+}
+
+function updateexpiryYearinput(){
+    const cartHolder = expiryYearinput.value
+    document.querySelector(".expiry-year").innerHTML = cartHolder
+}
+
+
+
+let CNumber  =  document.querySelector(".card-number").innerHTML
+let CName = document.querySelector(".card-holder").innerHTML
+let CDate = document.querySelector(".expiry-date").innerHTML
+
+/// redirect 
+function RedirectOTPPage (){
+
+    if(  cardNumberinput.value=="" ||  cardHolderinput.value=="" ||  expiryDateinput.value=="" || expiryYearinput.value==""   ){
+        return alert("Please Fill All Details")
+    }
+
+    if( cardNumberinput.value.length<8){
+        return alert("Enter Card number 8 Digit")
+    }
+
+//console.log(expiryYearinput.value.length ,expiryYearinput.length)
+
+   alert("Enter Otp")
+ 
+   return window.location.href = "otp.html"
+    
+} 
+
+
+
+
+
+    
+
+</script>

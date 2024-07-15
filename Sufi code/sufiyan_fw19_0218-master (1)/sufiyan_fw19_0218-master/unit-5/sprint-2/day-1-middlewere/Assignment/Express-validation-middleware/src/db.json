@@ -1,0 +1,19 @@
+ [
+        { 
+            "id": 1,
+            "Name": "PATHAAN",
+            "Rating": 9.5,
+            "Description": "Its a Movie",
+            "Genre": "string",
+            "Cast": "SRK" 
+        },
+        { 
+            "id": 2,
+            "Name": "ADIPURUSH",
+            "Rating": 5.5,
+            "Description": "Its a Movie",
+            "Genre": "string",
+            "Cast": "Prabhas" 
+        }
+        
+    ]
